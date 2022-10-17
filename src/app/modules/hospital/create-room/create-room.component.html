@@ -1,0 +1,16 @@
+<div class="container">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Number</mat-label>
+            <input matInput [(ngModel)]="room.number">
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Floor</mat-label>
+            <input matInput [(ngModel)]="room.floor">
+        </mat-form-field><br>
+        <button mat-stroked-button (click)="createRoom()">
+            Submit
+        </button>
+    </div>
+</div>
+  
