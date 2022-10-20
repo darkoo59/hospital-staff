@@ -1,0 +1,43 @@
+<section class="outer">
+  <form class="inner" [formGroup]="m_Form" (ngSubmit)="onSubmit()">
+    <h1 class="heading">Register new third-party user</h1>
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput formControlName="email"
+              placeholder="Ex. example@gmail.com">
+      <mat-error *ngIf="m_Form.controls['email'].hasError('email') && !m_Form.controls['email'].hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="m_Form.controls['email'].hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Application name</mat-label>
+      <input type="text" matInput formControlName="appName"
+              placeholder="Ex. Blood Bank">
+      <mat-error *ngIf="m_Form.controls['appName'].hasError('required')">
+        Application name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Server</mat-label>
+      <input type="email" matInput formControlName="server"
+              placeholder="Ex. localhost:4321">
+      <mat-error *ngIf="m_Form.controls['server'].hasError('required')">
+        Server address is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  
+    <div>
+      <mat-error *ngFor="let e of m_Errors">{{e}}</mat-error>
+    </div>
+
+    <div class="button-group">
+      <button type="button" mat-button>cancel</button>
+      <button mat-flat-button color="primary">submit</button>
+    </div>
+  </form>
+</section>
