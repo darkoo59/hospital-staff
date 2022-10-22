@@ -8,6 +8,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSelectModule } from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 @NgModule({
   declarations: [],
@@ -20,7 +24,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatTooltipModule,
     MatFormFieldModule,
-    MatSnackBarModule
+
+    MatSnackBarModule,
+
+    MatSelectModule,
+    MatNativeDateModule,
+    MatDatepickerModule
+
   ],
   exports: [
     CommonModule,
@@ -31,7 +41,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatIconModule,
     MatTooltipModule,
     MatFormFieldModule,
-    MatSnackBarModule
+
+    MatSnackBarModule,
+
+    MatSelectModule,
+    MatNativeDateModule,
+    MatDatepickerModule
+
   ]
 })
 export class MaterialModule {}
