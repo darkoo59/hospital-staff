@@ -1,0 +1,22 @@
+<html>
+  
+<h1>
+    Scheduled appointments
+</h1>
+
+<body>
+    <table id="table1">
+        <tr>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Patient Id</th>
+        </tr>
+        <tr *ngFor="let appointment of appointments">
+          <td>{{appointment.date}}</td>
+          <td>{{appointment.time}}</td>
+          <td>{{appointment.patientId}}</td>
+          <td></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -53,6 +53,9 @@ export class CreateAppointmentComponent implements OnInit {
       if (res.appointmentId === 0){
         alert("Choose another appointment!");
       }
+      else {
+        alert("Appointment is scheduled!");
+      }
     });
   }
 
