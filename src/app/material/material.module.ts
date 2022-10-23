@@ -24,9 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatIconModule,
     MatTooltipModule,
     MatFormFieldModule,
-
     MatSnackBarModule,
-
     MatSelectModule,
     MatNativeDateModule,
     MatDatepickerModule
@@ -41,9 +39,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatIconModule,
     MatTooltipModule,
     MatFormFieldModule,
-
     MatSnackBarModule,
-
     MatSelectModule,
     MatNativeDateModule,
     MatDatepickerModule

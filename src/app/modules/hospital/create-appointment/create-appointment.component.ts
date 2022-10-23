@@ -50,6 +50,9 @@ export class CreateAppointmentComponent implements OnInit {
     if (!this.isValidInput()) return;
     this.appointmentService.createAppointment(this.appointment).subscribe(res => {
       //this.router.navigate(['/rooms']);
+      if (res.appointmentId === 0){
+        alert("Choose another appointment!");
+      }
     });
   }
 
