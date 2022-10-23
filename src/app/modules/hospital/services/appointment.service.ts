@@ -14,7 +14,7 @@ export class AppointmentService {
   constructor(private http: HttpClient) { }
 
   getFutureAppointments(id:number): Observable<Appointment[]> {
-    return this.http.get<Appointment[]>(this.apiHost + 'api/appointment/', {headers: this.headers});
+    return this.http.get<Appointment[]>(this.apiHost + 'api/controller/{id}/futureAppointments', {headers: this.headers});
   }
 
 
