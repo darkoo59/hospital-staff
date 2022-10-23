@@ -7,10 +7,14 @@ import { MaterialModule } from "./material/material.module";
 import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HospitalMapComponent } from './hospital-map/hospital-map.component';
+import { HospitalFlatsComponent } from './hospital-flats/hospital-flats.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HospitalMapComponent,
+    HospitalFlatsComponent
   ],
   imports: [
     BrowserModule,
