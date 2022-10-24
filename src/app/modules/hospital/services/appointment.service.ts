@@ -22,8 +22,8 @@ export class AppointmentService {
     return this.http.post<any>(this.apiHost + 'api/appointments', appointment, {headers: this.headers});
   }
 
-  getFutureAppointments(doctorId:any): Observable<any[]> {
-    return this.http.get<Appointment[]>(this.apiHost + 'api/appointments/futureAppointments/doctorId', {headers: this.headers});
+  getFutureAppointments(doctorId:number): Observable<any[]> {
+    return this.http.get<Appointment[]>(this.apiHost + "api/appointments/futureAppointments/" + doctorId, {headers: this.headers});
   }
 
 }
