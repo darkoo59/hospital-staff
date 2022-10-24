@@ -27,4 +27,8 @@ h1
     padding: 8px;
   }
 
-  
+  td 
+  { 
+  text-align: center;
+  }
+
