@@ -35,11 +35,25 @@ public updateAppointment(id: number) {
   
 }
 
+checkTime(time: string){
+var sat = time.split(':');
+if(sat[1].length <2){
+  time = time+'0'; 
+}
+return time ;
+
+}
 
   ngOnInit(): void {
     this.appoitmentService.getFutureAppointments(1).subscribe(res => {
       this.appointments = res;
       
-    }) 
+    }); 
+    
+    
+      
+   
+
   }
+  
 }

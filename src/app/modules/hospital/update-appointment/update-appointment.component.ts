@@ -46,24 +46,37 @@ export class UpdateAppointmentComponent implements OnInit {
     
       this.appointmentService.getAppointment(params['id']).subscribe(res => {
         this.appointment = res;
-
-        
-      })
-      
+        this.appointment.time = this.checkTime(this.appointment.time)
+      }) 
 
     });
     this.patientService.getPatients().subscribe(res => {
       this.patients = res;
       
   });
+ 
+
   }
 
   public updateAppointment() {
-      this.appointmentService.updateAppointment(this.appointment).subscribe();
+    
+      this.appointmentService.updateAppointment(this.appointment).subscribe(
+      );
       this.router.navigate(['/appointments']);
+       
+      
       
    
   }
+
+  checkTime(time: string){
+    var sat = time.split(':');
+    if(sat[1].length <2){
+      time = time+'0'; 
+    }
+    return time ;
+    
+    }
 
   
 }

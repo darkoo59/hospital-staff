@@ -39,8 +39,19 @@ export class AppointmentService {
   }
 
   updateAppointment(appointment: any): Observable<any>{
-  //  return this.http.put<any>(this.apiHost + 'api/rooms/' + appointment.AppointmentId, appointment, {headers: this.headers});
-  return this.http.put<any>(this.apiHost + 'api/rooms/' + 2, appointment, {headers: this.headers});
+ /*   alert(appointment.appointmentId)
+    alert(appointment.patientId)
+    alert(appointment.time)
+    alert(appointment.date)
+   */ 
+    
+    appointment.date.setHours(0);
+    appointment.date.setMinutes(0);
+    appointment.date.setSeconds(0);
+    console.log(appointment.date);
+    
+  return this.http.put<any>(this.apiHost + 'api/appointments/' + appointment.appointmentId, appointment, {headers: this.headers});
+ 
     
   }
 
