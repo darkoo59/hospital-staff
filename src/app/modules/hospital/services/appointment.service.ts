@@ -9,6 +9,9 @@ import { Appointment } from '../model/appointment.model';
   providedIn: 'root'
 })
 export class AppointmentService {
+  delete(id: number) {
+    throw new Error('Method not implemented.');
+  }
   apiHost: string = 'http://localhost:16177/';
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -25,5 +28,21 @@ export class AppointmentService {
   getFutureAppointments(doctorId:number): Observable<any[]> {
     return this.http.get<Appointment[]>(this.apiHost + "api/appointments/futureAppointments/" + doctorId, {headers: this.headers});
   }
+
+
+  deleteAppointment(id: any): Observable<any> {
+    return this.http.delete<any>(this.apiHost + 'api/appointments/' + id, {headers: this.headers});
+  }
+
+  getAppointment(id: number): Observable<Appointment> {
+    return this.http.get<Appointment>(this.apiHost + 'api/appointments/' + id, {headers: this.headers});
+  }
+
+  updateAppointment(appointment: any): Observable<any>{
+  //  return this.http.put<any>(this.apiHost + 'api/rooms/' + appointment.AppointmentId, appointment, {headers: this.headers});
+  return this.http.put<any>(this.apiHost + 'api/rooms/' + 2, appointment, {headers: this.headers});
+    
+  }
+
 
 }

@@ -4,18 +4,36 @@
   </h1>
   
   <body>
-      <table id="table1">
+      <table id="table1" >
           <tr>
             <th>Date</th>
             <th>Time</th>
             <th>Patient Id</th>
+            <th>Update</th>
+            <th>Delete</th>
+            
           </tr>
           <tr *ngFor="let appointment of appointments">
+            
             <td id="date">{{appointment.date | date: 'dd.MM.yyyy'}}</td>
             <td id="time">{{appointment.time}}</td>
             <td id="patientId">{{appointment.patientId}}</td>
+            <td>
+              <button mat-icon-button (click)="updateAppointment(appointment.AppointmentId)"> 
+                    <mat-icon matTooltip="update">edit</mat-icon>
+              </button></td>
+            <td>
+            <button mat-icon-button (click)="deleteAppointment(appointment.AppointmentId)"> 
+                  <mat-icon matTooltip="delete">delete</mat-icon>
+            </button></td>
+       
+            
           </tr>
-      </table>
+          
+       
+   
+        </table>
+      
   </body>
   </html>
   
