@@ -29,6 +29,7 @@ export class RoomsComponent implements OnInit {
   }
 
   public updateRoom(id: number) {
+   
     this.router.navigate(['/rooms/' + id + '/update']);
   }
 
