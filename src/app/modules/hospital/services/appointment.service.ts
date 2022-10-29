@@ -18,10 +18,10 @@ export class AppointmentService {
   constructor(private http: HttpClient) { }
 
   createAppointment(appointment: any): Observable<any> {
-    appointment.date.setHours(0);
-    appointment.date.setMinutes(0);
+    appointment.date.setHours(1);
+    /*appointment.date.setMinutes(0);
     appointment.date.setSeconds(0);
-    console.log(appointment.date);
+    */console.log(appointment.date);
     return this.http.post<any>(this.apiHost + 'api/appointments', appointment, {headers: this.headers});
   }
 
@@ -45,10 +45,10 @@ export class AppointmentService {
     alert(appointment.date)
    */ 
     
-    appointment.date.setHours(0);
+   /* appointment.date.setHours(0);
     appointment.date.setMinutes(0);
     appointment.date.setSeconds(0);
-    console.log(appointment.date);
+    console.log(appointment.date);*/
     
   return this.http.put<any>(this.apiHost + 'api/appointments/' + appointment.appointmentId, appointment, {headers: this.headers});
  

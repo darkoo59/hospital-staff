@@ -2,11 +2,7 @@
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Patient</mat-label>
-            <mat-select  [(ngModel)]="appointment.patientId">
-                <mat-option *ngFor="let patient of patients" [value]="patient.patientId">
-                  {{patient.name}} {{patient.surname}}
-                </mat-option>
-            </mat-select>
+            <input matInput value={{appointment.patientId}} disabled>
         </mat-form-field><br>
       
         <mat-form-field appearance="fill">

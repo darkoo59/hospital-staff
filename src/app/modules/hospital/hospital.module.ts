@@ -9,6 +9,7 @@ import { RoomsComponent } from "./rooms/rooms.component";
 import { UpdateRoomComponent } from "./update-room/update-room.component";
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
 import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
+import { MAT_DATE_LOCALE } from "@angular/material/core";
 
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
@@ -35,6 +36,9 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  exports: [ RouterModule ]
+  exports: [ RouterModule ],
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}
+  ]
 })
 export class HospitalModule { }
