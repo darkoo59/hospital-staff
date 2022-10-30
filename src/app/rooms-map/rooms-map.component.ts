@@ -25,6 +25,16 @@ export class RoomsMapComponent implements OnInit {
   private floorId: any = "A";
 
   ngOnInit(): void {
+
+    if (this.buildingId == "A"){
+      this.svgWidth = 400;
+      this.svgHeight = 790;
+    }
+    else if(this.buildingId == "B"){
+      this.svgWidth = 1000;
+      this.svgHeight = 800;
+    }
+
     this.roomService.getRoomsByBuildingFloor(this.buildingId, this.floorId).subscribe(res => {
       this.rooms = res;
       this.createSvg();
@@ -88,7 +98,7 @@ export class RoomsMapComponent implements OnInit {
     .attr("font-weight", "700")
     .text(function(d: any, i: any)
     {
-      return "Room" + d.id;
+      return d.number;
     })
     .style("text-anchor", "middle");
   }

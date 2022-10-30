@@ -31,29 +31,7 @@ export class HospitalMapComponent implements OnInit {
   }
 
   private createRect(buildingMapList: BuildingMap[]): void{
-    /*
-    var rect = this.svg.append("a")
-    .attr("xlink:href", "hospitalMap/hospital/" + buildingMap.building.id)
-    .append("rect")
-    .attr("x", buildingMap.x)
-    .attr("y", buildingMap.y)
-    .attr("width", buildingMap.width)
-    .attr("height", buildingMap.height)
-    .attr("fill", "#DEDFE1")
-    .attr("stroke", "black")
-    .on("mouseover", function(){
-      d3.select("rect")
-        .attr("fill", "#c2c3c4")
-        .style("cursor", "pointer")
-    })
-    .on("mouseout", function(){
-      d3.select("rect")
-        .transition()
-        .duration(500)
-        .attr("fill", "#DEDFE1")
-        .style("cursor", "default")
-    });
-    */
+
     var rect2 = this.svg.selectAll("rect")
     .data(buildingMapList)
     .enter()
@@ -109,14 +87,6 @@ export class HospitalMapComponent implements OnInit {
     })
     .style("text-anchor", "middle");
 
-    /*
-    this.svg.append("text")
-    .attr("x", buildingMap.x + buildingMap.width / 2)
-    .attr("y", buildingMap.y + buildingMap.height / 2)
-    .text(buildingMap.building.name)
-    .attr("class", "object-text")
-    .style("text-anchor", "middle");
-    */
   }
   
 }
