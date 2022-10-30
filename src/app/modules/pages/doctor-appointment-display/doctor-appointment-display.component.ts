@@ -18,21 +18,21 @@ export class DoctorAppointmentDisplayComponent implements OnInit {
   
   ngOnInit(): void {
     // trnutno zakucan id doktora na 1
-    this.appointmentService.getFutureAppointments(1).subscribe(res => {
+    this.appointmentService.getDoctorAppointments(1).subscribe(res => {
       this.appointments = res;
-    })
+      
+    }); 
 
     }
 
     public deleteAppointment(id: number) {
       this.appointmentService.deleteAppointment(id).subscribe(res=>
-        this.appointmentService.getFutureAppointments(1).subscribe(res => {
+        this.appointmentService.getDoctorAppointments(1).subscribe(res => {
           this.appointments = res;
           alert("Appointment is deleted!");
-          
         }) 
       )
-    }
+  }
 
     
       public updateAppointment(id: number) {

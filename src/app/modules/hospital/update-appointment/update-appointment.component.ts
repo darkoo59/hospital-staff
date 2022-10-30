@@ -50,16 +50,15 @@ export class UpdateAppointmentComponent implements OnInit {
       }) 
 
     });
-    //this.patientService.getPatients().subscribe(res => {
-      //this.patients = res;
-      
- // });
  
 
   }
 
   public updateAppointment() {
       this.appointmentService.updateAppointment(this.appointment).subscribe(res => {
+        if (res.appointmentId === 0){
+          alert("Choose another appointment!");
+        }
         this.router.navigate(['/appointments']);
       }
       );

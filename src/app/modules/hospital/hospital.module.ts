@@ -11,6 +11,7 @@ import { CreateAppointmentComponent } from './create-appointment/create-appointm
 import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
 import { MAT_DATE_LOCALE } from "@angular/material/core";
 
+
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
   { path: 'rooms/add', component: CreateRoomComponent },
@@ -38,7 +39,7 @@ const routes: Routes = [
   ],
   exports: [ RouterModule ],
   providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}
+    {provide: MAT_DATE_LOCALE, useValue: 'en-EN'}
   ]
 })
 export class HospitalModule { }

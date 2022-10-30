@@ -2,7 +2,7 @@
     <div>
         <mat-form-field appearance="fill">
             <mat-label>Patient</mat-label>
-            <mat-select  [(ngModel)]="appointment.patientId">
+            <mat-select  [(ngModel)]="appointment.patientId" (selectionChange)="selectPatient()">
                 <mat-option *ngFor="let patient of patients" [value]="patient.patientId">
                   {{patient.name}} {{patient.surname}}
                 </mat-option>

@@ -14,6 +14,7 @@ export class CreateAppointmentComponent implements OnInit {
   public appointment: Appointment = new Appointment();
   public patients: Patient[] = [];
   startDate = new Date();
+  public isPatientSelected: boolean = false;
   
   times = [
     {value: '8:00', viewValue: '8:00'},
@@ -47,7 +48,14 @@ export class CreateAppointmentComponent implements OnInit {
   }
 
   public createAppointment() {
-    if (!this.isValidInput()) return;
+    if (!this.isFormFilled()) {
+      alert("All fields must be filled!");
+      return;
+    };
+    if (!this.isDateValid()) {
+      alert("You can't choose date from past!");
+      return;
+    }
     this.appointmentService.createAppointment(this.appointment).subscribe(res => {
       //this.router.navigate(['/rooms']);
       if (res.appointmentId === 0){
@@ -59,8 +67,16 @@ export class CreateAppointmentComponent implements OnInit {
     });
   }
 
-  private isValidInput(): boolean {
-    return this.appointment?.patientId.toString() != '' && this.appointment?.date.toString() != '' && this.appointment?.time != '';
+  public selectPatient() {
+    this.isPatientSelected = true;
+  }
+
+  private isFormFilled(): boolean {
+    return this.isPatientSelected && this.appointment?.date.toString() != '' && this.appointment?.time != '';
+  }
+
+  private isDateValid() {
+    return this.appointment.date >= new Date();
   }
 
 }
