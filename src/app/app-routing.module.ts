@@ -4,11 +4,11 @@ import { HomeComponent } from "./modules/pages/home/home.component";
 import { HospitalMapComponent } from './hospital-map/hospital-map.component';
 import { HospitalFloorComponent } from './hospital-floor/hospital-floor.component';
 import { RoomsMapComponent } from "./rooms-map/rooms-map.component";
-
-
+import { DoctorAppointmentDisplayComponent } from "./modules/pages/doctor-appointment-display/doctor-appointment-display.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'doctor-appointment-display', component : DoctorAppointmentDisplayComponent},
   {
     path: 'integration',
     loadChildren: () => import('./integration/integration.module').then(m => m.IntegrationModule)

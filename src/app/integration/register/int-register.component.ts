@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
-import { catchError, of } from "rxjs";
+import { catchError, EMPTY } from "rxjs";
 import { IntegrationAuthService, RegisterDTO } from "../services/integration-auth.service";
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -24,17 +24,13 @@ export class IntRegisterComponent {
     this.m_IntegrationAuthService.register(dto)
       .pipe(catchError(res => {
         console.log(res);
-        const errors = res.error.errors;
-
-        if (!errors) {
-          this.m_Errors.push(res.error);
-          return of();
+        const error = res.error;
+        if(error && error.message){
+          this.m_Errors.push(error.message);
+          return EMPTY;
         }
-
-        for (let e in errors) {
-          this.m_Errors.push(errors[e]);
-        }
-        return of();
+        this.m_Errors.push(error)
+        return EMPTY;
       }))
       .subscribe(_ => {
         this.m_SnackBar.open(`Third-party user registered`, 'close', { duration: 4000 });
