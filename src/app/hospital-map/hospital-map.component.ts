@@ -15,8 +15,8 @@ export class HospitalMapComponent implements OnInit {
   private svg: any;
   svgWidth = 1000;
   svgHeight = 800;
-  private buildingList :BuildingMap[] = [new BuildingMap(new Building(1, "Bolnica", 3), 10, 10, 400, 500),
-                                        new BuildingMap(new Building(2, "Apoteka", 4), 420, 10, 400, 500)];
+  private buildingList :BuildingMap[] = [new BuildingMap(new Building("A", "Bolnica", 3), 10, 10, 400, 780),
+                                        new BuildingMap(new Building("B", "Laboratorija", 4), 500, 10, 490, 450)];
 
   ngOnInit(): void {
     this.createSvg();
