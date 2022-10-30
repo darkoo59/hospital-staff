@@ -1,0 +1,27 @@
+<div class="container">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Patient</mat-label>
+            <input matInput value={{appointment.patientId}} disabled>
+        </mat-form-field><br>
+      
+        <mat-form-field appearance="fill">
+            <mat-label>Date</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="appointment.date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field><br>
+   
+        <mat-form-field appearance="fill">
+            <mat-label>Time</mat-label>
+            <mat-select  [(ngModel)]="appointment.time" >
+                <mat-option *ngFor="let time of times" [value]="time.value">
+                  {{time.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+        <button mat-stroked-button (click)="updateAppointment()">
+            Update
+        </button>
+    </div>
+</div>
