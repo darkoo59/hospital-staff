@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { DoctorAppointmentDisplayComponent } from './doctor-appointment-display/doctor-appointment-display.component';
 import { MaterialModule } from "src/app/material/material.module";
 import { RouterModule, Routes } from "@angular/router";
-
+import { ManagerComponent } from './manager/manager.component';
 
 
 const routes: Routes = [
@@ -15,6 +15,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomeComponent,
+    ManagerComponent,
     DoctorAppointmentDisplayComponent,
   ],
   imports: [
