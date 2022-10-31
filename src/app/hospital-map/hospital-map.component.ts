@@ -31,6 +31,16 @@ export class HospitalMapComponent implements OnInit {
   }
 
   private createRect(buildingMapList: BuildingMap[]): void{
+    var tooltip = d3.select('body').append('div')
+    .style('position', 'absolute')
+    .style('background', '#f4f4f4')
+    .style('padding', '10px 10px')
+    .style('border', '1px #333 solid')
+    .style('border-radius', '5px')
+    .style('opacity', '0')
+    .style('z-index', 10)
+    .style('white-space','pre-wrap')
+    .text('a simple tooltip')
 
     var rect2 = this.svg.selectAll("rect")
     .data(buildingMapList)
@@ -58,6 +68,11 @@ export class HospitalMapComponent implements OnInit {
       d3.select(this)
         .attr("fill", "#c2c3c4")
         .style("cursor", "pointer")
+      tooltip.transition()
+        .style('opacity', 1)
+        .style('left', (d.pageX - 50)+'px')
+        .style('top', (d.pageY)+'px')
+        .text("Building ID: " + i.building.id + "\n" + "Name: " + i.building.name + "\n")
     })
     .on("mouseout", function(this: any){
       d3.select(this)
