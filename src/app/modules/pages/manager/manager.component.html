@@ -1,0 +1,44 @@
+<h1>Public Feedbacks</h1>
+<table>
+    <tr>
+        <th>User</th>
+        <th>Text</th>
+        <th>Date</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let feedback of publicFeedbacks">
+        <td>
+            {{ feedback.user }} 
+        </td>
+        <td>
+            {{ feedback.textt }} 
+        </td>
+        <td>
+            {{ feedback.date }} 
+        </td>
+        <td>
+            <button type="button" (click)="publish(feedback)">
+                Publish
+            </button>
+        </td>
+    </tr>
+</table>
+<h1>Private Feedbacks</h1>
+<table>
+    <tr>
+        <th>User</th>
+        <th>Text</th>
+        <th>Date</th>
+    </tr>    
+    <tr *ngFor="let feedback of privateFeedbacks">
+        <td>
+            {{ feedback.user }} 
+        </td>
+        <td>
+            {{ feedback.textt }} 
+        </td>
+        <td>
+            {{ feedback.date }} 
+        </td>
+    </tr>
+</table>
