@@ -72,7 +72,7 @@ export class HospitalMapComponent implements OnInit {
         .style('opacity', 1)
         .style('left', (d.pageX - 50)+'px')
         .style('top', (d.pageY)+'px')
-        .text("Building ID: " + i.building.id + "\n" + "Name: " + i.building.name)
+        .text("Building ID: " + i.building.id + "\n" + "Name: " + i.building.name + "\n")
     })
     .on("mouseout", function(this: any){
       d3.select(this)

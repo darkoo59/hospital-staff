@@ -88,7 +88,8 @@ export class RoomsMapComponent implements OnInit {
         .style('opacity', 1)
         .style('left', (d.pageX - 50)+'px')
         .style('top', (d.pageY)+'px')
-        .text("Room ID: " + i.id + "\n" + "Flat: " + i.floorId + "\n" + "Building: " + i.buildingId)
+        .text("Room number: " + i.number + "\n" + "Flat: " + i.floorId + "\n" + "Building: " + i.buildingId +
+        "\n" + "Opis: " + i.description)
     })
     .on("mouseout", function(this: any){
       d3.select(this)
