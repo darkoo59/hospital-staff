@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./modules/pages/home/home.component";
+import { ManagerComponent } from "./modules/pages/manager/manager.component";
 import { HospitalMapComponent } from './hospital-map/hospital-map.component';
 import { HospitalFloorComponent } from './hospital-floor/hospital-floor.component';
 import { RoomsMapComponent } from "./rooms-map/rooms-map.component";
@@ -8,6 +9,7 @@ import { DoctorAppointmentDisplayComponent } from "./modules/pages/doctor-appoin
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'manager', component: ManagerComponent },
   { path: 'doctor-appointment-display', component : DoctorAppointmentDisplayComponent},
   {
     path: 'integration',
