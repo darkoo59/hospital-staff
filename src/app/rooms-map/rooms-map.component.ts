@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { ActivatedRoute } from '@angular/router';
 import * as d3 from 'd3';
 import { Room } from '../modules/hospital/model/room.model';
@@ -21,8 +22,9 @@ export class RoomsMapComponent implements OnInit {
   private svgHeight = 800;
   private rooms : Room[] = [];
 
-  private buildingId: any = "1";
-  private floorId: any = "A";
+  buildingId: any = "A";
+  floorId: any = 1;
+  selectedRoom: Room = new Room();
 
   ngOnInit(): void {
 
@@ -38,7 +40,7 @@ export class RoomsMapComponent implements OnInit {
     this.roomService.getRoomsByBuildingFloor(this.buildingId, this.floorId).subscribe(res => {
       this.rooms = res;
       this.createSvg();
-      this.createRect(this.rooms);
+      this.createRect(this.rooms, this.selectedRoom);
     })
   }
 
@@ -49,19 +51,9 @@ export class RoomsMapComponent implements OnInit {
     .attr("class", "svg-container");
   }
 
-  private createRect(rooms: Room[]): void{
-    var tooltip = d3.select('body').append('div')
-    .style('position', 'absolute')
-    .style('background', '#f4f4f4')
-    .style('padding', '10px 10px')
-    .style('border', '1px #333 solid')
-    .style('border-radius', '5px')
-    .style('opacity', '0')
-    .style('z-index', 10)
-    .style('white-space', 'pre-wrap')
-    .text('a simple tooltip')
+  private createRect(rooms: Room[], selectedRoom: Room): void{
 
-    var rect2 = this.svg.selectAll("rect")
+    var rect = this.svg.selectAll("rect")
     .data(rooms)
     .enter()
     .append("a")
@@ -83,20 +75,23 @@ export class RoomsMapComponent implements OnInit {
     .on("mouseover", function(this: any, d: any, i: any){
       d3.select(this)
         .attr("fill", "#c2c3c4")
-        .style("cursor", "pointer")
-      tooltip.transition()
-        .style('opacity', 1)
-        .style('left', (d.pageX - 50)+'px')
-        .style('top', (d.pageY)+'px')
-        .text("Room number: " + i.number + "\n" + "Flat: " + i.floorId + "\n" + "Building: " + i.buildingId +
-        "\n" + "Opis: " + i.description)
+        .style("cursor", "pointer");
     })
     .on("mouseout", function(this: any){
       d3.select(this)
         .transition()
         .duration(500)
         .attr("fill", "#DEDFE1")
-        .style("cursor", "default")
+        .style("cursor", "default");
+    })
+    .on("click", function(d: any, i: any){
+      console.log(i);
+      console.log(i.floor);
+      selectedRoom.number = i.number;
+      selectedRoom.buildingId = i.buildingId;
+      selectedRoom.floor = i.floor;
+      selectedRoom.description = i.description;
+
     });
 
 

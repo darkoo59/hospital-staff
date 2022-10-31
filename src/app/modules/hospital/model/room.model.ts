@@ -2,7 +2,7 @@ export class Room {
     roomId: number = 0;
     number: string = '';
     floor: number = 0;
-    buildingId: string = "A";
+    buildingId: string = "";
     description: string = "";
     x: number = 0;
     y: number = 0;
