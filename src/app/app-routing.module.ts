@@ -9,16 +9,15 @@ import { DoctorAppointmentDisplayComponent } from "./modules/pages/doctor-appoin
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'manager', component: ManagerComponent },
   { path: 'doctor-appointment-display', component : DoctorAppointmentDisplayComponent},
   {
-    path: 'integration',
-    loadChildren: () => import('./integration/integration.module').then(m => m.IntegrationModule)
+    path: 'manager',
+    loadChildren: () => import('./modules/pages/manager/manager.module').then(m => m.ManagerModule)
   },
   { path: 'hospitalMap', component: HospitalMapComponent },
   { path: 'hospitalMap/hospital/:id', component: HospitalFloorComponent },
-  { path: 'hospitalMap/hospital/:id/floor/:floorId', component: RoomsMapComponent }
-
+  { path: 'hospitalMap/hospital/:id/floor/:floorId', component: RoomsMapComponent },
+  { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
 @NgModule({

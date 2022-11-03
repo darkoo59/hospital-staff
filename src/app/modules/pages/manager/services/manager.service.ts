@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Feedback } from '../manager/feedback';
+import { Feedback } from '../feedback';
 
 
 @Injectable({

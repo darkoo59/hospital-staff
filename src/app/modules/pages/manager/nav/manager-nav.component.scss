@@ -1,0 +1,12 @@
+.nav-active{
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background-color: #673ab7;
+  }
+}
