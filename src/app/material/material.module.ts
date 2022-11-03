@@ -10,6 +10,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
@@ -27,8 +30,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatSnackBarModule,
     MatSelectModule,
     MatNativeDateModule,
-    MatDatepickerModule
-
+    MatDatepickerModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule
   ],
   exports: [
     CommonModule,
@@ -42,8 +47,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatSnackBarModule,
     MatSelectModule,
     MatNativeDateModule,
-    MatDatepickerModule
-
+    MatDatepickerModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule
   ]
 })
 export class MaterialModule {}

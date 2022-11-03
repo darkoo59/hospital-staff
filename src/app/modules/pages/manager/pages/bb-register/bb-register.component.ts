@@ -1,19 +1,19 @@
 import { Component } from "@angular/core";
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { catchError, EMPTY } from "rxjs";
-import { IntegrationAuthService, RegisterDTO } from "../services/integration-auth.service";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { BloodBankService, RegisterDTO } from "../../services/blood-bank.service";
 
 @Component({
-  selector: 'app-int-register',
-  templateUrl: './int-register.component.html',
-  styleUrls: ['./int-register.component.scss']
+  selector: 'app-bb-register',
+  templateUrl: './bb-register.component.html',
+  styleUrls: ['./bb-register.component.scss']
 })
-export class IntRegisterComponent {
+export class BBRegisterComponent {
   m_Form: UntypedFormGroup = this.formInstance;
   m_Errors: string[] = [];
 
-  constructor(private m_IntegrationAuthService: IntegrationAuthService, private m_SnackBar: MatSnackBar) { }
+  constructor(private m_BloodBankService: BloodBankService, private m_SnackBar: MatSnackBar) { }
 
   onSubmit(): void {
     this.m_Errors.length = 0;
@@ -21,7 +21,7 @@ export class IntRegisterComponent {
     this.m_Form.updateValueAndValidity();
     if (!this.m_Form.valid) return;
 
-    this.m_IntegrationAuthService.register(dto)
+    this.m_BloodBankService.register(dto)
       .pipe(catchError(res => {
         console.log(res);
         const error = res.error;

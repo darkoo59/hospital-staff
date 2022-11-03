@@ -1,33 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ManagerService } from './manager.service';
-import { Feedback } from 'src/app/modules/pages/manager/feedback';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
   styleUrls: ['./manager.component.scss']
 })
-export class ManagerComponent implements OnInit {
+export class ManagerComponent {
 
-  constructor(private managerService : ManagerService) { 
-  }
-  public publicFeedbacks: Feedback[] = [];
-  public privateFeedbacks: Feedback[] = [];
+  constructor(private m_Router: Router){}
 
-  publish(feedback: Feedback): void{
-    feedback.isDisplayedPublic = true;
-    this.managerService.publish(feedback).subscribe(res=>{
-      const index = this.publicFeedbacks.indexOf(feedback);
-      this.publicFeedbacks.splice(index, 1);
-    });
-  }
-  ngOnInit(): void {
-    this.managerService.getPrivateFeedbacks().subscribe(response =>{
-      this.privateFeedbacks = response;
-    })
-    this.managerService.getPublicFeedbacks().subscribe(response =>{
-      this.publicFeedbacks = response;
-    })
+  navigateBack(): void {
+    this.m_Router.navigate(['/']);
   }
 
 }
