@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./modules/pages/home/home.component";
-import { ManagerComponent } from "./modules/pages/manager/manager.component";
 import { HospitalMapComponent } from './hospital-map/hospital-map.component';
 import { HospitalFloorComponent } from './hospital-floor/hospital-floor.component';
 import { RoomsMapComponent } from "./rooms-map/rooms-map.component";
@@ -12,7 +11,7 @@ const routes: Routes = [
   { path: 'doctor-appointment-display', component : DoctorAppointmentDisplayComponent},
   {
     path: 'manager',
-    loadChildren: () => import('./modules/pages/manager/manager.module').then(m => m.ManagerModule)
+    loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule)
   },
   { path: 'hospitalMap', component: HospitalMapComponent },
   { path: 'hospitalMap/hospital/:id', component: HospitalFloorComponent },

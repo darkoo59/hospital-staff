@@ -1,0 +1,10 @@
+<section *ngLet="m_TabControlChanges$ | async">
+  <div class="tabs">
+    <mat-button-toggle-group [formControl]="m_TabControl" name="tab" aria-label="Tabs">
+      <mat-button-toggle value="unchecked">Unchecked</mat-button-toggle>
+      <mat-button-toggle value="approved">Approved</mat-button-toggle>
+      <mat-button-toggle value="disapproved">Disapproved</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <router-outlet></router-outlet>
+</section>
