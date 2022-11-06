@@ -1,1 +1,3 @@
-<news-grid (m_DisapproveEvent)="disapprove($event)"></news-grid>
+<news-grid  *ngLet="{d: m_Disapprove$ | async, fn: m_FetchNews$ | async} as vm" 
+            (m_DisapproveEvent)="this.m_Disapprove$.next($event)">
+</news-grid>

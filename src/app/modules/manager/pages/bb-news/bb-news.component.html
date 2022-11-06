@@ -1,5 +1,5 @@
 <section *ngLet="{ tabChanges: m_TabControlChanges$ | async, 
-                   error: m_Error$ | async } as obs">
+                   error: m_Error$ | async } as vm">
   <div class="tabs">
     <mat-button-toggle-group [formControl]="m_TabControl" name="tab" aria-label="Tabs">
       <mat-button-toggle value="unchecked">Unchecked</mat-button-toggle>
