@@ -2,7 +2,8 @@ import { Component } from "@angular/core";
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { catchError, EMPTY } from "rxjs";
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { BloodBankService, RegisterDTO } from "../../services/blood-bank.service";
+import { BloodBankService } from "../../services/blood-bank.service";
+import { RegisterDTO } from "../../dto/register.dto";
 
 @Component({
   selector: 'app-bb-register',
