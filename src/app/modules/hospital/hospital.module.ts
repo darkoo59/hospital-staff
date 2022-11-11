@@ -12,6 +12,10 @@ import { UpdateAppointmentComponent } from './update-appointment/update-appointm
 import { MAT_DATE_LOCALE } from "@angular/material/core";
 import { VacationRequestsDisplayComponent } from './vacation-requests-display/vacation-requests-display.component';
 import { CreateVacationComponent } from './create-vacation/create-vacation.component';
+import { MatDatepicker, MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 
 const routes: Routes = [
@@ -22,7 +26,7 @@ const routes: Routes = [
   { path: 'appointments/add', component: CreateAppointmentComponent},
   { path: 'appointment/:id/update', component: UpdateAppointmentComponent },
   { path: 'vacations', component: VacationRequestsDisplayComponent },
-  { path: 'create/vacation', component: CreateVacationComponent }
+  { path: 'createvacation', component: CreateVacationComponent }
 ];
 
 @NgModule({
@@ -41,7 +45,11 @@ const routes: Routes = [
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [ RouterModule ],
   providers: [

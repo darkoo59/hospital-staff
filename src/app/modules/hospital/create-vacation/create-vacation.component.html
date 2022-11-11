@@ -1,1 +1,62 @@
-<p>create-vacation works!</p>
+<h1>
+    Create vacation request
+</h1>
+
+<div>
+    <mat-form-field id="mat1">
+        <mat-label>Start Date:</mat-label>
+        <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Choose a date" [(ngModel)]="vacationRequest.startDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field>
+        <mat-label>End Date:</mat-label>
+        <input matInput [matDatepicker]="picker1" [min]="minDate" placeholder="Choose a date" [(ngModel)]="vacationRequest.endDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1 ></mat-datepicker>
+    </mat-form-field>
+</div> 
+<div>
+<input type="text" placeholder="Reason" [(ngModel)]="vacationRequest.reason"/>
+</div>
+<br>
+<div>
+    <select id="urgency" name="urgent" [(ngModel)]="vacationRequest.urgency">
+        <option value="noUrgent">NoUrgent</option>
+        <option value="urgent">Urgent</option>
+      </select>
+</div>
+<br>
+<div>
+    <button type="submit" value="Submit" (click)="createVacationRequest(vacationRequest)">Submit</button>
+</div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

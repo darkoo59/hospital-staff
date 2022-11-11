@@ -17,6 +17,13 @@ export class VacationService {
     return this.http.get<VacationRequest[]>(this.apiHost + "api/vacationRequest/doctorVacationRequests/" + doctorId, {headers: this.headers});
   }
 
+  createVacationRequest(vacationRequest: any): Observable<any> {
+    vacationRequest.startDate.setHours(1);
+    vacationRequest.endDate.setHours(1);
+    vacationRequest.Status = "OnHold";
+    return this.http.post<any>(this.apiHost + 'api/vacationRequest', vacationRequest, {headers: this.headers});
+  }
+
   deleteVacationRequest(id: any): Observable<any> {
     return this.http.delete<any>(this.apiHost + 'api/vacationRequest/' + id, {headers: this.headers});
   }
