@@ -2,19 +2,19 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, BehaviorSubject, tap, take, catchError, EMPTY } from "rxjs";
 import { environment } from "src/environments/environment";
-import { BB_News } from "../../../model/bb-news.model";
+import { BBNews } from "../../../model/bb-news.model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class BB_NewsService {
-  private m_BBNewsSubject: BehaviorSubject<BB_News[]> = new BehaviorSubject<BB_News[]>([]);
+export class BBNewsService {
+  private m_BBNewsSubject: BehaviorSubject<BBNews[]> = new BehaviorSubject<BBNews[]>([]);
   private m_ErrorSubject: BehaviorSubject<string | null> = new BehaviorSubject<string | null>(null);
 
-  public m_BBNews$: Observable<BB_News[]> = this.m_BBNewsSubject.asObservable();
+  public m_BBNews$: Observable<BBNews[]> = this.m_BBNewsSubject.asObservable();
   public m_Error$: Observable<string | null> = this.m_ErrorSubject.asObservable();
 
-  set setBBNews(bb_news: BB_News[]) {
+  set setBBNews(bb_news: BBNews[]) {
     this.m_BBNewsSubject.next(bb_news);
   }
 
