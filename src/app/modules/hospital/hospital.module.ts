@@ -10,6 +10,8 @@ import { UpdateRoomComponent } from "./update-room/update-room.component";
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
 import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
 import { MAT_DATE_LOCALE } from "@angular/material/core";
+import { VacationRequestsDisplayComponent } from './vacation-requests-display/vacation-requests-display.component';
+import { CreateVacationComponent } from './create-vacation/create-vacation.component';
 
 
 const routes: Routes = [
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'rooms/:id/update', component: UpdateRoomComponent },
   { path: 'appointments/add', component: CreateAppointmentComponent},
   { path: 'appointment/:id/update', component: UpdateAppointmentComponent },
+  { path: 'vacations', component: VacationRequestsDisplayComponent },
+  { path: 'create/vacation', component: CreateVacationComponent }
 ];
 
 @NgModule({
@@ -28,7 +32,9 @@ const routes: Routes = [
     CreateRoomComponent,
     UpdateRoomComponent,
     CreateAppointmentComponent,
-    UpdateAppointmentComponent
+    UpdateAppointmentComponent,
+    VacationRequestsDisplayComponent,
+    CreateVacationComponent
   ],
   imports: [
     CommonModule,

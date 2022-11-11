@@ -4,7 +4,8 @@ import { HomeComponent } from "./modules/pages/home/home.component";
 import { HospitalMapComponent } from './hospital-map/hospital-map.component';
 import { HospitalFloorComponent } from './hospital-floor/hospital-floor.component';
 import { RoomsMapComponent } from "./rooms-map/rooms-map.component";
-import { DoctorAppointmentDisplayComponent } from "./modules/pages/doctor-appointment-display/doctor-appointment-display.component";
+import { DoctorAppointmentDisplayComponent } from "./modules/pages/doctor-appointment-display/doctor-appointment-display.component";import { VacationRequestsDisplayComponent } from "./modules/hospital/vacation-requests-display/vacation-requests-display.component";
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
     path: 'manager',
     loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule)
   },
+  { path: 'vacation-requests-display' , component : VacationRequestsDisplayComponent },
   { path: 'hospitalMap', component: HospitalMapComponent },
   { path: 'hospitalMap/hospital/:id', component: HospitalFloorComponent },
   { path: 'hospitalMap/hospital/:id/floor/:floorId', component: RoomsMapComponent },
