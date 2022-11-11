@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Observable, Subject, switchMap } from "rxjs";
-import { BB_NewsService } from "../../services/bb-news.service";
+import { BBNewsService } from "../../services/bb-news.service";
 
 @Component({
   templateUrl: './unchecked-news.component.html'
@@ -23,6 +23,6 @@ export class UncheckedNewsComponent {
   ) as Subject<number>;
   m_FetchNews$: Observable<any> = this.m_BBNewsService.fetchNews('unchecked');
 
-  constructor(private m_BBNewsService: BB_NewsService) { }
+  constructor(private m_BBNewsService: BBNewsService) { }
   
 }

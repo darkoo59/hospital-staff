@@ -23,6 +23,10 @@ export class ManagerNavComponent {
     {
       path: 'bb-news',
       title: 'Blood bank news'
+    },
+    {
+      path: 'bb-blood-req',
+      title: 'Blood Requests'
     }
   ];
 

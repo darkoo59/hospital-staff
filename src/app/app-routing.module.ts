@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'manager',
     loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule)
   },
+  {
+    path: 'hospital',
+    loadChildren: () => import('./modules/hospital/hospital.module').then(m => m.HospitalModule)
+  },
   { path: 'hospitalMap', component: HospitalMapComponent },
   { path: 'hospitalMap/hospital/:id', component: HospitalFloorComponent },
   { path: 'hospitalMap/hospital/:id/floor/:floorId', component: RoomsMapComponent },

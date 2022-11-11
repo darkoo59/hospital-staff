@@ -1,10 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { ManagerComponent } from "./manager.component";
-import { BBNewsComponent } from "./pages/bb-news/bb-news.component";
-import { ApprovedNewsComponent } from "./pages/bb-news/pages/approved-news/approved-news.component";
-import { DisapprovedNewsComponent } from "./pages/bb-news/pages/disapproved-news/disapproved-news.component";
-import { UncheckedNewsComponent } from "./pages/bb-news/pages/unchecked-news/unchecked-news.component";
 import { BBRegisterComponent } from "./pages/bb-register/bb-register.component";
 import { FeedbackComponent } from "./pages/feedback/feedback.component";
 
@@ -23,22 +19,11 @@ const routes: Routes = [
       },
       {
         path: 'bb-news',
-        component: BBNewsComponent,
-        children: [
-          {
-            path: 'unchecked',
-            component: UncheckedNewsComponent
-          },
-          {
-            path: 'approved',
-            component: ApprovedNewsComponent
-          },
-          {
-            path: 'disapproved',
-            component: DisapprovedNewsComponent
-          },
-          { path: '**', redirectTo: 'unchecked', pathMatch: 'full' },
-        ]
+        loadChildren: () => import('./pages/bb-news/bb-news.module').then(m => m.BBNewsModule)
+      },
+      {
+        path: 'bb-blood-req',
+        loadChildren: () => import('./pages/bb-blood-req/bb-blood-req.module').then(m => m.BBBloodReqModule)
       },
       { path: '**', redirectTo: 'feedback', pathMatch: 'full' },
     ]

@@ -1,4 +1,4 @@
-export interface BB_News {
+export interface BBNews {
   id: number;
   title: string;
   content: string;
