@@ -9,7 +9,7 @@ import { BBNewsService } from "../services/bb-news.service";
   styleUrls: ['./news-grid.component.scss']
 })
 export class NewsGridComponent {
-  m_News: Observable<BBNews[]> = this.m_BBNewsService.m_BBNews$;
+  m_News: Observable<BBNews[]> = this.m_BBNewsService.m_Data$;
   @Output() m_ApproveEvent: EventEmitter<number> = new EventEmitter();
   @Output() m_DisapproveEvent: EventEmitter<number> = new EventEmitter();
 

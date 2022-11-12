@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Feedback } from '../feedback';
+import { Feedback } from '../model/feedback.model';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ManagerService {
 
     route: string = 'http://localhost:16177/';

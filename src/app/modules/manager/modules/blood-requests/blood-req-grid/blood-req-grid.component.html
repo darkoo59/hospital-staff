@@ -1,0 +1,23 @@
+<div class="grid" *ngLet="(m_Data | async) as dataList">
+  <div *ngFor="let data of dataList">
+
+    <mat-card *ngIf="data">
+      <mat-card-title>{{data.bloodType}}</mat-card-title>
+      <!-- <mat-card-subtitle>approved: {{news.state}}</mat-card-subtitle> -->
+      <mat-card-content>
+        
+        
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="warn" (click)="m_DisapproveEvent.emit(data.id)">Disapprove</button>
+        <button mat-flat-button color="primary" (click)="m_ApproveEvent.emit(data.id)">Approve</button>
+        <button mat-flat-button color="primary" (click)="m_ApproveEvent.emit(data.id)">Approve</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
+
+  <div *ngIf="dataList.length == 0">
+    Nothing to display...
+  </div>
+</div>

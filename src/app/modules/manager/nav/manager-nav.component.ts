@@ -25,7 +25,7 @@ export class ManagerNavComponent {
       title: 'Blood bank news'
     },
     {
-      path: 'bb-blood-req',
+      path: 'blood-req',
       title: 'Blood Requests'
     }
   ];

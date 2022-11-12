@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ManagerService } from '../../services/manager.service';
-import { Feedback } from 'src/app/modules/manager/feedback';
+import { Feedback } from 'src/app/modules/manager/model/feedback.model';
 
 @Component({
   selector: 'app-feedback',
