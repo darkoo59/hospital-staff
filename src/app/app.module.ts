@@ -11,6 +11,7 @@ import { HospitalMapComponent } from './modules/hospital/hospital-map/hospital-m
 import { HospitalFloorComponent } from './modules/hospital/hospital-floor/hospital-floor.component';
 import { RoomsMapComponent } from './modules/hospital/rooms-map/rooms-map.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
 import { EquipmentSearchComponent } from "./modules/hospital/equipment-search/equipment-search.component";
 
 
@@ -30,6 +31,8 @@ import { EquipmentSearchComponent } from "./modules/hospital/equipment-search/eq
     MaterialModule,
     PagesModule,
     HospitalModule,
+    Ng2SearchPipeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

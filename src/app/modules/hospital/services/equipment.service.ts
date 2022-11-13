@@ -17,4 +17,8 @@ export class EquipmentService {
     return this.http.get<Equipment[]>(this.apiHost + 'api/rooms/equipment/' + roomId , {headers: this.headers});
   }
 
+  getAllEquipment(): Observable<Equipment[]> {
+    return this.http.get<Equipment[]>(this.apiHost + 'api/rooms/equipment', {headers: this.headers});
+  }
+
 }

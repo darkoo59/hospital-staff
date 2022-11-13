@@ -80,6 +80,9 @@ export class HospitalMapComponent implements OnInit {
         .duration(500)
         .attr("fill", "#DEDFE1")
         .style("cursor", "default")
+
+      tooltip.transition()
+        .style('opacity', 0)
     });
 
 
