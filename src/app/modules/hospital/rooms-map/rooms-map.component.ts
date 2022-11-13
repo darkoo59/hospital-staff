@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ActivatedRoute } from '@angular/router';
 import * as d3 from 'd3';
-import { Equipment } from '../modules/hospital/model/equipment.model';
-import { RoomMap } from '../modules/hospital/model/room-map.model';
-import { Room } from '../modules/hospital/model/room.model';
-import { EquipmentService } from '../modules/hospital/services/equipment.service';
-import { RoomMapService } from '../modules/hospital/services/room-map.service';
+import { Equipment } from '../model/equipment.model';
+import { RoomMap } from '../model/room-map.model';
+import { Room } from '../model/room.model';
+import { EquipmentService } from '../services/equipment.service';
+import { RoomMapService } from '../services/room-map.service';
 import {ViewChild} from '@angular/core';
 import { MatTable } from '@angular/material/table';
 
@@ -51,9 +51,6 @@ export class RoomsMapComponent implements OnInit {
       this.createSvg();
       this.createRect(this.rooms, this.selectedRoom, this.selectedRoomEquipment, this.equipmentTable);
     });
-    this.equipmentService.getEquipmentByRoomId(1).subscribe(res => {
-      this.selectedRoomEquipment = res;
-    })
     
   }
 

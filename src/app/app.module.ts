@@ -7,16 +7,20 @@ import { MaterialModule } from "./material/material.module";
 import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HospitalMapComponent } from './hospital-map/hospital-map.component';
-import { HospitalFloorComponent } from './hospital-floor/hospital-floor.component';
-import { RoomsMapComponent } from './rooms-map/rooms-map.component';
+import { HospitalMapComponent } from './modules/hospital/hospital-map/hospital-map.component';
+import { HospitalFloorComponent } from './modules/hospital/hospital-floor/hospital-floor.component';
+import { RoomsMapComponent } from './modules/hospital/rooms-map/rooms-map.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { EquipmentSearchComponent } from "./modules/hospital/equipment-search/equipment-search.component";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HospitalMapComponent,
     HospitalFloorComponent,
-    RoomsMapComponent
+    RoomsMapComponent,
+    EquipmentSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,7 @@ import { RoomsMapComponent } from './rooms-map/rooms-map.component';
     HttpClientModule,
     MaterialModule,
     PagesModule,
-    HospitalModule
+    HospitalModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
