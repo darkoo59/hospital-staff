@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Appointment } from '../model/appointment.model';
 import { VacationRequest } from '../model/vacation-request';
 
 @Injectable({
@@ -10,6 +11,7 @@ export class VacationService {
 
   apiHost: string = 'http://localhost:16177/';
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+  urgentVacationRequest: VacationRequest = new VacationRequest();
 
   constructor(private http: HttpClient) { }
 
@@ -20,11 +22,24 @@ export class VacationService {
   createVacationRequest(vacationRequest: any): Observable<any> {
     vacationRequest.startDate.setHours(1);
     vacationRequest.endDate.setHours(1);
-    vacationRequest.Status = "OnHold";
+    vacationRequest.status = "OnHold";
     return this.http.post<any>(this.apiHost + 'api/vacationRequest', vacationRequest, {headers: this.headers});
   }
 
   deleteVacationRequest(id: any): Observable<any> {
     return this.http.delete<any>(this.apiHost + 'api/vacationRequest/' + id, {headers: this.headers});
   }
+
+  GetAppointmentInVacationDataRange(doctorId:number,start:Date,end:Date): Observable<any>{
+    return this.http.get<Appointment[]>(this.apiHost + "api/appointments/appointmentsInDataRange/" + doctorId, {headers: this.headers});
+  }
+
+  CreateUrgentRequest(int:number,start:Date,end:Date,vacationRequest:any):Observable<any>{
+    vacationRequest.startDate.setHours(1);
+    vacationRequest.endDate.setHours(1);
+    vacationRequest.status = "OnHold";
+    
+    return this.http.post<VacationRequest[]>(this.apiHost + "api/vacationRequest/createUrgentRequest",vacationRequest, {headers: this.headers});
+  }
+  
 }

@@ -23,15 +23,25 @@
 </div>
 <br>
 <div>
-    <select id="urgency" name="urgent" [(ngModel)]="vacationRequest.urgency">
-        <option value="noUrgent">NoUrgent</option>
-        <option value="Urgent">Urgent</option>
+    <select id="urgency" name="urgent" [(ngModel)]="vacationRequest.urgency" ng-change="ChangeUrgency()">
+        <option value="NoUrgent" selected="isActivated = true" (click)=ChangeUrgency()>NoUrgent</option>
+        <option value="Urgent" selected="isActivated = false" (click)="ChangeUrgency()">Urgent</option>
       </select>
 </div>
 <br>
 <div>
-    <button type="submit" value="Submit" (click)="createVacationRequest(vacationRequest)">Submit</button>
+    <button  *ngIf="isActivated == true" id="button1" value="Submit" (click)="createVacationRequest(vacationRequest)">ClassicCreate</button>
 </div>
+<br>
+<div>
+    <button id="button2" value="Submit" (click)="CreateUrgentRequest(4,vacationRequest.startDate,vacationRequest.endDate,vacationRequest)">UrgentCreate</button>
+</div>
+
+
+
+
+
+    
     
 
 

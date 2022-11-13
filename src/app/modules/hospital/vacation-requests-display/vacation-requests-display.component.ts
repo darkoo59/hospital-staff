@@ -11,6 +11,7 @@ export class VacationRequestsDisplayComponent implements OnInit {
 
   public vacationRequests: VacationRequest[] = [];
 
+
   constructor(private vacationService: VacationService) { }
 
   ngOnInit(): void {
