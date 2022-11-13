@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-interface NavRoute {
+export interface NavRoute {
   path: string;
   title: string;
 }
@@ -25,7 +25,7 @@ export class ManagerNavComponent {
       title: 'Blood bank news'
     },
     {
-      path: 'bb-blood-req',
+      path: 'blood-req',
       title: 'Blood Requests'
     }
   ];
