@@ -5,20 +5,20 @@ import { NgLetModule } from "ng-let";
 import { MaterialModule } from "src/app/material/material.module";
 import { BBNewsComponent } from "./bb-news.component";
 import { NewsGridComponent } from "../../modules/bb-news/news-grid/news-grid.component";
-import { ApprovedNewsComponent } from "../../modules/bb-news/pages/approved-news/approved-news.component";
-import { DisapprovedNewsComponent } from "../../modules/bb-news/pages/disapproved-news/disapproved-news.component";
-import { UncheckedNewsComponent } from "../../modules/bb-news/pages/unchecked-news/unchecked-news.component";
 import { BBNewsRoutingModule } from "./bb-news-routing.module";
 import { BBNewsService } from "../../modules/bb-news/services/bb-news.service";
+import { NewsNewComponent } from "./pages/news-new.component";
+import { NewsApprovedComponent } from "./pages/news-approved.component";
+import { NewsDeclinedComponent } from "./pages/news-declined.component";
 
 @NgModule({
   providers: [BBNewsService],
   declarations: [
     BBNewsComponent,
     NewsGridComponent,
-    UncheckedNewsComponent,
-    ApprovedNewsComponent,
-    DisapprovedNewsComponent
+    NewsNewComponent,
+    NewsApprovedComponent,
+    NewsDeclinedComponent
   ],
   imports: [
     CommonModule,

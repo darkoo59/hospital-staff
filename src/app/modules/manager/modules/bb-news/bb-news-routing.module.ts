@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { BBNewsComponent } from "./bb-news.component";
-import { ApprovedNewsComponent } from "./pages/approved-news/approved-news.component";
-import { DisapprovedNewsComponent } from "./pages/disapproved-news/disapproved-news.component";
-import { UncheckedNewsComponent } from "./pages/unchecked-news/unchecked-news.component";
+import { NewsApprovedComponent } from "./pages/news-approved.component";
+import { NewsDeclinedComponent } from "./pages/news-declined.component";
+import { NewsNewComponent } from "./pages/news-new.component";
 
 const routes: Routes = [
   {
@@ -11,18 +11,18 @@ const routes: Routes = [
     component: BBNewsComponent,
     children: [
       {
-        path: 'unchecked',
-        component: UncheckedNewsComponent
+        path: 'new',
+        component: NewsNewComponent
       },
       {
         path: 'approved',
-        component: ApprovedNewsComponent
+        component: NewsApprovedComponent
       },
       {
-        path: 'disapproved',
-        component: DisapprovedNewsComponent
+        path: 'declined',
+        component: NewsDeclinedComponent
       },
-      { path: '**', redirectTo: 'unchecked', pathMatch: 'full' },
+      { path: '**', redirectTo: 'new', pathMatch: 'full' },
     ]
   }
 ];

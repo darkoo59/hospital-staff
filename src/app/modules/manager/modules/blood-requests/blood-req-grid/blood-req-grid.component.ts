@@ -11,7 +11,7 @@ import { BloodReqService } from "../services/blood-req.service";
 export class BloodReqGridComponent {
   m_Data: Observable<BloodRequest[]> = this.m_BloodReqService.m_Data$;
   @Output() m_ApproveEvent: EventEmitter<number> = new EventEmitter();
-  @Output() m_DisapproveEvent: EventEmitter<number> = new EventEmitter();
+  @Output() m_DeclineEvent: EventEmitter<number> = new EventEmitter();
   @Output() m_UpdateEvent: EventEmitter<number> = new EventEmitter();
 
   constructor(private m_BloodReqService: BloodReqService) { }

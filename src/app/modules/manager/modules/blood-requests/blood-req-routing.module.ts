@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { BloodReqComponent } from "./blood-req.component";
-import { BloodReqApprovedComponent } from "../../modules/blood-requests/pages/blood-req-approved/blood-req-approved.component";
-import { BloodReqDisapprovedComponent } from "../../modules/blood-requests/pages/blood-req-disapproved/blood-req-disapproved.component";
-import { BloodReqUncheckedComponent } from "../../modules/blood-requests/pages/blood-req-unchecked/blood-req-unchecked.component";
-import { BloodReqUpdateComponent } from "../../modules/blood-requests/pages/blood-req-update/blood-req-update.component";
+import { BloodReqApprovedComponent } from "./pages/blood-req-approved.component";
+import { BloodReqUpdateComponent } from "./pages/blood-req-update.component";
+import { BloodReqNewComponent } from "./pages/blood-req-new.component";
+import { BloodReqDeclinedComponent } from "./pages/blood-req-declined.component";
 
 const routes: Routes = [
   {
@@ -12,22 +12,22 @@ const routes: Routes = [
     component: BloodReqComponent,
     children: [
       {
-        path: 'unchecked',
-        component: BloodReqUncheckedComponent
+        path: 'new',
+        component: BloodReqNewComponent
       },
       {
         path: 'approved',
         component: BloodReqApprovedComponent
       },
       {
-        path: 'disapproved',
-        component: BloodReqDisapprovedComponent
+        path: 'declined',
+        component: BloodReqDeclinedComponent
       },
       {
         path: 'update',
         component: BloodReqUpdateComponent
       },
-      { path: '**', redirectTo: 'unchecked', pathMatch: 'full' },
+      { path: '**', redirectTo: 'new', pathMatch: 'full' },
     ]
   }
 ];

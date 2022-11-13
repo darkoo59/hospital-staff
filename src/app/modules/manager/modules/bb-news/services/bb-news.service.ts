@@ -9,7 +9,7 @@ import { GenericDataService } from "../../../services/generic-data.service";
 export class BBNewsService extends GenericDataService<BBNews> {
   constructor(private m_Http: HttpClient) { super() }
 
-  fetchNews(type: 'unchecked' | 'approved' | 'disapproved'): Observable<any> {
+  fetchNews(type: 'new' | 'approved' | 'declined'): Observable<any> {
     this.clearError();
     return this.addErrorHandler(this.m_Http.get(`${environment.integrationApiUrl}/BankNews/${type}`).pipe(
       take(1),
@@ -19,7 +19,7 @@ export class BBNewsService extends GenericDataService<BBNews> {
     ));
   }
 
-  patchNewsState(id: number, type: 'approve' | 'disapprove'): Observable<any> {
+  patchNewsState(id: number, type: 'approve' | 'decline'): Observable<any> {
     this.clearError();
     return this.addErrorHandler(this.m_Http.patch(`${environment.integrationApiUrl}/BankNews/${type}`, id));
   }

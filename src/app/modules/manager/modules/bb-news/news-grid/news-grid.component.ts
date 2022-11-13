@@ -11,7 +11,7 @@ import { BBNewsService } from "../services/bb-news.service";
 export class NewsGridComponent {
   m_News: Observable<BBNews[]> = this.m_BBNewsService.m_Data$;
   @Output() m_ApproveEvent: EventEmitter<number> = new EventEmitter();
-  @Output() m_DisapproveEvent: EventEmitter<number> = new EventEmitter();
+  @Output() m_DeclineEvent: EventEmitter<number> = new EventEmitter();
 
   constructor(private m_BBNewsService: BBNewsService) { }
   

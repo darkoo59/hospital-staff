@@ -4,6 +4,7 @@ export interface BloodRequest {
   quantityInLiters: number;
   reasonForRequest: string;
   finalDate: Date;
+  state: number;
   doctor: {
     id: number;
     name: string;
