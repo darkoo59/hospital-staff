@@ -16,8 +16,8 @@ export class BloodUsageEvidencyService {
   constructor(private http: HttpClient) { }
 
   createBloodUsageEvidency(bloodUsageEvidency: any): Observable<any> {
-
-    return this.http.post<any>(this.apiHost + 'api/bloodUsageEvidencies',bloodUsageEvidency , {headers: this.headers});
+    
+    return this.http.post<any>(this.apiHost + 'api/bloodUsageEvidency',bloodUsageEvidency , {headers: this.headers});
   
   }
 }    

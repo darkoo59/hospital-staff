@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { scaleThreshold } from 'd3';
 import { BloodUsageEvidency } from '../model/blood-usage-evidency.model';
 import { BloodUsageEvidencyService } from '../services/blood-usage-evidency.service';
 
@@ -38,10 +36,12 @@ export class CreateBloodUsageEvidencyComponent implements OnInit {
     if(this.isFormCorrectlyFilled()){
       this.bloodUsageEvidencyService.createBloodUsageEvidency(this.bloodUsageEvidency).subscribe(res => {
         if (res.bloodUsageEvidencyId === 0){
-          alert("There is noot enough blood in blood bank !");
+          alert("There is not enough blood in blood bank !");
+          this.bloodUsageEvidency.quantityUsedInMililiters = 0;
         }
         else {
           alert("Blood usage evidency is entered!");
+          this.bloodUsageEvidency =  new BloodUsageEvidency();
         }
       });
     
@@ -57,6 +57,7 @@ export class CreateBloodUsageEvidencyComponent implements OnInit {
     }else if(this.bloodUsageEvidency.quantityUsedInMililiters<=0){
       alert("Quantity must be positive number !");
       this.bloodUsageEvidency.quantityUsedInMililiters = 0
+      this.bloodUsageEvidency.quantityUsedInMililiters = 0;
       return false;
     }else if(this.bloodUsageEvidency.bloodType == ""){
       alert("You must choose blood type !");
