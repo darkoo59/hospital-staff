@@ -1,4 +1,4 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
 .svg-container {
     background-color: rgb(236, 236, 236);
     border: 1px solid rgb(54, 54, 54);
@@ -8,6 +8,8 @@
 .mat-card{
     background-color: rgb(222, 222, 222);
     width: 300px;
+    position: sticky;
+    top: 20px;
 }
 
 .mat-card-content{
@@ -18,3 +20,21 @@ p{
     font-size: 18px;
     margin-top: 15px;
 }
+
+.mat-header-cell{
+    font-size: 14px;
+    color: #3f3f3f;
+    font-weight: bold;
+} 
+
+table {
+    width: 100%;
+    background-color: rgb(232, 232, 232);
+ }
+
+ .quantity-header{
+    text-align: right;
+ }
+ .quantity-row{
+    text-align: right;
+ }
