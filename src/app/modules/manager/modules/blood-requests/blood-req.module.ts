@@ -10,6 +10,8 @@ import { BloodReqService } from "./services/blood-req.service";
 import { BloodReqGridComponent } from "./blood-req-grid/blood-req-grid.component";
 import { BloodReqDeclinedComponent } from "./pages/blood-req-declined.component";
 import { BloodReqNewComponent } from "./pages/blood-req-new.component";
+import { UpdateDialogComponent } from "./update-dialog/update-dialog.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   providers: [BloodReqService],
@@ -19,13 +21,15 @@ import { BloodReqNewComponent } from "./pages/blood-req-new.component";
     BloodReqNewComponent,
     BloodReqApprovedComponent,
     BloodReqDeclinedComponent,
-    BloodReqUpdateComponent
+    BloodReqUpdateComponent,
+    UpdateDialogComponent
   ],
   imports: [
     CommonModule,
     BloodReqRoutingModule,
     MaterialModule,
-    NgLetModule
+    NgLetModule,
+    ReactiveFormsModule
   ]
 })
 export class BloodReqModule { }
