@@ -10,6 +10,7 @@ import { BBNewsService } from "../../modules/bb-news/services/bb-news.service";
 import { NewsNewComponent } from "./pages/news-new.component";
 import { NewsApprovedComponent } from "./pages/news-approved.component";
 import { NewsDeclinedComponent } from "./pages/news-declined.component";
+import { PageLoaderModule } from "../../page-loader/page-loader.module";
 
 @NgModule({
   providers: [BBNewsService],
@@ -25,7 +26,8 @@ import { NewsDeclinedComponent } from "./pages/news-declined.component";
     BBNewsRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
-    NgLetModule
+    NgLetModule,
+    PageLoaderModule
   ]
 })
 export class BBNewsModule {}
