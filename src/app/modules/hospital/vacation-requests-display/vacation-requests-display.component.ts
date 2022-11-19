@@ -22,7 +22,7 @@ export class VacationRequestsDisplayComponent implements OnInit {
 
     public deleteVacationRequest(id: number) {
       this.vacationService.deleteVacationRequest(id).subscribe(res=>
-        this.vacationService.getDoctorVacationRequests(4).subscribe(res => {
+        this.vacationService.getDoctorVacationRequests(5).subscribe(res => {
           this.vacationRequests = res;
           alert("Vacation request is deleted!");
         }) 
