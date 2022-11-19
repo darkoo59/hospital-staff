@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ThisReceiver } from '@angular/compiler';
 import { Appointment } from '../model/appointment.model';
 import { AppointmentService } from '../services/appointment.service';
+import { startWith } from 'rxjs';
 
 @Component({
   selector: 'app-create-vacation',
@@ -22,6 +23,17 @@ export class CreateVacationComponent implements OnInit {
 
   public appointment: Appointment = new Appointment();
 
+  public doctorAppointments: Appointment[] = [];
+
+  public counter: any = 0;
+
+  public isScheduled : any;
+
+  startDate : Date = new Date();
+
+  endDate : Date = new Date();
+
+  appointmentStart : Date = new Date();
 
   isActivated: any;
 
@@ -29,6 +41,7 @@ export class CreateVacationComponent implements OnInit {
 
   public createVacationRequest(vacationRequest : VacationRequest)
   {
+    this.isScheduledInVacationDataRange(vacationRequest);
     if (!this.isReasonInputEmpty()) {
       alert("You must fill in the reason!");
       return;
@@ -41,6 +54,11 @@ export class CreateVacationComponent implements OnInit {
       alert("The last day must be after the first!");
       return;
     };   
+    if(this.isScheduled == true)
+    {
+      alert("You have scheduled appointments in the given time slot!");
+      return;
+    };
     this.vacationService.createVacationRequest(this.vacationRequest).subscribe(res => {
         alert("You have successfully created vacation!");
       });
@@ -62,7 +80,7 @@ export class CreateVacationComponent implements OnInit {
     if(!this.isEndDateValid()){
       alert("The last day must be after the first!");
       return;
-    };   
+    };  
     this.vacationService.CreateUrgentRequest(5,vacationRequest.start,vacationRequest.end,vacationRequest).subscribe(res => {
         alert("You have successfully created vacation!");
       });
@@ -80,12 +98,28 @@ export class CreateVacationComponent implements OnInit {
     return this.vacationRequest.reason != "";
   }
 
+  private isScheduledInVacationDataRange(vacationRequest: VacationRequest){
+    this.startDate = new Date(vacationRequest.startDate);
+    this.endDate = new Date(vacationRequest.endDate);
+    for(let i = 0;i < this.doctorAppointments.length;i++){
+      this.appointmentStart = new Date(this.doctorAppointments[i].date)
+      if(this.appointmentStart > this.startDate && this.appointmentStart < this.endDate){
+        this.isScheduled = true;
+        return;
+      }
+    }
+  }
+
   ngOnInit(): void {
     this.vacationRequest.doctorId = 5;
-
     this.fourDaysFromNow.setDate( this.fourDaysFromNow.getDate() + 4 ); 
     this.vacationRequest.urgency = "NoUrgent"; 
     this.isActivated = true;
+    this.appointmentService.getDoctorAppointments(5).subscribe(res => {
+      this.doctorAppointments = res;
+
+    });
+    this.isScheduled = false;
   }
 }
 
