@@ -22,15 +22,9 @@
 <input type="text" placeholder="Reason" [(ngModel)]="vacationRequest.reason"/>
 </div>
 <br>
-<div>
-    <select id="urgency" name="urgent" [(ngModel)]="vacationRequest.urgency" ng-change="ChangeUrgency()">
-        <option value="NoUrgent" selected="isActivated = true" (click)=ChangeUrgency()>NoUrgent</option>
-        <option value="Urgent" selected="isActivated = false" (click)="ChangeUrgency()">Urgent</option>
-      </select>
-</div>
 <br>
 <div>
-    <button  *ngIf="isActivated == true" id="button1" value="Submit" (click)="createVacationRequest(vacationRequest)">ClassicCreate</button>
+    <button *ngIf="isActivated == true" id="button1" value="Submit" (click)="createVacationRequest(vacationRequest)">ClassicCreate</button>
 </div>
 <br>
 <div>
