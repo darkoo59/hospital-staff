@@ -1,7 +1,7 @@
 <div *ngLet="(m_Data | async) as dataList">
   <div class="grid" *ngIf="dataList">
     <div *ngFor="let data of dataList">
-      <mat-card *ngIf="data">
+      <mat-card *ngIf="data" class="card">
         <mat-card-title>Request for {{data.bloodType}}</mat-card-title>
         <mat-card-subtitle *ngIf="data.doctor">By: {{data.doctor.name}} {{data.doctor.surname}}</mat-card-subtitle>
         <mat-card-subtitle *ngIf="!data.doctor">By: unknown</mat-card-subtitle>
@@ -19,6 +19,10 @@
               <td>On: </td>
               <td>{{data.finalDate | date:'medium'}}</td>
             </tr>
+            <tr *ngIf="data.state == 3">
+              <td>Reason for adjustment:</td>
+              <td *ngIf="data.reasonForAdjustment"><mat-error>{{data.reasonForAdjustment}}</mat-error></td>
+            </tr>
           </table>
         </mat-card-content>
         <mat-card-actions align="end" class="button-group" *ngIf="data.state == 0">
@@ -28,9 +32,5 @@
         </mat-card-actions>
       </mat-card>
     </div>
-  </div>
-  
-  <div *ngIf="!dataList || dataList.length == 0">
-    Nothing to display...
   </div>
 </div>

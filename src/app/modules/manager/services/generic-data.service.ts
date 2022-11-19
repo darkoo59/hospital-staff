@@ -35,6 +35,8 @@ export abstract class GenericDataService<DataType> {
         const error = res.error;
         if (error && error.message) {
           this.setError = error.message;
+        } else {
+          this.setError = "Unknown error has occurred";
         }
         return EMPTY;
       })

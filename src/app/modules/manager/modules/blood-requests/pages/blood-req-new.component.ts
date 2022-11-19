@@ -32,26 +32,27 @@ export class BloodReqNewComponent {
   ) as Subject<number>;
 
   m_Update$: Subject<any> = new Subject<any>().pipe(
-    switchMap((id:number) => {
-      return this.openDialog().afterClosed().pipe(
-        switchMap((res: any) => {
-          return res ? of(id, res) : EMPTY;
+    switchMap((id: number) => {
+      return this.openDialog(id).afterClosed().pipe(
+        switchMap(ret => {
+          return ret ? this.fetchData() : EMPTY;
         })
-      )
+      );
     })
   ) as Subject<any>;
 
   m_FetchData$: Observable<any> = this.fetchData();
 
   constructor(private m_BloodReqService: BloodReqService, public dialog: MatDialog) { }
-  
+
   fetchData(): Observable<any> {
     return this.m_BloodReqService.fetchBloodRequests('new');
   }
 
-  openDialog(): MatDialogRef<any, any> {
+  openDialog(id: number): MatDialogRef<any, any> {
     return this.dialog.open(UpdateDialogComponent, {
-      width: '450px'
+      width: '450px',
+      data: { id }
     });
   }
 }

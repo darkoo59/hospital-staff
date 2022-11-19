@@ -12,6 +12,7 @@ import { BloodReqDeclinedComponent } from "./pages/blood-req-declined.component"
 import { BloodReqNewComponent } from "./pages/blood-req-new.component";
 import { UpdateDialogComponent } from "./update-dialog/update-dialog.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { PageLoaderModule } from "../../page-loader/page-loader.module";
 
 @NgModule({
   providers: [BloodReqService],
@@ -29,7 +30,8 @@ import { ReactiveFormsModule } from "@angular/forms";
     BloodReqRoutingModule,
     MaterialModule,
     NgLetModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PageLoaderModule
   ]
 })
 export class BloodReqModule { }

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { ActivatedRoute } from "@angular/router";
 import { Observable, tap } from "rxjs";
+import { BloodRequest } from "../../model/blood-request.model";
 import { NavRoute } from "../../nav/manager-nav.component";
 import { BloodReqService } from "./services/blood-req.service";
 
@@ -12,8 +13,14 @@ import { BloodReqService } from "./services/blood-req.service";
 })
 export class BloodReqComponent implements OnInit, OnDestroy {
   m_Error$: Observable<string | null> = this.m_BloodReqService.m_Error$.pipe(
-    tap(error => this.m_SnackBar.open(error!, 'close', { duration: 4000 }))
+    tap(error => {
+      this.m_SnackBar.open(error!, 'close', { duration: 4000, verticalPosition: 'top' })
+      this.m_Loading = false
+    })
   );
+  m_BloodRequests$: Observable<BloodRequest[] | null> = this.m_BloodReqService.m_Data$.pipe(tap(data => {
+    if (data) this.m_Loading = false;
+  }));
 
   m_Routes: NavRoute[] = [
     {
@@ -34,12 +41,13 @@ export class BloodReqComponent implements OnInit, OnDestroy {
     }
   ];
 
-  activeLink: string = this.m_Routes[0].path;
+  m_ActiveLink: string = this.m_Routes[0].path;
+  m_Loading: boolean = true;
 
   constructor(private m_Route: ActivatedRoute, private m_BloodReqService: BloodReqService, private m_SnackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.activeLink = this.m_Route.snapshot.firstChild?.url[0].path!;
+    this.m_ActiveLink = this.m_Route.snapshot.firstChild?.url[0].path!;
   }
 
   ngOnDestroy(): void {
@@ -47,6 +55,6 @@ export class BloodReqComponent implements OnInit, OnDestroy {
   }
 
   changeTab(path: string): void {
-    this.activeLink = path
+    this.m_ActiveLink = path
   }
 }

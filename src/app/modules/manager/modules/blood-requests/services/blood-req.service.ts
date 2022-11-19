@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, tap } from "rxjs";
 import { environment } from "src/environments/environment";
-import { BloodRequest } from "../../../model/blood-request";
+import { BloodRequest } from "../../../model/blood-request.model";
 import { GenericDataService } from "../../../services/generic-data.service";
 
 @Injectable()
