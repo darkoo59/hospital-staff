@@ -15,7 +15,7 @@ export class VacationRequestsDisplayComponent implements OnInit {
   constructor(private vacationService: VacationService) { }
 
   ngOnInit(): void {
-    this.vacationService.getDoctorVacationRequests(4).subscribe(res => {
+    this.vacationService.getDoctorVacationRequests(5).subscribe(res => {
       this.vacationRequests = res;
     }); 
   }
