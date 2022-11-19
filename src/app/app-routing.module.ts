@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'hospitalMap', component: HospitalMapComponent },
   { path: 'hospitalMap/hospital/:id', component: HospitalFloorComponent },
   { path: 'hospitalMap/hospital/:id/floor/:floorId', component: RoomsMapComponent },
+  { path: 'hospitalMap/hospital/:id/floor/:floorId/room/:roomId', component: RoomsMapComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 

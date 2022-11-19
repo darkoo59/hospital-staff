@@ -11,3 +11,7 @@
 .equipment-form mat-form-field{
     width: 100%;
 }
+
+.location{
+    text-align: center;
+}
