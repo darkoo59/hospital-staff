@@ -40,8 +40,6 @@ export class VacationService {
     vacationRequest.endDate.setHours(1);
     vacationRequest.status = "OnHold";
     vacationRequest.urgency = "Urgent";
-
-    
     return this.http.post<VacationRequest[]>(this.apiHost + "api/vacationRequest/createUrgentRequest",vacationRequest, {headers: this.headers});
   }
   

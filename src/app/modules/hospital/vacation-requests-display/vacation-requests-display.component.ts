@@ -11,7 +11,6 @@ export class VacationRequestsDisplayComponent implements OnInit {
 
   public vacationRequests: VacationRequest[] = [];
 
-
   constructor(private vacationService: VacationService) { }
 
   ngOnInit(): void {
@@ -27,13 +26,7 @@ export class VacationRequestsDisplayComponent implements OnInit {
           alert("Vacation request is deleted!");
         }) 
         )
-    }
-
-      
-  
-  
-  
-  
-  }
+    }  
+ }
 
 
