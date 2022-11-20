@@ -1,0 +1,14 @@
+<div *ngLet="(m_News | async) as newsList">
+  <div class="grid" *ngIf="newsList">
+    <div *ngFor="let news of newsList">
+      <mat-card *ngIf="news" class="card">
+        <mat-card-title>{{news.title}}</mat-card-title>
+        <mat-card-content>{{news.content}}</mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-button color="warn" *ngIf="news.state != 2" (click)="m_DeclineEvent.emit(news.id)">Decline</button>
+          <button mat-flat-button color="primary" *ngIf="news.state != 1" (click)="m_ApproveEvent.emit(news.id)">Approve</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

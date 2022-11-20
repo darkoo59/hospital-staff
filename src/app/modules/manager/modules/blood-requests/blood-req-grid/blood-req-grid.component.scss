@@ -1,0 +1,28 @@
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  grid-gap: 20px;
+}
+
+.button-group{
+  display: flex;
+  justify-content: right;
+  & > button{
+    margin-right: 0px;
+    &:not(:first-child){
+      margin-left: 10px;
+    }
+    &:first-child{
+      margin-left:0px;
+    }
+  }
+}
+
+table tr td:first-child{
+  min-width: 160px;
+  font-weight: bold;
+}
+
+.card {
+  overflow: hidden;
+}

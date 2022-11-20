@@ -1,0 +1,13 @@
+<form *ngLet="m_Submit$ | async" [formGroup]="m_Form" (ngSubmit)="this.m_Submit$.next(0)" cdkTrapFocus [cdkTrapFocusAutoCapture]="true" >
+  <h1 mat-dialog-title>Request adjustment</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill" style="width:100%;">
+      <mat-label>Please specify the reason:</mat-label>
+      <textarea matInput formControlName="reason" style="min-height: 80px;max-height:220px;" placeholder="Ex. It can't be done..."></textarea>
+    </mat-form-field>
+  </div>
+  <mat-dialog-actions align="end">
+    <button type="button" mat-button mat-dialog-close cdkFocusInitial color="warn">Cancel</button>
+    <button mat-flat-button color="accent">Request Adjustment</button>
+  </mat-dialog-actions>
+</form>

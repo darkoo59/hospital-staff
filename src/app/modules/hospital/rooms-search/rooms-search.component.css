@@ -1,0 +1,17 @@
+.search-hero{
+    width:100%;
+}
+
+.equipment-form{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.equipment-form mat-form-field{
+    width: 100%;
+}
+
+.location{
+    text-align: center;
+}

@@ -4,10 +4,6 @@ export class Room {
     floor: number = 0;
     buildingId: string = "";
     description: string = "";
-    x: number = 0;
-    y: number = 0;
-    width: number = 0;
-    height: number = 0;
 
     public constructor(obj?: any) {
         if (obj) {

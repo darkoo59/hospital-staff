@@ -1,0 +1,24 @@
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<h1>Hospital map</h1>
+
+<div class="container-fluid">
+    <div class="row justify-content-center align-middle">
+
+            <div class="col-8">
+                <svg></svg>
+            </div>
+            <div class="col-4">
+                <mat-tab-group>
+                    <mat-tab label="Sobe"> 
+                        <app-rooms-search></app-rooms-search>
+                    </mat-tab>
+                    <mat-tab label="Oprema"> 
+                        <app-equipment-search></app-equipment-search>    
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+    </div>
+</div>
