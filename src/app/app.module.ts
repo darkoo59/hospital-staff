@@ -7,27 +7,39 @@ import { MaterialModule } from "./material/material.module";
 import { HospitalModule } from "./modules/hospital/hospital.module";
 import { PagesModule } from "./modules/pages/pages.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HospitalMapComponent } from './hospital-map/hospital-map.component';
-import { HospitalFloorComponent } from './hospital-floor/hospital-floor.component';
-import { RoomsMapComponent } from './rooms-map/rooms-map.component';
+import { HospitalMapComponent } from './modules/hospital/hospital-map/hospital-map.component';
+import { HospitalFloorComponent } from './modules/hospital/hospital-floor/hospital-floor.component';
+import { RoomsMapComponent } from './modules/hospital/rooms-map/rooms-map.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
+import { EquipmentSearchComponent } from "./modules/hospital/equipment-search/equipment-search.component";
+import { RoomsSearchComponent } from "./modules/hospital/rooms-search/rooms-search.component";
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HospitalMapComponent,
-    HospitalFloorComponent,
-    RoomsMapComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MaterialModule,
-    PagesModule,
-    HospitalModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HospitalMapComponent,
+        HospitalFloorComponent,
+        RoomsMapComponent,
+        EquipmentSearchComponent,
+        RoomsSearchComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MaterialModule,
+        PagesModule,
+        HospitalModule,
+        Ng2SearchPipeModule,
+        FormsModule,
+        MatPaginatorModule
+    ]
 })
 export class AppModule { }
