@@ -11,6 +11,7 @@ import { CreateAppointmentComponent } from './create-appointment/create-appointm
 import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
 import { MAT_DATE_LOCALE } from "@angular/material/core";
 import { HospitalComponent } from "./hospital.component";
+import { CreateBloodRequestComponent } from './create-blood-request/create-blood-request.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
       { path: 'rooms/:id/update', component: UpdateRoomComponent },
       { path: 'appointments/add', component: CreateAppointmentComponent },
       { path: 'appointment/:id/update', component: UpdateAppointmentComponent },
+      { path: 'blood/request', component: CreateBloodRequestComponent },
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
     ]
   }
@@ -36,7 +38,8 @@ const routes: Routes = [
     CreateRoomComponent,
     UpdateRoomComponent,
     CreateAppointmentComponent,
-    UpdateAppointmentComponent
+    UpdateAppointmentComponent,
+    CreateBloodRequestComponent
   ],
   imports: [
     CommonModule,

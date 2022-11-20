@@ -1,0 +1,35 @@
+<div class="container">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Blood type</mat-label>
+            <mat-select  [(ngModel)]="bloodRequest.bloodType">
+                <mat-option *ngFor="let obj of bloodTypes" [value]="obj.value">
+                  {{obj.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Quantity(in liters)</mat-label>
+            <input matInput type="number" [(ngModel)]="bloodRequest.quantityInLiters">
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill">
+            <textarea matInput placeholder="Enter reason for request" [(ngModel)]="bloodRequest.reasonForRequest">
+            </textarea>
+        </mat-form-field> <br>
+
+        
+        <mat-form-field>
+            <mat-label>Deadline</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="bloodRequest.finalDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+
+        <button mat-stroked-button (click)="createBloodRequest()">
+            Submit
+        </button>
+    </div>
+</div>
