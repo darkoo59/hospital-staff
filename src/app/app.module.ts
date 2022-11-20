@@ -13,28 +13,33 @@ import { RoomsMapComponent } from './modules/hospital/rooms-map/rooms-map.compon
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 import { EquipmentSearchComponent } from "./modules/hospital/equipment-search/equipment-search.component";
+import { RoomsSearchComponent } from "./modules/hospital/rooms-search/rooms-search.component";
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HospitalMapComponent,
-    HospitalFloorComponent,
-    RoomsMapComponent,
-    EquipmentSearchComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MaterialModule,
-    PagesModule,
-    HospitalModule,
-    Ng2SearchPipeModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HospitalMapComponent,
+        HospitalFloorComponent,
+        RoomsMapComponent,
+        EquipmentSearchComponent,
+        RoomsSearchComponent
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MaterialModule,
+        PagesModule,
+        HospitalModule,
+        Ng2SearchPipeModule,
+        FormsModule,
+        MatPaginatorModule
+    ]
 })
 export class AppModule { }

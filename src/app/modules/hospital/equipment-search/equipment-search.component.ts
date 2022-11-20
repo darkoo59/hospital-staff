@@ -14,7 +14,6 @@ export class EquipmentSearchComponent implements OnInit {
   constructor(private roomMapService: RoomMapService, private equipmentService: EquipmentService) { }
 
   
-  title = 'Angular Search Using ng2-search-filter';
   searchText! : string;
   equipment : Equipment[] = [];
 

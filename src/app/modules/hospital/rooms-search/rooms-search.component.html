@@ -1,0 +1,41 @@
+<div class="container text-center">
+</div>
+<div class="container">
+  <div class="row">
+    <div class="search-hero">
+      <form class="equipment-form">
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Pretraga soba</mat-label>
+            <input matInput type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="npr. 101">
+          </mat-form-field>
+        </form>
+    </div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Naziv</th>
+        <th>Sprat</th>
+        <th>Zgrada</th>
+        <th>Lokacija</th>
+      </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let room of rooms | filter:searchText">
+            <td>{{room.number}}</td>
+            <td>{{room.floor}}</td>
+            <td>{{room.buildingId}}</td>
+            <td class="location">
+              <a [routerLink]="['/hospitalMap/hospital/A/floor/0/room', room.roomId]">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="location_on"></mat-icon>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator [length]="100"
+              [pageSize]="10"
+              aria-label="Odaberi stranicu">
+    </mat-paginator>
+  </div>
+</div>
+
