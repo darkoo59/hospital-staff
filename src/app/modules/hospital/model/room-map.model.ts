@@ -12,7 +12,7 @@ export class RoomMap {
 
     public constructor(obj?: any) {
         if (obj) {
-            this.roomId = obj.roomId;
+            this.roomId = obj.id;
             this.x = obj.x;
             this.y = obj.y;
             this.width = obj.width;
