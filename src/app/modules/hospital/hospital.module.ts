@@ -12,6 +12,9 @@ import { UpdateAppointmentComponent } from './update-appointment/update-appointm
 import { MAT_DATE_LOCALE } from "@angular/material/core";
 import { HospitalComponent } from "./hospital.component";
 import { CreateBloodRequestComponent } from './create-blood-request/create-blood-request.component';
+import { InpatientTreatmentsComponent } from './inpatient-treatments/inpatient-treatments.component';
+import { CreateInpatientTreatmentComponent } from './create-inpatient-treatment/create-inpatient-treatment.component';
+import { CreateInpatientTreatmentTherapyComponent } from './create-inpatient-treatment-therapy/create-inpatient-treatment-therapy.component';
 
 
 const routes: Routes = [
@@ -24,6 +27,9 @@ const routes: Routes = [
       { path: 'appointments/add', component: CreateAppointmentComponent },
       { path: 'appointment/:id/update', component: UpdateAppointmentComponent },
       { path: 'blood/request', component: CreateBloodRequestComponent },
+      { path: 'inpatient-treatments', component: InpatientTreatmentsComponent },
+      { path: 'inpatient-treatments/add', component: CreateInpatientTreatmentComponent },
+      { path: 'inpatient-treatment-therapy/add', component: CreateInpatientTreatmentTherapyComponent },
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
     ]
   }
@@ -39,7 +45,10 @@ const routes: Routes = [
     UpdateRoomComponent,
     CreateAppointmentComponent,
     UpdateAppointmentComponent,
-    CreateBloodRequestComponent
+    CreateBloodRequestComponent,
+    InpatientTreatmentsComponent,
+    CreateInpatientTreatmentComponent,
+    CreateInpatientTreatmentTherapyComponent
   ],
   imports: [
     CommonModule,

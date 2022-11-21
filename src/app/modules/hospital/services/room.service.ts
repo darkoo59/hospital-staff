@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Room } from '../model/room.model';
+import { Roomm } from '../model/roomm.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,10 @@ export class RoomService {
 
   getRooms(): Observable<Room[]> {
     return this.http.get<Room[]>(this.apiHost + 'api/rooms', {headers: this.headers});
+  }
+
+  getRoomms(): Observable<Roomm[]> {
+    return this.http.get<Roomm[]>(this.apiHost + 'api/rooms', {headers: this.headers});
   }
 
   getRoom(id: number): Observable<Room> {
