@@ -1,0 +1,37 @@
+<div class="container text-center">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="search-hero">
+        <form class="equipment-form">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Pretraga opreme</mat-label>
+              <input matInput type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="npr. Gloves">
+            </mat-form-field>
+          </form>
+      </div>
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Id</th>
+          <th>Naziv</th>
+          <th>Soba</th>
+          <th>Lokacija</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let equip of equipment | filter:searchText">
+          <td>{{equip.id}}</td>
+          <td>{{equip.name}}</td>
+          <td>{{equip.roomId}}</td>
+          <td class="location">
+            <a [routerLink]="['/hospitalMap/hospital/A/floor/0/room', equip.roomId]">
+              <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="location_on"></mat-icon>
+            </a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

@@ -10,6 +10,12 @@ import { UpdateRoomComponent } from "./update-room/update-room.component";
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
 import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
 import { MAT_DATE_LOCALE } from "@angular/material/core";
+import { VacationRequestsDisplayComponent } from './vacation-requests-display/vacation-requests-display.component';
+import { CreateVacationComponent } from './create-vacation/create-vacation.component';
+import { MatDatepicker, MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
 import { HospitalComponent } from "./hospital.component";
 
 
@@ -23,8 +29,11 @@ const routes: Routes = [
       { path: 'appointments/add', component: CreateAppointmentComponent },
       { path: 'appointment/:id/update', component: UpdateAppointmentComponent },
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
+      { path: 'vacations', component: VacationRequestsDisplayComponent },
+      { path: 'createvacation', component: CreateVacationComponent }
     ]
   }
+
 
 ];
 
@@ -36,14 +45,20 @@ const routes: Routes = [
     CreateRoomComponent,
     UpdateRoomComponent,
     CreateAppointmentComponent,
-    UpdateAppointmentComponent
+    UpdateAppointmentComponent,
+    VacationRequestsDisplayComponent,
+    CreateVacationComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   exports: [RouterModule],
   providers: [

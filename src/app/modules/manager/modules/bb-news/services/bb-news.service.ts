@@ -6,13 +6,12 @@ import { BBNews } from "../../../model/bb-news.model";
 import { GenericDataService } from "../../../services/generic-data.service";
 
 @Injectable()
-export class BBNewsService extends GenericDataService<BBNews> {
+export class BBNewsService extends GenericDataService<BBNews[]> {
   constructor(private m_Http: HttpClient) { super() }
 
   fetchNews(type: 'new' | 'approved' | 'declined'): Observable<any> {
     this.clearError();
     return this.addErrorHandler(this.m_Http.get(`${environment.integrationApiUrl}/BankNews/${type}`).pipe(
-      take(1),
       tap((res: any) => {
         this.setData = res;
       })

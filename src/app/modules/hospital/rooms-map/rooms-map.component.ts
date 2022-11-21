@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ActivatedRoute } from '@angular/router';
 import * as d3 from 'd3';
-import { Equipment } from '../modules/hospital/model/equipment.model';
-import { RoomMap } from '../modules/hospital/model/room-map.model';
-import { Room } from '../modules/hospital/model/room.model';
-import { EquipmentService } from '../modules/hospital/services/equipment.service';
-import { RoomMapService } from '../modules/hospital/services/room-map.service';
+import { Equipment } from '../model/equipment.model';
+import { RoomMap } from '../model/room-map.model';
+import { Room } from '../model/room.model';
+import { EquipmentService } from '../services/equipment.service';
+import { RoomMapService } from '../services/room-map.service';
 import {ViewChild} from '@angular/core';
 import { MatTable } from '@angular/material/table';
 
@@ -20,6 +20,7 @@ export class RoomsMapComponent implements OnInit {
   constructor(private roomMapService: RoomMapService, private equipmentService: EquipmentService, private _route: ActivatedRoute) {
     this.buildingId = this._route.snapshot.paramMap.get('id');
     this.floorId = this._route.snapshot.paramMap.get('floorId');
+    this.roomId = this._route.snapshot.paramMap.get('roomId');
    }
 
   private svg: any;
@@ -32,6 +33,7 @@ export class RoomsMapComponent implements OnInit {
 
   buildingId: any = "A";
   floorId: any = 1;
+  roomId!: any;
   selectedRoom: Room = new Room();
   selectedRoomEquipment: Equipment[] = [];
 
@@ -49,11 +51,16 @@ export class RoomsMapComponent implements OnInit {
     this.roomMapService.getRoomsByBuildingFloor(this.buildingId, this.floorId).subscribe(res => {
       this.rooms = res;
       this.createSvg();
-      this.createRect(this.rooms, this.selectedRoom, this.selectedRoomEquipment, this.equipmentTable);
+      this.createRect(this.rooms, this.selectedRoom, this.selectedRoomEquipment, this.equipmentTable, this.roomId);
     });
-    this.equipmentService.getEquipmentByRoomId(1).subscribe(res => {
-      this.selectedRoomEquipment = res;
-    })
+
+    if(this.roomId != null){
+      this.equipmentService.getEquipmentByRoomId(this.roomId).subscribe((res: any) => {
+        this.selectedRoomEquipment.splice(0,this.selectedRoomEquipment.length);
+        this.selectedRoomEquipment.push(...res);
+        this.equipmentTable.renderRows();
+      })
+    }
     
   }
 
@@ -64,7 +71,7 @@ export class RoomsMapComponent implements OnInit {
     .attr("class", "svg-container");
   }
 
-  private createRect(rooms: RoomMap[], selectedRoom: Room, selectedRoomEquipment: Equipment[], table: any): void{
+  private createRect(rooms: RoomMap[], selectedRoom: Room, selectedRoomEquipment: Equipment[], table: any, roomId: any): void{
     var service = this.equipmentService;
     var rect = this.svg.selectAll("rect")
     .data(rooms)
@@ -83,8 +90,24 @@ export class RoomsMapComponent implements OnInit {
     .attr("height", function(d: any, i: any){
       return d.height;
     })
-    .attr("fill", "#DEDFE1")
-    .attr("stroke", "black")
+    .attr("fill", function(d: any){
+      if(roomId == d.id){
+        return "#bcbec2";
+      }
+      return "#DEDFE1";
+    })
+    .attr("stroke", function(d: any){
+      if(roomId == d.id){
+        return "#673AB7";
+      }
+      return "black";
+    })
+    .attr("stroke-width", function(d: any){
+      if(roomId == d.id){
+        return "3";
+      }
+      return "1";
+    })
     .on("mouseover", function(this: any, d: any, i: any){
       d3.select(this)
         .attr("fill", "#c2c3c4")

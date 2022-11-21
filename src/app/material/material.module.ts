@@ -17,10 +17,13 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { A11yModule } from '@angular/cdk/a11y';
+
 
 
 @NgModule({
-  declarations: [],
+  providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }],
   imports: [
     CommonModule,
     MatInputModule,
@@ -39,7 +42,9 @@ import { MatRadioModule } from '@angular/material/radio';
     MatToolbarModule,
     MatButtonToggleModule,
     MatTabsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDialogModule,
+    A11yModule
   ],
   exports: [
     CommonModule,
@@ -59,7 +64,9 @@ import { MatRadioModule } from '@angular/material/radio';
     MatToolbarModule,
     MatButtonToggleModule,
     MatTabsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatDialogModule,
+    A11yModule
   ]
 })
 export class MaterialModule { }

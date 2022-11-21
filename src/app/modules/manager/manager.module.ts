@@ -10,11 +10,10 @@ import { BBRegisterComponent } from "./pages/bb-register/bb-register.component";
 import { FeedbackComponent } from "./pages/feedback/feedback.component";
 import { BloodBankService } from "./services/blood-bank.service";
 import { ManagerService } from "./services/manager.service";
-import { GenericDataService } from "./services/generic-data.service";
 import { ReportConfigurationComponent } from "./pages/report-configuration/report-configuration.component";
 
 @NgModule({
-  providers:[BloodBankService, ManagerService, GenericDataService],
+  providers:[BloodBankService, ManagerService],
   declarations: [
     ManagerComponent, 
     FeedbackComponent,

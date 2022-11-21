@@ -18,7 +18,7 @@ export class DoctorAppointmentDisplayComponent implements OnInit {
   
   ngOnInit(): void {
     // trnutno zakucan id doktora na 1
-    this.appointmentService.getDoctorAppointments(1).subscribe(res => {
+    this.appointmentService.getDoctorAppointments(5).subscribe(res => {
       this.appointments = res;
       
     }); 

@@ -1,6 +1,6 @@
 .grid{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
   grid-gap: 20px;
 }
 
@@ -16,4 +16,13 @@
       margin-left:0px;
     }
   }
+}
+
+table tr td:first-child{
+  min-width: 160px;
+  font-weight: bold;
+}
+
+.card {
+  overflow: hidden;
 }
