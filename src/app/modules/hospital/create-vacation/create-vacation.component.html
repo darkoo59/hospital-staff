@@ -1,0 +1,66 @@
+<h1>
+    Create vacation request
+</h1>
+
+<div>
+    <mat-form-field id="mat1">
+        <mat-label>Start Date:</mat-label>
+        <input matInput [matDatepicker]="picker" [min]="minDate" placeholder="Choose a date" [(ngModel)]="vacationRequest.startDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field>
+        <mat-label>End Date:</mat-label>
+        <input matInput [matDatepicker]="picker1" [min]="minDate" placeholder="Choose a date" [(ngModel)]="vacationRequest.endDate">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1 ></mat-datepicker>
+    </mat-form-field>
+</div> 
+<div>
+<input type="text" placeholder="Reason" [(ngModel)]="vacationRequest.reason"/>
+</div>
+<br>
+<br>
+<div>
+    <button *ngIf="isActivated == true" id="button1" value="Submit" (click)="createVacationRequest(vacationRequest)">ClassicCreate</button>
+</div>
+<br>
+<div>
+    <button id="button2" value="Submit" (click)="CreateUrgentRequest(4,vacationRequest.startDate,vacationRequest.endDate,vacationRequest)">UrgentCreate</button>
+</div>
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
