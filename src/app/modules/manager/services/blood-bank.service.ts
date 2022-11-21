@@ -4,9 +4,7 @@ import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { RegisterDTO } from "../dto/register.dto";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BloodBankService {
 
   constructor(private m_Http: HttpClient){}

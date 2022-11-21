@@ -19,11 +19,11 @@ const routes: Routes = [
       },
       {
         path: 'bb-news',
-        loadChildren: () => import('./pages/bb-news/bb-news.module').then(m => m.BBNewsModule)
+        loadChildren: () => import('./modules/bb-news/bb-news.module').then(m => m.BBNewsModule)
       },
       {
-        path: 'bb-blood-req',
-        loadChildren: () => import('./pages/bb-blood-req/bb-blood-req.module').then(m => m.BBBloodReqModule)
+        path: 'blood-req',
+        loadChildren: () => import('./modules/blood-requests/blood-req.module').then(m => m.BloodReqModule)
       },
       { path: '**', redirectTo: 'feedback', pathMatch: 'full' },
     ]

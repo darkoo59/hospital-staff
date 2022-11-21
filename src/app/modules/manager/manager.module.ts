@@ -8,8 +8,11 @@ import { NgLetModule } from 'ng-let';
 import { ManagerNavComponent } from "./nav/manager-nav.component";
 import { BBRegisterComponent } from "./pages/bb-register/bb-register.component";
 import { FeedbackComponent } from "./pages/feedback/feedback.component";
+import { BloodBankService } from "./services/blood-bank.service";
+import { ManagerService } from "./services/manager.service";
 
 @NgModule({
+  providers:[BloodBankService, ManagerService],
   declarations: [
     ManagerComponent, 
     FeedbackComponent,

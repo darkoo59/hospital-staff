@@ -15,10 +15,14 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { A11yModule } from '@angular/cdk/a11y';
+
 
 
 @NgModule({
-  declarations: [],
+  providers: [{ provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true } }],
   imports: [
     CommonModule,
     MatInputModule,
@@ -35,7 +39,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTabsModule,
+    MatDialogModule,
+    A11yModule
   ],
   exports: [
     CommonModule,
@@ -53,7 +60,10 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatSidenavModule,
     MatListModule,
     MatToolbarModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTabsModule,
+    MatDialogModule,
+    A11yModule
   ]
 })
 export class MaterialModule { }

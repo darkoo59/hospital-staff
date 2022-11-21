@@ -1,17 +1,25 @@
 import { Room } from "./room.model";
 
 export class RoomMap {
-    room: Room;
+    roomId: number = 0;
     x: number = 0;
     y: number = 0;
     width: number = 0;
     height: number = 0;
+    number: string = '';
+    floor: number = 0;
+    buildingId: string = "";
 
-    public constructor(room: Room, x: number, y: number, width: number, height: number) {
-        this.room = room;
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
+    public constructor(obj?: any) {
+        if (obj) {
+            this.roomId = obj.id;
+            this.x = obj.x;
+            this.y = obj.y;
+            this.width = obj.width;
+            this.height = obj.height;
+            this.number = obj.number;
+            this.floor = obj.floorId;
+            this.buildingId = obj.buildingId;
+        }
     }
 }
