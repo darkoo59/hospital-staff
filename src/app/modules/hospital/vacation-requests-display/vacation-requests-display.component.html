@@ -1,0 +1,40 @@
+<html>
+  <h1>
+      Vacation requests
+  </h1>
+  
+  <body>
+      <table id="table1" >
+          <tr>
+            <th>Date Start</th>
+            <th>Date End</th>
+            <th>Urgency</th>
+            <th>Approved</th>
+            <th>Reason</th> 
+            <th>Delete</th>
+          </tr>
+          <tr *ngFor="let vacationRequest of vacationRequests">
+            
+            <td>{{vacationRequest.startDate | date: 'dd.MM.yyyy'}}</td>
+            <td>{{vacationRequest.endDate | date: 'dd.MM.yyyy'}}</td>
+            <td>{{vacationRequest.urgency}}</td>
+
+            <td *ngIf="vacationRequest.status == 'OnHold'">On hold</td>
+            <td *ngIf="vacationRequest.status == 'Approved'">Approved</td>
+            <td *ngIf="vacationRequest.status == 'NotApproved'">Not Approved</td>
+
+            <td>{{vacationRequest.reason}}</td>
+            <td *ngIf="vacationRequest.status == 'OnHold'">
+                <button mat-icon-button (click)="deleteVacationRequest(vacationRequest.vacationRequestId)"> 
+                    <mat-icon matTooltip="delete">delete</mat-icon>
+                </button>
+            </td>    
+          </tr>
+          
+       
+   
+        </table>
+      
+  </body>
+  </html>
+  

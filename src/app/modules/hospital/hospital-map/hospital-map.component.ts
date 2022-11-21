@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
-import { BuildingMap } from '../modules/hospital/model/building-map.model';
-import { Building } from '../modules/hospital/model/building.model';
+import { BuildingMap } from '../model/building-map.model';
+import { Building } from '../model/building.model';
 
 @Component({
   selector: 'app-hospital-map',
@@ -80,6 +80,9 @@ export class HospitalMapComponent implements OnInit {
         .duration(500)
         .attr("fill", "#DEDFE1")
         .style("cursor", "default")
+
+      tooltip.transition()
+        .style('opacity', 0)
     });
 
 

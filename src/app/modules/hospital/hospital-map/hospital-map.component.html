@@ -7,17 +7,18 @@
 <div class="container-fluid">
     <div class="row justify-content-center align-middle">
 
-            <div class="col-9">
+            <div class="col-8">
                 <svg></svg>
             </div>
-            <div class="col-3 align-middle">
-                <form class="example-form">
-                    <mat-form-field class="example-full-width" appearance="fill">
-                      <mat-label>Search: </mat-label>
-                      <input matInput placeholder="npr. Room201" value="">
-                    </mat-form-field>
-                    
-                </form>
+            <div class="col-4">
+                <mat-tab-group>
+                    <mat-tab label="Sobe"> 
+                        <app-rooms-search></app-rooms-search>
+                    </mat-tab>
+                    <mat-tab label="Oprema"> 
+                        <app-equipment-search></app-equipment-search>    
+                    </mat-tab>
+                </mat-tab-group>
             </div>
     </div>
 </div>
