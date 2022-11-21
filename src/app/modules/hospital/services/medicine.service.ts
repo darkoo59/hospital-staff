@@ -1,23 +1,19 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Patient } from '../model/patient.model';
+import { Medicine } from '../model/medicine.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PatientService {
+export class MedicineService {
 
   apiHost: string = 'http://localhost:16177/';
   headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http: HttpClient) { }
 
-  getPatients(): Observable<Patient[]> {
-    return this.http.get<Patient[]>(this.apiHost + 'api/patients', {headers: this.headers});
-  }
-
-  getPatient(id: number): Observable<Patient> {
-    return this.http.get<Patient>(this.apiHost + 'api/patients/' + id, {headers: this.headers});
+  getMedicines(): Observable<Medicine[]> {
+    return this.http.get<Medicine[]>(this.apiHost + "api/medicines", {headers: this.headers});
   }
 }

@@ -1,7 +1,7 @@
 import { Bed } from "./bed.model";
 
-export class Room {
-    roomId: number = 0;
+export class Roomm {
+    id: number = 0;
     number: string = '';
     floor: number = 0;
     type: string = '';
@@ -11,7 +11,7 @@ export class Room {
 
     public constructor(obj?: any) {
         if (obj) {
-            this.roomId = obj.roomId;
+            this.id = obj.id;
             this.number = obj.number;
             this.floor = obj.floorId;
             this.type = obj.type;

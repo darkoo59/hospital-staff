@@ -1,0 +1,49 @@
+<div class="container">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Patient</mat-label>
+            <mat-select  [(ngModel)]="inpatientTreatment.patientId">
+                <mat-option *ngFor="let patient of patients" [value]="patient.patientId">
+                  {{patient.name}} {{patient.surname}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill">
+            <textarea matInput placeholder="Enter reason for admission" [(ngModel)]="inpatientTreatment.reasonForAdmission">
+            </textarea>
+        </mat-form-field> <br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Room</mat-label>
+            <mat-select  [(ngModel)]="inpatientTreatment.roomId" (selectionChange)="getFreeBeds()">
+                <mat-option *ngFor="let room of rooms" [value]="room.id">
+                  {{room.number}} - {{room.type}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Bed</mat-label>
+            <mat-select  [(ngModel)]="inpatientTreatment.bedId" [disabled]="isRoomSelected">
+                <mat-option *ngFor="let bed of beds" [value]="bed.bedId">
+                  {{bed.label}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+        
+        <mat-form-field>
+            <mat-label>Date of admission</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="inpatientTreatment.dateOfAdmission">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+
+        <button mat-stroked-button (click)="createInpatientTreatment()">
+            Submit
+        </button>
+    </div>
+</div>
+

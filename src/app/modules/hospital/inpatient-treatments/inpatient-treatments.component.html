@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="table-header">
+        <p class="table-title">Inpatient treatments</p>
+    </div>
+    <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="patient">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> Patient </th>
+            <td mat-cell *matCellDef="let inpatientTreatment" class="cell-center"> {{inpatientTreatment.patient.name}} {{inpatientTreatment.patient.surname}} </td>
+        </ng-container>
+        <ng-container matColumnDef="reasonForAdmission">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> Reason for admission </th>
+            <td mat-cell *matCellDef="let inpatientTreatment" class="cell-center"> {{inpatientTreatment.reasonForAdmission}} </td>
+        </ng-container>
+        <ng-container matColumnDef="room">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> Room (number and type) </th>
+            <td mat-cell *matCellDef="let inpatientTreatment" class="cell-center"> {{inpatientTreatment.room.number}} - {{inpatientTreatment.room.type}} </td>
+        </ng-container>
+        <ng-container matColumnDef="bed">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> Bed </th>
+            <td mat-cell *matCellDef="let inpatientTreatment" class="cell-center"> {{inpatientTreatment.bed.label}} </td>
+        </ng-container>
+        <ng-container matColumnDef="dateOfAdmission">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> Date of admission </th>
+            <td mat-cell *matCellDef="let inpatientTreatment" class="cell-center"> {{inpatientTreatment.dateOfAdmission | date: "d.M.yyyy.  HH:mm"}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
