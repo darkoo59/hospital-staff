@@ -18,15 +18,6 @@ import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { HospitalComponent } from "./hospital.component";
 
-const routes: Routes = [
-  { path: 'rooms', component: RoomsComponent },
-  { path: 'rooms/add', component: CreateRoomComponent },
-  { path: 'rooms/:id', component: RoomDetailComponent },  
-  { path: 'rooms/:id/update', component: UpdateRoomComponent },
-  { path: 'appointments/add', component: CreateAppointmentComponent},
-  { path: 'appointment/:id/update', component: UpdateAppointmentComponent },
-  { path: 'vacations', component: VacationRequestsDisplayComponent },
-  { path: 'createvacation', component: CreateVacationComponent }
 
 const routes: Routes = [
   {
@@ -38,6 +29,8 @@ const routes: Routes = [
       { path: 'appointments/add', component: CreateAppointmentComponent },
       { path: 'appointment/:id/update', component: UpdateAppointmentComponent },
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
+      { path: 'vacations', component: VacationRequestsDisplayComponent },
+      { path: 'createvacation', component: CreateVacationComponent }
     ]
   }
 
