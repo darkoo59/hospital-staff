@@ -7,6 +7,8 @@ import { RoomsMapComponent } from "./modules/hospital/rooms-map/rooms-map.compon
 import { DoctorAppointmentDisplayComponent } from "./modules/pages/doctor-appointment-display/doctor-appointment-display.component";
 import { AuthGuard } from "./modules/pages/login/log-auth.guard";
 import { LoginComponent } from "./modules/pages/login/login.component";
+import { VacationRequestsDisplayComponent } from "./modules/hospital/vacation-requests-display/vacation-requests-display.component";
+import { CreateVacationComponent } from "./modules/hospital/create-vacation/create-vacation.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
     loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule),
     canActivate: [AuthGuard]
   },
+  { path: 'create-vacation-display', component : CreateVacationComponent  },
+  { path: 'vacation-requests-display' , component : VacationRequestsDisplayComponent },
   {
     path: 'hospital',
     loadChildren: () => import('./modules/hospital/hospital.module').then(m => m.HospitalModule),
