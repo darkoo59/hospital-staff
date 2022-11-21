@@ -17,6 +17,8 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { HospitalComponent } from "./hospital.component";
+import { CreateBloodUsageEvidencyComponent } from "./create-blood-usage-evidency/create-blood-usage-evidency.component";
+
 
 
 const routes: Routes = [
@@ -28,6 +30,7 @@ const routes: Routes = [
       { path: 'rooms/:id/update', component: UpdateRoomComponent },
       { path: 'appointments/add', component: CreateAppointmentComponent },
       { path: 'appointment/:id/update', component: UpdateAppointmentComponent },
+      { path: 'bloodUsageEvidency/add', component: CreateBloodUsageEvidencyComponent },
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
       { path: 'vacations', component: VacationRequestsDisplayComponent },
       { path: 'createvacation', component: CreateVacationComponent }
@@ -46,6 +49,7 @@ const routes: Routes = [
     UpdateRoomComponent,
     CreateAppointmentComponent,
     UpdateAppointmentComponent,
+    CreateBloodUsageEvidencyComponent,
     VacationRequestsDisplayComponent,
     CreateVacationComponent
   ],
