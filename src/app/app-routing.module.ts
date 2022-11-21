@@ -9,6 +9,7 @@ import { AuthGuard } from "./modules/pages/login/log-auth.guard";
 import { LoginComponent } from "./modules/pages/login/login.component";
 import { VacationRequestsDisplayComponent } from "./modules/hospital/vacation-requests-display/vacation-requests-display.component";
 import { CreateVacationComponent } from "./modules/hospital/create-vacation/create-vacation.component";
+import { VacationRequestsComponent } from "./modules/vacations/vacation-requests/vacation-requests.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'hospitalMap/hospital/:id', component: HospitalFloorComponent },
   { path: 'hospitalMap/hospital/:id/floor/:floorId', component: RoomsMapComponent },
   { path: 'hospitalMap/hospital/:id/floor/:floorId/room/:roomId', component: RoomsMapComponent },
+  { path: 'vacationRequests', component: VacationRequestsComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 

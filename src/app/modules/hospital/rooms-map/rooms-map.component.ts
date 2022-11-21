@@ -9,11 +9,20 @@ import { EquipmentService } from '../services/equipment.service';
 import { RoomMapService } from '../services/room-map.service';
 import {ViewChild} from '@angular/core';
 import { MatTable } from '@angular/material/table';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+
 
 @Component({
   selector: 'app-rooms-map',
   templateUrl: './rooms-map.component.html',
-  styleUrls: ['./rooms-map.component.scss']
+  styleUrls: ['./rooms-map.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ]
 })
 export class RoomsMapComponent implements OnInit {
 
@@ -30,15 +39,20 @@ export class RoomsMapComponent implements OnInit {
 
   @ViewChild(MatTable) equipmentTable!: MatTable<any>;
   displayedColumns = ['name', 'quantity'];
+  dispayedColumnsWithMove = [...this.displayedColumns, 'move'];
+
 
   buildingId: any = "A";
   floorId: any = 1;
   roomId!: any;
   selectedRoom: Room = new Room();
   selectedRoomEquipment: Equipment[] = [];
-
+  selectedEquipment? : Equipment | null;
+  allRooms: RoomMap[] = [];
+  
+  minDate: Date = new Date(2022, 10, 10);
+  
   ngOnInit(): void {
-
     if (this.buildingId == "A"){
       this.svgWidth = 400;
       this.svgHeight = 790;
@@ -52,6 +66,10 @@ export class RoomsMapComponent implements OnInit {
       this.rooms = res;
       this.createSvg();
       this.createRect(this.rooms, this.selectedRoom, this.selectedRoomEquipment, this.equipmentTable, this.roomId);
+    });
+
+    this.roomMapService.getAllRooms().subscribe(res => {
+      this.allRooms = res;
     });
 
     if(this.roomId != null){

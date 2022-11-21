@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { EquipmentSearchComponent } from "./modules/hospital/equipment-search/equipment-search.component";
 import { RoomsSearchComponent } from "./modules/hospital/rooms-search/rooms-search.component";
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { VacationRequestsComponent } from './modules/vacations/vacation-requests/vacation-requests.component';
 import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.service';
 
 
@@ -26,7 +28,8 @@ import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.serv
         HospitalFloorComponent,
         RoomsMapComponent,
         EquipmentSearchComponent,
-        RoomsSearchComponent
+        RoomsSearchComponent,
+        VacationRequestsComponent
     ],
     providers: [    
     {
@@ -45,7 +48,8 @@ import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.serv
         HospitalModule,
         Ng2SearchPipeModule,
         FormsModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatExpansionModule
     ]
 })
 export class AppModule { }
