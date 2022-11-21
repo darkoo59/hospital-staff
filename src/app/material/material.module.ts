@@ -16,6 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatListModule,
     MatToolbarModule,
     MatButtonToggleModule,
-    MatTabsModule
+    MatTabsModule,
+    MatRadioModule
   ],
   exports: [
     CommonModule,
@@ -56,7 +58,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatListModule,
     MatToolbarModule,
     MatButtonToggleModule,
-    MatTabsModule
+    MatTabsModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }

@@ -11,6 +11,7 @@ import { FeedbackComponent } from "./pages/feedback/feedback.component";
 import { BloodBankService } from "./services/blood-bank.service";
 import { ManagerService } from "./services/manager.service";
 import { GenericDataService } from "./services/generic-data.service";
+import { ReportConfigurationComponent } from "./pages/report-configuration/report-configuration.component";
 
 @NgModule({
   providers:[BloodBankService, ManagerService, GenericDataService],
@@ -19,6 +20,7 @@ import { GenericDataService } from "./services/generic-data.service";
     FeedbackComponent,
     BBRegisterComponent,
     ManagerNavComponent,
+    ReportConfigurationComponent
   ],
   imports: [
     CommonModule,
