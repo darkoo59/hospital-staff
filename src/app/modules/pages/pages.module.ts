@@ -5,7 +5,8 @@ import { HomeComponent } from './home/home.component';
 import { DoctorAppointmentDisplayComponent } from './doctor-appointment-display/doctor-appointment-display.component';
 import { MaterialModule } from "src/app/material/material.module";
 import { RouterModule, Routes } from "@angular/router";
-
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'appointments', component: DoctorAppointmentDisplayComponent },
@@ -15,10 +16,12 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     DoctorAppointmentDisplayComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     MaterialModule,
     RouterModule.forChild(routes),
   ]

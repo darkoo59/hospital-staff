@@ -1,0 +1,30 @@
+<section class="form">
+    <form class="inner" [formGroup]="m_Form" (ngSubmit)="onSubmit()">
+      <h1 class="heading">Login</h1>
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Username</mat-label>
+        <input type="username" matInput formControlName="username"
+                placeholder="Ex. example@gmail.com">
+        <mat-error *ngIf="m_Form.controls['username'].hasError('required')">
+          Username is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlName="password">
+        <mat-error *ngIf="m_Form.controls['password'].hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    
+      <div>
+        <mat-error *ngFor="let e of m_Errors">{{e}}</mat-error>
+      </div>
+  
+      <div class="button-group">
+        <button type="button" mat-button>Cancel</button>
+        <button mat-flat-button color="primary">Submit</button>
+      </div>
+    </form>
+  </section>

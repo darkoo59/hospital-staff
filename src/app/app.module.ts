@@ -1,4 +1,4 @@
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { EquipmentSearchComponent } from "./modules/hospital/equipment-search/equipment-search.component";
 import { RoomsSearchComponent } from "./modules/hospital/rooms-search/rooms-search.component";
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.service';
 
 
 
@@ -27,7 +28,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         EquipmentSearchComponent,
         RoomsSearchComponent
     ],
-    providers: [],
+    providers: [    
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true
+      },],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
