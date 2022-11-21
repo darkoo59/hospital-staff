@@ -7,6 +7,7 @@ import { RoomsMapComponent } from "./modules/hospital/rooms-map/rooms-map.compon
 import { DoctorAppointmentDisplayComponent } from "./modules/pages/doctor-appointment-display/doctor-appointment-display.component";
 import { VacationRequestsDisplayComponent } from "./modules/hospital/vacation-requests-display/vacation-requests-display.component";
 import { CreateVacationComponent } from "./modules/hospital/create-vacation/create-vacation.component";
+import { VacationRequestsComponent } from "./modules/vacations/vacation-requests/vacation-requests.component";
 
 
 const routes: Routes = [
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'hospitalMap/hospital/:id', component: HospitalFloorComponent },
   { path: 'hospitalMap/hospital/:id/floor/:floorId', component: RoomsMapComponent },
   { path: 'hospitalMap/hospital/:id/floor/:floorId/room/:roomId', component: RoomsMapComponent },
+  { path: 'vacationRequests', component: VacationRequestsComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 

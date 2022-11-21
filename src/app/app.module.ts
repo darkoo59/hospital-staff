@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { EquipmentSearchComponent } from "./modules/hospital/equipment-search/equipment-search.component";
 import { RoomsSearchComponent } from "./modules/hospital/rooms-search/rooms-search.component";
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { VacationRequestsComponent } from './modules/vacations/vacation-requests/vacation-requests.component';
 
 
 
@@ -25,7 +27,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         HospitalFloorComponent,
         RoomsMapComponent,
         EquipmentSearchComponent,
-        RoomsSearchComponent
+        RoomsSearchComponent,
+        VacationRequestsComponent
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -39,7 +42,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
         HospitalModule,
         Ng2SearchPipeModule,
         FormsModule,
-        MatPaginatorModule
+        MatPaginatorModule,
+        MatExpansionModule
     ]
 })
 export class AppModule { }

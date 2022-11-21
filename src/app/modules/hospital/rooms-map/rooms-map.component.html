@@ -17,21 +17,81 @@
                         <p><b>Zgrada: </b>{{selectedRoom.buildingId}}</p>
                         <p><b>Opis: </b>{{selectedRoom.description}}</p>
                         <p><b>Oprema: </b></p>
-                            <table #equipmentTable mat-table [dataSource]="selectedRoomEquipment">
-                              
+
+                            <table mat-table [dataSource]="selectedRoomEquipment" multiTemplateDataRows>
+
                                 <ng-container matColumnDef="name">
-                                  <th mat-header-cell *matHeaderCellDef>Naziv</th>
-                                  <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                    <th mat-header-cell *matHeaderCellDef>Naziv</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
                                 </ng-container>
-                              
-                                <ng-container matColumnDef="quantity">
-                                  <th mat-header-cell *matHeaderCellDef class="quantity-header">Količina</th>
-                                  <td mat-cell *matCellDef="let element" class="quantity-row"> {{element.quantity}} </td>
+                                
+                                  <ng-container matColumnDef="quantity">
+                                    <th mat-header-cell *matHeaderCellDef class="quantity-header">Količina</th>
+                                    <td mat-cell *matCellDef="let element" class="quantity-row"> {{element.quantity}} </td>
                                 </ng-container>
-                              
-                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                              </table>
+
+                                <ng-container matColumnDef="move">
+                                <th mat-header-cell *matHeaderCellDef aria-label="row actions">Premestanje</th>
+                                <td mat-cell *matCellDef="let element">
+                                    <button mat-icon-button aria-label="expand row" (click)="(selectedEquipment = selectedEquipment === element ? null : element); $event.stopPropagation()">
+                                    <mat-icon *ngIf="selectedEquipment !== element">keyboard_arrow_down</mat-icon>
+                                    <mat-icon *ngIf="selectedEquipment === element">keyboard_arrow_up</mat-icon>
+                                    </button>
+                                </td>
+                                </ng-container>
+
+                                <ng-container matColumnDef="expandedDetail">
+                                <td mat-cell *matCellDef="let element" [attr.colspan]="dispayedColumnsWithMove.length"  class="details-row">
+                                    <div class="example-element-detail"
+                                        [@detailExpand]="element == selectedEquipment ? 'expanded' : 'collapsed'">
+                                    
+                                        <h4 class="move-title">Premestanje<i> {{element.name}}</i>-a</h4>
+                                        <mat-form-field>
+                                            <mat-label>Kolicina</mat-label>
+                                            <input matInput type="number" placeholder="0" min= 0 max="{{element.quantity}}">
+                                        </mat-form-field>
+
+                                        <mat-form-field>
+                                            <mat-label>Odredisna prostorija</mat-label>
+                                            <mat-select>
+                                              <mat-option *ngFor = "let room of allRooms" value="{{room.roomId}}">{{room.number}}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+
+                                        <mat-form-field>
+                                            <mat-label>Vremenski interval</mat-label>
+                                            <mat-date-range-input [rangePicker]="picker">
+                                              <input matStartDate placeholder="Od" [min]="minDate">
+                                              <input matEndDate placeholder="Do">
+                                            </mat-date-range-input>
+                                            <!--<mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>-->
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-date-range-picker #picker></mat-date-range-picker>
+                                        </mat-form-field>
+
+                                        <mat-form-field>
+                                            <mat-label>Trajanje</mat-label>
+                                            <input matInput type="number" placeholder="0" min=0 step=10>
+                                            <span matSuffix> minuta</span>
+                                        </mat-form-field>
+
+                                            <button mat-flat-button color="primary" class="move-equipment-btn">Premesti</button>
+
+
+                                    </div>
+                                </td>
+                                </ng-container>
+
+
+                                <tr mat-header-row *matHeaderRowDef="dispayedColumnsWithMove"></tr>
+                                <tr mat-row *matRowDef="let element; columns: dispayedColumnsWithMove;"
+                                    class="example-element-row"
+                                    [class.example-expanded-row]="selectedEquipment === element"
+                                    (click)="selectedEquipment = selectedEquipment === element ? null : element">
+                                </tr>
+                                <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                                  
+                            </table>
                     </mat-card-content>
                 </mat-card>
             </div>
