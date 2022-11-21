@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  integrationApiUrl: 'http://localhost:45488/api'
+  integrationApiUrl: 'http://localhost:45488/api',
+  hospitalApiUrl:'http://localhost:16177/api'
 };
 
 /*
