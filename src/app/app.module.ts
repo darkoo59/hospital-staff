@@ -1,4 +1,4 @@
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
@@ -17,6 +17,7 @@ import { RoomsSearchComponent } from "./modules/hospital/rooms-search/rooms-sear
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { VacationRequestsComponent } from './modules/vacations/vacation-requests/vacation-requests.component';
+import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.service';
 
 
 
@@ -30,7 +31,12 @@ import { VacationRequestsComponent } from './modules/vacations/vacation-requests
         RoomsSearchComponent,
         VacationRequestsComponent
     ],
-    providers: [],
+    providers: [    
+    {
+        provide: HTTP_INTERCEPTORS,
+        useClass: AuthInterceptor,
+        multi: true
+      },],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
