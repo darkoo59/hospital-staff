@@ -2,7 +2,7 @@ import { Component, Inject } from "@angular/core";
 import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { EMPTY, exhaustMap, Subject, tap } from "rxjs";
-import { BloodReqService } from "../services/blood-req.service";
+import { BloodReqService } from "../../services/blood-req.service";
 
 @Component({
   templateUrl: './update-dialog.component.html'

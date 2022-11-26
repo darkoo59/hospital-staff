@@ -60,7 +60,7 @@ const routes: Routes = [
     CreateBloodRequestComponent,
     InpatientTreatmentsComponent,
     CreateInpatientTreatmentComponent,
-    CreateInpatientTreatmentTherapyComponent
+    CreateInpatientTreatmentTherapyComponent,
     CreateBloodUsageEvidencyComponent,
     VacationRequestsDisplayComponent,
     CreateVacationComponent

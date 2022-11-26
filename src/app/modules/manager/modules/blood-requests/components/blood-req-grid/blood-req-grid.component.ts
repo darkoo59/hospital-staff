@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 import { Observable } from "rxjs";
-import { BloodRequest } from "../../../model/blood-request.model";
-import { BloodReqService } from "../services/blood-req.service";
+import { BloodRequest } from "../../../../model/blood-request.model";
+import { BloodReqService } from "../../services/blood-req.service";
 
 @Component({
   selector: 'blood-req-grid',

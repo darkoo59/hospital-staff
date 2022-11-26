@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { ActivatedRoute } from "@angular/router";
 import { Observable, tap } from "rxjs";
+import { NavRoute } from "../../components/nav/manager-nav.component";
 import { BloodRequest } from "../../model/blood-request.model";
-import { NavRoute } from "../../nav/manager-nav.component";
 import { BloodReqService } from "./services/blood-req.service";
 
 @Component({
