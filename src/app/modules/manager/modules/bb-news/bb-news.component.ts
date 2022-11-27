@@ -3,7 +3,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { ActivatedRoute } from "@angular/router";
 import { Observable, tap } from "rxjs";
 import { NavRoute } from "../../components/nav/manager-nav.component";
-import { BBNews } from "../../model/bb-news.model";
+import { BBNews } from "./model/bb-news.model";
 import { BBNewsService } from "../../modules/bb-news/services/bb-news.service";
 
 @Component({

@@ -3,7 +3,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { ActivatedRoute } from "@angular/router";
 import { Observable, tap } from "rxjs";
 import { NavRoute } from "../../components/nav/manager-nav.component";
-import { BloodRequest } from "../../model/blood-request.model";
+import { BloodRequest } from "./model/blood-request.model";
 import { BloodReqService } from "./services/blood-req.service";
 
 @Component({

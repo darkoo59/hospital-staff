@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, tap, take } from "rxjs";
 import { environment } from "src/environments/environment";
-import { BBNews } from "../../../model/bb-news.model";
+import { BBNews } from "../model/bb-news.model";
 import { GenericDataService } from "../../../services/generic-data.service";
 
 @Injectable()

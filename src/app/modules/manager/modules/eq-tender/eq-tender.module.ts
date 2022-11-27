@@ -4,14 +4,18 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { NgLetModule } from "ng-let";
 import { MaterialModule } from "src/app/material/material.module";
 import { PageLoaderModule } from "../../components/page-loader/page-loader.module";
+import { TenderListComponent } from "./components/tender-list.component";
 import { EqTenderRoutingModule } from "./eq-tender-routing.module";
 import { EqTenderComponent } from "./eq-tender.component";
+import { AllEqTendersComponent } from "./pages/all-eq-tenders.component";
 import { EqTenderService } from "./services/eq-tender.service";
 
 @NgModule({
   providers: [EqTenderService],
   declarations: [
-    EqTenderComponent
+    EqTenderComponent,
+    AllEqTendersComponent,
+    TenderListComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +27,4 @@ import { EqTenderService } from "./services/eq-tender.service";
   ],
   exports: []
 })
-export class EqTenderModule {
-  
-}
+export class EqTenderModule { }
