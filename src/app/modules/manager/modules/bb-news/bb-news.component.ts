@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { ActivatedRoute } from "@angular/router";
-import { Observable, tap } from "rxjs";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
+import { filter, Observable, tap } from "rxjs";
 import { NavRoute } from "../../components/nav/manager-nav.component";
 import { BBNews } from "./model/bb-news.model";
 import { BBNewsService } from "../../modules/bb-news/services/bb-news.service";
@@ -38,13 +38,25 @@ export class BBNewsComponent implements OnInit, OnDestroy {
     }
   ];
 
-  activeLink: string = this.m_Routes[0].path;
+  m_ActiveLink: string = this.m_Routes[0].path;
+  m_ActiveLink$ = this.m_Router.events.pipe(
+    filter((event: any) => event instanceof NavigationEnd),
+    tap((route: any) => {
+      const arr = route.url.split('/');
+      this.m_ActiveLink = arr[arr.length - 1];
+      if(this.m_ActiveLink === 'bb-news')
+        this.m_ActiveLink = 'new';
+    })
+  );
   m_Loading: boolean = true;
 
-  constructor(private m_Route: ActivatedRoute, private m_BBNewsService: BBNewsService, private m_SnackBar: MatSnackBar) { }
+  constructor(private m_Route: ActivatedRoute, 
+              private m_BBNewsService: BBNewsService, 
+              private m_SnackBar: MatSnackBar, 
+              private m_Router: Router) { }
 
   ngOnInit() {
-    this.activeLink = this.m_Route.snapshot.firstChild?.url[0].path!;
+    this.m_ActiveLink = this.m_Route.snapshot.firstChild?.url[0].path!;
   }
 
   ngOnDestroy() {
@@ -52,7 +64,7 @@ export class BBNewsComponent implements OnInit, OnDestroy {
   }
 
   changeTab(path: string): void {
-    this.activeLink = path
+    this.m_ActiveLink = path
   }
 
 }

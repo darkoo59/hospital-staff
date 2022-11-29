@@ -1,0 +1,12 @@
+.list {
+  display: block;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.card{
+  margin-top: 20px;
+  &:first-child{
+    margin-top: 0px;
+  }
+}

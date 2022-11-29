@@ -1,9 +1,11 @@
-export interface EqRequirement {
-  item: string;
+export interface TenderItem {
+  name: string;
   amount: number;
 }
 
 export interface EqTender {
   title: string;
-  requirements: EqRequirement[];
+  expiresOn: Date;
+  description: string;
+  requirements: TenderItem[];
 }

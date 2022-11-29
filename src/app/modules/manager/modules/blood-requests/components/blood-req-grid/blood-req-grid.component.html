@@ -1,4 +1,4 @@
-<div *ngLet="(m_Data | async) as dataList">
+<div *ngLet="(m_Data$ | async) as dataList">
   <div class="grid" *ngIf="dataList">
     <div *ngFor="let data of dataList">
       <mat-card *ngIf="data" class="card">

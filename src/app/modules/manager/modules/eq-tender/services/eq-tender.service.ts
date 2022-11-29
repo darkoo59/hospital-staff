@@ -1,62 +1,24 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { Observable, of, tap } from "rxjs";
+import { environment } from "src/environments/environment";
 import { GenericDataService } from "../../../services/generic-data.service";
 import { EqTender } from "../model/eq-tender.model";
 
 @Injectable()
 export class EqTenderService extends GenericDataService<EqTender[]> {
 
+  constructor(private m_Http: HttpClient) { super() }
+
   fetchTenders(): Observable<any> {
-    const temp: EqTender[] = [
-      {
-        title: 'Tender 1',
-        requirements: [
-          {
-            item: 'stolice',
-            amount: 10
-          },
-          {
-            item: 'kreveti',
-            amount: 51
-          },
-          {
-            item: 'stolovi',
-            amount: 51
-          }
-        ]
-      },
-      {
-        title: 'Tender 2',
-        requirements: [
-          {
-            item: 'stolice',
-            amount: 31
-          },
-          {
-            item: 'stolovi',
-            amount: 25
-          },
-        ]
-      },
-      {
-        title: 'Tender 3',
-        requirements: [
-          {
-            item: 'stolice',
-            amount: 512
-          },
-          {
-            item: 'kreveti',
-            amount: 211
-          },
-          {
-            item: 'stolovi',
-            amount: 152
-          }
-        ]
-      }
-    ];
-    this.setData = temp;
-    return of(123);
+    return this.addErrorHandler(this.m_Http.get(`${environment.integrationApiUrl}/EquipmentTender`).pipe(
+      tap((res:any) => {
+        this.setData = res
+      })
+    ));
+  }
+
+  createTender(tender: EqTender): Observable<any> {
+    return this.addErrorHandler(this.m_Http.post(`${environment.integrationApiUrl}/EquipmentTender`, tender));
   }
 }
