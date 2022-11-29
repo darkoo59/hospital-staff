@@ -1,9 +1,8 @@
-import { DialogRef } from "@angular/cdk/dialog";
 import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { Subject, switchMap, Observable, tap, EMPTY, of } from "rxjs";
+import { Subject, switchMap, Observable, EMPTY } from "rxjs";
 import { BloodReqService } from "../services/blood-req.service";
-import { UpdateDialogComponent } from "../update-dialog/update-dialog.component";
+import { UpdateDialogComponent } from "../components/update-dialog/update-dialog.component";
 
 @Component({
   template: `

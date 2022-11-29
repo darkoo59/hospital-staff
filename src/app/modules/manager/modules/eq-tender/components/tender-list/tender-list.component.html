@@ -1,0 +1,13 @@
+<div class="list" *ngIf="(m_Data$ | async) as dataList">
+  <mat-card class="card" *ngFor="let tender of dataList">
+    <mat-card-header>
+      <mat-card-title>{{tender.title}}</mat-card-title>
+      <mat-card-subtitle *ngIf="!isInPast(tender.expiresOn)">expires on: {{tender.expiresOn | date:'medium'}}</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="isInPast(tender.expiresOn)" style="color: red;">expired on: {{tender.expiresOn | date:'medium'}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{tender.description}}</p>
+      <tender-item-list *ngIf="tender.requirements && tender.requirements.length != 0" [i_Items]="tender.requirements"></tender-item-list>
+    </mat-card-content>
+  </mat-card>
+</div>

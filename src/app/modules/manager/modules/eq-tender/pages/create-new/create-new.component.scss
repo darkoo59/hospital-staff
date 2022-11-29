@@ -1,0 +1,26 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-gap: 10px;
+  .double{
+    grid-column: 1 / span 2;
+  }
+}
+
+.outer {
+  margin-top: 35px;
+  margin-bottom: 100px;
+}
+
+textarea {
+  min-height: 80px;
+  max-height: 200px;
+}
+
+.button-group{
+  display: flex;
+  justify-content: right;
+  & > button:not(:first-child){
+    margin-left: 15px;
+  }
+}

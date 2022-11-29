@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from "@angular/core";
 import { Observable } from "rxjs";
-import { BBNews } from "../../../model/bb-news.model";
+import { BBNews } from "../model/bb-news.model";
 import { BBNewsService } from "../services/bb-news.service";
 
 @Component({

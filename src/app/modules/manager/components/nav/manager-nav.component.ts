@@ -27,6 +27,10 @@ export class ManagerNavComponent {
     {
       path: 'blood-req',
       title: 'Blood Requests'
+    },
+    {
+      path: 'eq-tender',
+      title: 'Equipment Tenders'
     }
   ];
 
