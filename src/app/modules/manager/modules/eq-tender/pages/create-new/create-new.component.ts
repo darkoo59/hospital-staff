@@ -38,7 +38,10 @@ export class CreateNewComponent {
   onSubmit(): void {
     if (!this.m_Form.valid) return;
 
-    let tender: EqTender = this.m_Form.getRawValue();
+    let raw = this.m_Form.getRawValue();
+    if(raw.expiresOn == '') raw.expiresOn = null;
+
+    let tender: EqTender = raw;
     tender.requirements = this.m_Items;
     console.log(tender);
     this.m_Create$.next(tender);

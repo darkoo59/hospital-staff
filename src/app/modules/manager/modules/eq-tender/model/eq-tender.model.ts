@@ -5,7 +5,7 @@ export interface TenderItem {
 
 export interface EqTender {
   title: string;
-  expiresOn: Date;
+  expiresOn: Date | null;
   description: string;
   requirements: TenderItem[];
 }
