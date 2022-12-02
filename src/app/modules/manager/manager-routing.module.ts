@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { ManagerComponent } from "./manager.component";
+import { UrgentOrderComponent } from "./modules/urgent-order/urgent-order.component";
 import { BBRegisterComponent } from "./pages/bb-register/bb-register.component";
 import { FeedbackComponent } from "./pages/feedback/feedback.component";
 
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'eq-tender',
         loadChildren: () => import('./modules/eq-tender/eq-tender.module').then(m => m.EqTenderModule)
+      },
+      {
+        path: 'urgent-order',
+        component: UrgentOrderComponent
       },
       { path: '**', redirectTo: 'feedback', pathMatch: 'full' },
     ]

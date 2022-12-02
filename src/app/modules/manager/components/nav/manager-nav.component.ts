@@ -31,6 +31,10 @@ export class ManagerNavComponent {
     {
       path: 'eq-tender',
       title: 'Equipment Tenders'
+    },
+    {
+      path: 'urgent-order',
+      title: 'Urgent Blood Order'
     }
   ];
 

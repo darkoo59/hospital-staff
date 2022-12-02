@@ -10,6 +10,7 @@ import { FeedbackComponent } from "./pages/feedback/feedback.component";
 import { BloodBankService } from "./services/blood-bank.service";
 import { ManagerService } from "./services/manager.service";
 import { ManagerNavComponent } from "./components/nav/manager-nav.component";
+import { UrgentOrderComponent } from "./modules/urgent-order/urgent-order.component";
 
 @NgModule({
   providers:[BloodBankService, ManagerService],
@@ -18,6 +19,7 @@ import { ManagerNavComponent } from "./components/nav/manager-nav.component";
     FeedbackComponent,
     BBRegisterComponent,
     ManagerNavComponent,
+    UrgentOrderComponent
   ],
   imports: [
     CommonModule,
