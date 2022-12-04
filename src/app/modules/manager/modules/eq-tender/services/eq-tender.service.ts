@@ -11,11 +11,13 @@ export class EqTenderService extends GenericDataService<EqTender[]> {
   constructor(private m_Http: HttpClient) { super() }
 
   fetchTenders(): Observable<any> {
-    return this.addErrorHandler(this.m_Http.get(`${environment.integrationApiUrl}/EquipmentTender`).pipe(
-      tap((res:any) => {
-        this.setData = res
-      })
+    return this.addErrorReader(this.m_Http.get(`${environment.integrationApiUrl}/EquipmentTender`).pipe(
+      tap((res:any) => this.setData = res)
     ));
+  }
+
+  fetchTenderWithApplications(id: number) {
+    return this.m_Http.get(`${environment.integrationApiUrl}/EquipmentTender/application/tender/${id}`).pipe(tap(e => console.log(e)));
   }
 
   createTender(tender: EqTender): Observable<any> {

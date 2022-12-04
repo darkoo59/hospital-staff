@@ -8,18 +8,23 @@ import { TenderItemListComponent } from "./components/tender-item-list/tender-it
 import { TenderListComponent } from "./components/tender-list/tender-list.component";
 import { EqTenderRoutingModule } from "./eq-tender-routing.module";
 import { EqTenderComponent } from "./eq-tender.component";
-import { AllEqTendersComponent } from "./pages/all-eq-tenders.component";
+import { AllTendersComponent } from "./pages/all-tenders.component";
+import { ApplicationsComponent } from "./pages/applications/applications.component";
 import { CreateNewComponent } from "./pages/create-new/create-new.component";
+import { TendersComponent } from "./pages/tenders.component";
 import { EqTenderService } from "./services/eq-tender.service";
+import { LoadingService } from "./services/loading.service";
 
 @NgModule({
-  providers: [EqTenderService],
+  providers: [EqTenderService, LoadingService],
   declarations: [
     EqTenderComponent,
     TenderListComponent,
     TenderItemListComponent,
-    AllEqTendersComponent,
-    CreateNewComponent
+    AllTendersComponent,
+    CreateNewComponent,
+    TendersComponent,
+    ApplicationsComponent
   ],
   imports: [
     CommonModule,

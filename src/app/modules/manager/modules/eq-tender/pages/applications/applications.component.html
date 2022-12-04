@@ -1,0 +1,12 @@
+<section class="plain" *ngLet="{tender: m_Tender$ | async} as vm">
+  <div *ngIf="!m_Loading">
+    <button mat-button [routerLink]="['..']" class="btn-back">
+      <mat-icon>keyboard_return</mat-icon>
+      <span style="padding-left: 15px;">go back</span>
+    </button>
+
+    <!-- <create-tender-offer-list *ngIf="vm.tender" [i_Tender]="vm.tender"></create-tender-offer-list> -->
+  </div>
+  
+  <page-loader *ngIf="m_Loading"></page-loader>
+</section>
