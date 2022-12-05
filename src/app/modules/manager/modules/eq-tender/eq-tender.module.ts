@@ -4,7 +4,10 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { NgLetModule } from "ng-let";
 import { MaterialModule } from "src/app/material/material.module";
 import { PageLoaderModule } from "../../components/page-loader/page-loader.module";
-import { TenderItemListComponent } from "./components/tender-item-list/tender-item-list.component";
+import { ApplicationListComponent } from "./components/application-list/application-list.component";
+import { OfferListComponent } from "./components/application-list/offer-list/offer-list.component";
+import { ConfirmDialogComponent } from "./components/confirm-dialog/confirm-dialog.component";
+import { TenderItemListComponent } from "./components/tender-list/tender-item-list/tender-item-list.component";
 import { TenderListComponent } from "./components/tender-list/tender-list.component";
 import { EqTenderRoutingModule } from "./eq-tender-routing.module";
 import { EqTenderComponent } from "./eq-tender.component";
@@ -24,7 +27,10 @@ import { LoadingService } from "./services/loading.service";
     AllTendersComponent,
     CreateNewComponent,
     TendersComponent,
-    ApplicationsComponent
+    ApplicationsComponent,
+    ApplicationListComponent,
+    OfferListComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,

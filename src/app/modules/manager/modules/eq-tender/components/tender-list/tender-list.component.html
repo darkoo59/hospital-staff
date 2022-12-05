@@ -2,11 +2,15 @@
   <div *ngIf="dataList && dataList.length != 0" class="list">
     <mat-card class="card" *ngFor="let tender of dataList">
       <mat-card-header>
-        <mat-card-title>{{tender.title}}</mat-card-title>
-        <mat-card-subtitle *ngIf="!tender.expiresOn" style="color: green;">expires: never</mat-card-subtitle>
-        <mat-card-subtitle *ngIf="tender.expiresOn && !isInPast(tender.expiresOn)" style="color: green;">expires on:
+        <mat-card-title>
+          <span>{{tender.title}}</span>&nbsp;
+          <span class="tender-status" *ngIf="tender.state == 1"><i>(confirmation pending...)</i></span>
+          <span class="tender-status closed" *ngIf="tender.state == 2"><i>(tender closed...)</i></span>
+        </mat-card-title>
+        <mat-card-subtitle *ngIf="!tender.expiresOn && tender.state != 2" style="color: green;">expires: never</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="tender.expiresOn && !isInPast(tender.expiresOn) && tender.state != 2" style="color: green;">expires on:
           {{tender.expiresOn | date:'medium'}}</mat-card-subtitle>
-        <mat-card-subtitle *ngIf="tender.expiresOn && isInPast(tender.expiresOn)" style="color: red;">expired on:
+        <mat-card-subtitle *ngIf="tender.expiresOn && isInPast(tender.expiresOn) && tender.state != 2" style="color: red;">expired on:
           {{tender.expiresOn | date:'medium'}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>

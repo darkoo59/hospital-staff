@@ -30,4 +30,13 @@ export class ApplicationsComponent {
   );
 
   constructor(private m_Route: ActivatedRoute, private m_Router: Router, private m_EqTenderService: EqTenderService) { }
+
+  isInPast(date: Date | null): boolean {
+    if (!date) return false;
+    var now = new Date();
+    var n = new Date(date)
+    now.setHours(0, 0, 0, 0);
+    if (n <= now) return true;
+    return false;
+  }
 }

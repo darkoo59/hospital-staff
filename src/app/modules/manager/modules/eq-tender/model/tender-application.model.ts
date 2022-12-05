@@ -1,3 +1,4 @@
+import { BloodBank } from "../../../model/blood-bank.model";
 import { EqTender, TenderItem } from "./eq-tender.model";
 
 export interface TenderOffer {
@@ -12,4 +13,6 @@ export interface TenderApplication {
   totalCost: number;
   equipmentTender: EqTender;
   tenderOffers: TenderOffer[];
+  hasWon: boolean;
+  user?: BloodBank;
 }

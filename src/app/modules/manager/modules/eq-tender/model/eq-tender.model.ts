@@ -1,3 +1,5 @@
+import { TenderApplication } from "./tender-application.model";
+
 export interface TenderItem {
   id: number;
   name: string;
@@ -10,4 +12,6 @@ export interface EqTender {
   expiresOn: Date | null;
   description: string;
   requirements: TenderItem[];
+  state: number;
+  tenderApplications?: TenderApplication[];
 }
