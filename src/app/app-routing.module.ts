@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'hospital',
     loadChildren: () => import('./modules/hospital/hospital.module').then(m => m.HospitalModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },
   { path: 'hospitalMap', component: HospitalMapComponent },

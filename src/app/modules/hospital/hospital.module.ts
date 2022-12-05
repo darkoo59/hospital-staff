@@ -22,7 +22,11 @@ import { InpatientTreatmentsComponent } from './inpatient-treatments/inpatient-t
 import { CreateInpatientTreatmentComponent } from './create-inpatient-treatment/create-inpatient-treatment.component';
 import { CreateInpatientTreatmentTherapyComponent } from './create-inpatient-treatment-therapy/create-inpatient-treatment-therapy.component';
 import { CreateBloodUsageEvidencyComponent } from "./create-blood-usage-evidency/create-blood-usage-evidency.component";
-
+import { MatIconModule } from "@angular/material/icon";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { CreateExaminationReportComponent } from './create-examination-report/create-examination-report.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { NgSelectModule } from '@ng-select/ng-select'; 
 
 
 const routes: Routes = [
@@ -60,10 +64,11 @@ const routes: Routes = [
     CreateBloodRequestComponent,
     InpatientTreatmentsComponent,
     CreateInpatientTreatmentComponent,
-    CreateInpatientTreatmentTherapyComponent
+    CreateInpatientTreatmentTherapyComponent,
     CreateBloodUsageEvidencyComponent,
     VacationRequestsDisplayComponent,
-    CreateVacationComponent
+    CreateVacationComponent,
+    CreateExaminationReportComponent,
   ],
   imports: [
     CommonModule,
@@ -74,9 +79,13 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatStepperModule,
+    NgSelectModule
   ],
-  exports: [RouterModule],
+  exports: [RouterModule], 
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'en-EN' }
   ]
