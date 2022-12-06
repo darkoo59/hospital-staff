@@ -1,6 +1,6 @@
 import { Component, Input, ViewChild } from "@angular/core";
 import { MatTable } from "@angular/material/table";
-import { TenderItem } from "../../model/eq-tender.model";
+import { TenderItem } from "../../../model/eq-tender.model";
 
 @Component({
   selector: 'tender-item-list',

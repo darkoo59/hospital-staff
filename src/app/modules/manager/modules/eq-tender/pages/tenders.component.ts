@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
   template: `
-    <tender-list></tender-list>
+    <router-outlet></router-outlet>
   `
 })
-export class AllEqTendersComponent { }
+export class TendersComponent { }
