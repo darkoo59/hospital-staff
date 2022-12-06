@@ -1,17 +1,11 @@
 <section class="page-container" *ngLet="{
-  error: m_Error$ | async, 
-  loading: m_Loading$ | async, 
-  data: m_FetchData$ | async, 
   a: m_ActiveLink$ | async
 } as vm">
   <nav class="tabs" mat-tab-nav-bar [tabPanel]="tabPanel">
     <a mat-tab-link *ngFor="let link of m_Routes" [routerLink]="link.path" (click)="changeTab(link.path)"
       [active]="m_ActiveLink == link.path"> {{link.title}} </a>
   </nav>
-  <page-loader *ngIf="vm.loading"></page-loader>
   <mat-tab-nav-panel #tabPanel>
-    <div *ngIf="!vm.loading">
-      <router-outlet></router-outlet>
-    </div>
+    <router-outlet></router-outlet>
   </mat-tab-nav-panel>
 </section>

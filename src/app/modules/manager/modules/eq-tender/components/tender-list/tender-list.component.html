@@ -7,11 +7,13 @@
           <span class="tender-status" *ngIf="tender.state == 1"><i>(confirmation pending...)</i></span>
           <span class="tender-status closed" *ngIf="tender.state == 2"><i>(tender closed...)</i></span>
         </mat-card-title>
-        <mat-card-subtitle *ngIf="!tender.expiresOn && tender.state != 2" style="color: green;">expires: never</mat-card-subtitle>
-        <mat-card-subtitle *ngIf="tender.expiresOn && !isInPast(tender.expiresOn) && tender.state != 2" style="color: green;">expires on:
-          {{tender.expiresOn | date:'medium'}}</mat-card-subtitle>
-        <mat-card-subtitle *ngIf="tender.expiresOn && isInPast(tender.expiresOn) && tender.state != 2" style="color: red;">expired on:
-          {{tender.expiresOn | date:'medium'}}</mat-card-subtitle>
+
+        <mat-card-subtitle *ngIf="!tender.expiresOn && tender.state != 2" style="color: green;">expires: never
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="tender.expiresOn">
+          <span *ngIf="!isInPast(tender.expiresOn) && tender.state != 2" style="color: green;">{{tender.expiresOn | date:'medium'}}</span>
+          <span *ngIf="isInPast(tender.expiresOn) && tender.state != 2" style="color: red;">{{tender.expiresOn | date:'medium'}}</span>
+        </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <p>{{tender.description}}</p>

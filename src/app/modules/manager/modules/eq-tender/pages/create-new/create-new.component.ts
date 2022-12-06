@@ -30,7 +30,6 @@ export class CreateNewComponent {
     exhaustMap((tender: any) => {
       return this.m_EqTenderService.createTender(tender).pipe(
         tap(_ => this.m_SnackBar.open("Tender has been created successfully", 'close', { duration: 4000 })),
-        exhaustMap(_ => this.m_LoadingService.loadData()),
         tap(_ => this.m_Router.navigate(['/manager/eq-tender/all']))
       );
     })

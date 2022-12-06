@@ -13,12 +13,10 @@
       </mat-card-title>
       <mat-card-subtitle *ngIf="!vm.tender.expiresOn && vm.tender.state != 2" style="color: green;">expires: never
       </mat-card-subtitle>
-      <mat-card-subtitle *ngIf="vm.tender.expiresOn && !isInPast(vm.tender.expiresOn) && vm.tender.state != 2"
-        style="color: green;">expires on:
-        {{vm.tender.expiresOn | date:'medium'}}</mat-card-subtitle>
-      <mat-card-subtitle *ngIf="vm.tender.expiresOn && isInPast(vm.tender.expiresOn) && vm.tender.state != 2"
-        style="color: red;">expired on:
-        {{vm.tender.expiresOn | date:'medium'}}</mat-card-subtitle>
+      <mat-card-subtitle *ngIf="vm.tender.expiresOn">
+        <span *ngIf="!isInPast(vm.tender.expiresOn) && vm.tender.state != 2" style="color: green;">{{vm.tender.expiresOn | date:'medium'}}</span>
+        <span *ngIf="isInPast(vm.tender.expiresOn) && vm.tender.state != 2" style="color: red;">{{vm.tender.expiresOn | date:'medium'}}</span>
+      </mat-card-subtitle>
     </mat-card>
     <mat-divider class="divider"></mat-divider>
     <application-list *ngIf="vm.tender" [i_Tender]="vm.tender"></application-list>

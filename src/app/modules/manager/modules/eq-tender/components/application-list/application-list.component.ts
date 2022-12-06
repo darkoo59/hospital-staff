@@ -18,7 +18,6 @@ export class ApplicationListComponent {
 
   constructor(private m_Dialog: MatDialog, 
               private m_EqTenderService: EqTenderService, 
-              private m_LoadingService: LoadingService,
               private m_Router: Router,
               private m_Route: ActivatedRoute,
               private m_SnackBar: MatSnackBar) { }
@@ -36,7 +35,7 @@ export class ApplicationListComponent {
     exhaustMap((id: number) => {
       return this.openDialog(id).afterClosed().pipe(
         exhaustMap(ret => {
-          return ret ? this.m_LoadingService.loadData() : EMPTY;
+          return ret ? of({}) : EMPTY;
         }),
         tap(_ => {
           this.m_SnackBar.open("Winner has been chosen successfully", 'close', { duration: 4000 })
