@@ -39,10 +39,5 @@ export class CreateConsiliumComponent implements OnInit {
     this.doctorService.getDoctors().subscribe(res => {
       this.Doctors = res;
     })
-    /*this.consilium.doctorIds.push(1);  
-    this.consilium.doctorIds.push(2);
-    this.consilium.doctorIds.push(3);
-    this.consilium.doctorIds.push(4);  */ 
   }
-
 }

@@ -3,11 +3,6 @@
 </h1>
 
 <div>
-    <label>Topic:</label>
-    <input type="text" *[(ngModel)]="consilium.topic"/>
-</div>
-
-<div>
     <mat-form-field id="mat1">
         <mat-label>Start Date:</mat-label>
         <input matInput [matDatepicker]="picker" [(ngModel)]="consilium.dateRangeStart" [min]="minDate" placeholder="Choose a date">
@@ -22,6 +17,12 @@
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1 ></mat-datepicker>
     </mat-form-field>
+</div>
+<div>
+    <mat-form-field>
+            <mat-label>Topic:</mat-label>
+            <input type="email" matInput placeholder="Ex. pat@example.com" [(ngModel)]="consilium.topic">
+    </mat-form-field>   
 </div>
 <div>
     <mat-form-field appearance="fill">
