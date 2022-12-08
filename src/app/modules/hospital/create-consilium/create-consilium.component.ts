@@ -26,6 +26,7 @@ export class CreateConsiliumComponent implements OnInit {
   public CreateConsilium(consilium: Consilium) {
     this.consiliumService.CreateConsilium(consilium).subscribe(res=> {
       this.consilium = res;
+      alert("You have successfully created a consilium!");
     })
   }
 
