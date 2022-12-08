@@ -1,0 +1,55 @@
+<h1>
+    Create consilium
+</h1>
+
+<div>
+    <label>Topic:</label>
+    <input type="text" *[(ngModel)]="consilium.topic"/>
+</div>
+
+<div>
+    <mat-form-field id="mat1">
+        <mat-label>Start Date:</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="consilium.dateRangeStart" [min]="minDate" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field>
+        <mat-label>End Date:</mat-label>
+        <input matInput [matDatepicker]="picker1" [(ngModel)]="consilium.dateRangeEnd" [min]="minDate" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1 ></mat-datepicker>
+    </mat-form-field>
+</div>
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label>Select duration:</mat-label>
+        <mat-select [(ngModel)]="consilium.duration">
+          <mat-option value="30">30</mat-option>
+          <mat-option value="60">60</mat-option>
+          <mat-option value="90">90</mat-option>
+          <mat-option value="120">120</mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+
+<div>
+    <mat-form-field>
+        <mat-select multiple name="type_list" [(ngModel)]="consilium.doctorIds" (ngModelChange)="handleOptionChange()">
+           <mat-option class="comboSelect" *ngFor="let doctor of Doctors" [value]="doctor.doctorId"> 
+                {{doctor.name + doctor.surname}}
+           </mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+
+<div>
+    <button (click)="CreateConsilium(consilium)">
+        Create
+    </button>
+</div>
+
+
+
