@@ -10,3 +10,12 @@
     margin-top: 0px;
   }
 }
+
+.tender-status {
+  font-size: 15px;
+  opacity: 0.7;
+  color: blue;
+  &.closed{
+    color:red;
+  }
+}

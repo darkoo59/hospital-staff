@@ -13,7 +13,8 @@ export class TenderListComponent {
 
   constructor(private m_EqTenderService: EqTenderService) { }
 
-  isInPast(date: Date): boolean {
+  isInPast(date: Date | null): boolean {
+    if(!date) return false;
     var now = new Date();
     var n = new Date(date)
     now.setHours(0,0,0,0);
