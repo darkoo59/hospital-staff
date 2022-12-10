@@ -14,6 +14,8 @@ export class ConsiliumService {
   constructor(private http: HttpClient) { }
 
   CreateConsilium(consilium:Consilium):Observable<any>{
+    consilium.dateRangeStart.setHours(1);
+    consilium.dateRangeEnd.setHours(1);
     return this.http.post<Consilium[]>(this.apiHost + "api/consilium", consilium, {headers: this.headers});
   }
 }
