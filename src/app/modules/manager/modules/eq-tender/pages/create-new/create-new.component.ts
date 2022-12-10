@@ -19,7 +19,7 @@ export class CreateNewComponent {
   });
 
   m_ItemForm: UntypedFormGroup = new UntypedFormGroup({
-    'name': new UntypedFormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
+    'type': new UntypedFormControl(null, [Validators.required, Validators.minLength(5), Validators.maxLength(50)]),
     'amount': new UntypedFormControl(null, [Validators.required])
   });
 
@@ -34,11 +34,11 @@ export class CreateNewComponent {
       );
     })
   ) as Subject<EqTender>;
+  bloodTypes: string[] = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'];
 
   constructor(private m_EqTenderService: EqTenderService, 
               private m_Router: Router, 
-              private m_SnackBar: MatSnackBar, 
-              private m_LoadingService: LoadingService) { }
+              private m_SnackBar: MatSnackBar) { }
 
   onSubmit(): void {
     if (!this.m_Form.valid) return;
