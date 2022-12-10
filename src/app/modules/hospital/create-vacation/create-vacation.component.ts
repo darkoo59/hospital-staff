@@ -98,6 +98,7 @@ export class CreateVacationComponent implements OnInit {
     return this.vacationRequest.reason != "";
   }
 
+
   private isScheduledInVacationDataRange(vacationRequest: VacationRequest){
     this.startDate = new Date(vacationRequest.startDate);
     this.endDate = new Date(vacationRequest.endDate);
