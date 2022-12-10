@@ -11,8 +11,8 @@ export class TenderItemListComponent {
   @Input() i_Items: TenderItem[] = [];
   @Input() i_Edit: boolean = false;
 
-  m_ColsShow: string[] = ['name', 'amount'];
-  m_ColsEdit: string[] = ['name', 'amount', 'delete'];
+  m_ColsShow: string[] = ['type', 'amount'];
+  m_ColsEdit: string[] = ['type', 'amount', 'delete'];
 
   @ViewChild(MatTable) m_Table: MatTable<TenderItem> | null = null;
 

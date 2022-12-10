@@ -23,12 +23,16 @@
   <h3 *ngIf="m_ItemFormActive" class="double">Add form item</h3>
   <form *ngIf="m_ItemFormActive" [formGroup]="m_ItemForm" (ngSubmit)="onItemSubmit()" class="double grid">
     <mat-form-field appearance="fill">
-      <mat-label>Tender item name</mat-label>
-      <input type="text" matInput formControlName="name" placeholder="Ex. Chairs">
-      <mat-error *ngIf="m_ItemForm.controls['name'].hasError('required')">
+      <mat-label>Blood Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let t of bloodTypes; let i = index" [value]="i">{{t}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="m_ItemForm.controls['type'].hasError('required')">
         Item name is <strong>required</strong>
       </mat-error>
     </mat-form-field>
+
     <div></div>
     <mat-form-field appearance="fill">
       <mat-label>Item amount</mat-label>
