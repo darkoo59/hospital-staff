@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="i_Items" class="mat-elevation-z" *ngIf="i_Edit">
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Item name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef> Blood Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.type | bloodToString}} </td>
   </ng-container>
 
   <ng-container matColumnDef="amount">
@@ -21,9 +21,9 @@
 </table>
 
 <table mat-table [dataSource]="i_Items" class="mat-elevation-z" *ngIf="!i_Edit">
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Item name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef> Blood Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.type | bloodToString}} </td>
   </ng-container>
 
   <ng-container matColumnDef="amount">

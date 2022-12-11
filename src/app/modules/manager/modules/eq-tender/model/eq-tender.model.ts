@@ -2,7 +2,7 @@ import { TenderApplication } from "./tender-application.model";
 
 export interface TenderItem {
   id: number;
-  name: string;
+  type: number;
   amount: number;
 }
 

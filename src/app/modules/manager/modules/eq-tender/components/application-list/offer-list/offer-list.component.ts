@@ -8,5 +8,5 @@ import { TenderOffer } from "../../../model/tender-application.model";
 })
 export class OfferListComponent { 
   @Input() i_Items: TenderOffer[] = [];
-  m_ColsShow: string[] = ['name', 'amount', 'cost'];
+  m_ColsShow: string[] = ['type', 'amount', 'cost'];
 }

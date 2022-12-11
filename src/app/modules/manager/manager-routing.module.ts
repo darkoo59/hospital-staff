@@ -29,6 +29,10 @@ const routes: Routes = [
         path: 'eq-tender',
         loadChildren: () => import('./modules/eq-tender/eq-tender.module').then(m => m.EqTenderModule)
       },
+      {
+        path: 'monthly-blood-supply',
+        loadChildren: () => import('./modules/monthly-blood-supply/monthly-blood-supply.module').then(m => m.MonthlyBloodSupplyModule)
+      },
       { path: '**', redirectTo: 'feedback', pathMatch: 'full' },
     ]
   }

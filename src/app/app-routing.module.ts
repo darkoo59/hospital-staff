@@ -5,15 +5,16 @@ import { HospitalMapComponent } from './modules/hospital/hospital-map/hospital-m
 import { HospitalFloorComponent } from './modules/hospital/hospital-floor/hospital-floor.component';
 import { RoomsMapComponent } from "./modules/hospital/rooms-map/rooms-map.component";
 import { DoctorAppointmentDisplayComponent } from "./modules/pages/doctor-appointment-display/doctor-appointment-display.component";
-import { AuthGuard } from "./modules/pages/login/log-auth.guard";
 import { LoginComponent } from "./modules/pages/login/login.component";
 import { VacationRequestsDisplayComponent } from "./modules/hospital/vacation-requests-display/vacation-requests-display.component";
 import { CreateVacationComponent } from "./modules/hospital/create-vacation/create-vacation.component";
 import { VacationRequestsComponent } from "./modules/vacations/vacation-requests/vacation-requests.component";
+import { CreateConsiliumComponent } from "./modules/hospital/create-consilium/create-consilium.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'doctor-appointment-display', component : DoctorAppointmentDisplayComponent},
+  { path: 'create-consilium', component : CreateConsiliumComponent},
   {
     path: 'manager',
     loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule),
@@ -24,7 +25,7 @@ const routes: Routes = [
   {
     path: 'hospital',
     loadChildren: () => import('./modules/hospital/hospital.module').then(m => m.HospitalModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },
   { path: 'hospitalMap', component: HospitalMapComponent },
@@ -36,7 +37,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes),
+  ],
   exports: [RouterModule]
+  
 })
 export class AppRoutingModule { }
