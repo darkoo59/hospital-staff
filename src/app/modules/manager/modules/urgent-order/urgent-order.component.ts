@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, EMPTY, take } from 'rxjs';
 import { BloodBank } from './model/blood-bank.model';
 import { UrgentOrderDTO } from './model/urgent-order-dto';
@@ -12,7 +13,7 @@ import { UrgentOrderService } from './services/urgent-order.service';
 })
 export class UrgentOrderComponent implements OnInit {
 
-  constructor(private service: UrgentOrderService) { }
+  constructor(private service: UrgentOrderService, private m_SnackBar: MatSnackBar) { }
 
   bbList! : BloodBank[];
   
@@ -42,7 +43,6 @@ export class UrgentOrderComponent implements OnInit {
       server: entireServer.server
     }
 
-    console.log(dto.bloodType + " " + dto.quantity + " " + dto.server)
 
     this.form.updateValueAndValidity();
     if (!this.form.valid)  return;
@@ -59,7 +59,11 @@ export class UrgentOrderComponent implements OnInit {
         return EMPTY;
       }))
       .subscribe(data => {
-        console.log(dto.bloodType + " " + dto.quantity + " " + dto.server)
+        if(data) {
+          this.m_SnackBar.open(`Urgent order successful.`, `Close`);
+        } else {
+          this.m_SnackBar.open(`Insufficient blood quantity in the selected blood bank.`, `Close`);
+        }
       });
   
   }

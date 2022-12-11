@@ -16,11 +16,17 @@
         <mat-option value=6>AB+</mat-option>
         <mat-option value=7>AB-</mat-option>
       </mat-select>
+      <mat-error *ngIf="form.controls['blood-type-select'].hasError('required')">
+        Blood type is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="example-full-width"  appearance="fill">
       <mat-label>Quantity</mat-label>
       <input type="number" min="0" value="0" matInput formControlName="quantity">
+      <mat-error *ngIf="form.controls['quantity'].hasError('required')">
+        Quantity is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
    
     <mat-form-field appearance="fill" class="example-full-width select-item">
