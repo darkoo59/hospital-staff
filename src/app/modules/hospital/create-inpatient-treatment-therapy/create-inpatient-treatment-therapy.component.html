@@ -1,0 +1,72 @@
+<div class="container">
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Patient</mat-label>
+            <mat-select  [(ngModel)]="patientId" (selectionChange)="getInpatientTreatmentTherapy()">
+                <mat-option *ngFor="let patient of patients" [value]="patient.patientId">
+                  {{patient.name}} {{patient.surname}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Blood type</mat-label>
+            <mat-select  [(ngModel)]="bloodTherapy.bloodType">
+                <mat-option *ngFor="let blood of bloods" [value]="blood.bloodType">
+                  {{blood.bloodType}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Quantity(in liters)</mat-label>
+            <input matInput type="number" min="0" [(ngModel)]="bloodTherapy.quantityInLiters">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <mat-label>Start date</mat-label>
+            <input matInput [matDatepicker]="picker1" placeholder="Choose a date" [(ngModel)]="bloodTherapy.start">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>End date</mat-label>
+            <input matInput [matDatepicker]="picker2" placeholder="Choose a date" [(ngModel)]="bloodTherapy.end">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Medicine</mat-label>
+            <mat-select  [(ngModel)]="medicineId">
+                <mat-option *ngFor="let medicine of medicines" [value]="medicine.medicineId">
+                  {{medicine.name}} - {{medicine.manufacturer}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field><br>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Dosage</mat-label>
+            <input matInput type="text" [(ngModel)]="medicineTherapy.dosage">
+        </mat-form-field><br>
+
+        <mat-form-field>
+            <mat-label>Start date</mat-label>
+            <input matInput [matDatepicker]="picker3" placeholder="Choose a date" [(ngModel)]="medicineTherapy.start">
+            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+          </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>End date</mat-label>
+            <input matInput [matDatepicker]="picker4" placeholder="Choose a date" [(ngModel)]="medicineTherapy.end">
+            <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+            <mat-datepicker #picker4></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-stroked-button (click)="updateInpatientTreatmentTherapy()">
+            Submit
+        </button>
+    </div>
+</div>

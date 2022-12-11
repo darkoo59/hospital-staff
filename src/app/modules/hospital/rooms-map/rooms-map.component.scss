@@ -7,7 +7,7 @@
     }
 .mat-card{
     background-color: rgb(222, 222, 222);
-    width: 300px;
+    width: 350px;
     position: sticky;
     top: 20px;
 }
@@ -30,11 +30,51 @@ p{
 table {
     width: 100%;
     background-color: rgb(232, 232, 232);
- }
+  }
+  
+tr.example-detail-row {
+height: 0;
+}
 
- .quantity-header{
-    text-align: right;
- }
- .quantity-row{
-    text-align: right;
- }
+tr.example-element-row:not(.example-expanded-row):hover {
+background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+background: #efefef;
+}
+
+.example-element-row td {
+border-bottom-width: 0;
+}
+
+.example-element-detail {
+overflow: hidden;
+text-align: center;
+}
+
+.example-element-description {
+padding: 16px;
+}
+
+.example-element-description-attribution {
+opacity: 0.5;
+}
+
+.move-title{
+margin-top: 10px;
+font-weight: 600;
+}
+
+.details-row{
+background-color: #f2f2f2;
+}
+
+mat-form-field{
+width: 100%;
+}
+
+.move-equipment-btn{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,15 @@
+<div *ngLet="(m_Data$ | async) as subscribedBanks">
+    <div class="grid" *ngIf="subscribedBanks">
+      <div *ngFor="let subscribedBb of subscribedBanks">
+        <mat-card *ngIf="subscribedBb" class="card">
+          <mat-card-title>{{subscribedBb.appName}}</mat-card-title>
+          <mat-card-content>Blood type : {{subscribedBb.bloodType}}</mat-card-content>
+          <mat-card-content>Quantity : {{subscribedBb.quantityInLiters}}l</mat-card-content>
+          <mat-card-content>Subscribed on {{getDateFormat(subscribedBb.startDate)}}</mat-card-content>
+          <mat-card-content>
+            <button mat-button color="warn" (click)="unsubscribe(subscribedBb.bloodBankId)">Unsubscribe</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>

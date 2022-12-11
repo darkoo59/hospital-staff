@@ -1,0 +1,23 @@
+<div class="container">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose blood type</mat-label>
+        <mat-select  [(ngModel)]="bloodUsageEvidency.bloodType" >
+            <mat-option *ngFor="let bloodType of bloodTypes" [value]="bloodType.value">
+              {{bloodType .viewValue}}
+            </mat-option>     
+        </mat-select>
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+          <mat-label>Used quantity in mililiters</mat-label>
+          <input matInput [(ngModel)]="bloodUsageEvidency.quantityUsedInMililiters"  min="0.000001">
+      </mat-form-field><br>
+      <mat-form-field appearance="fill">
+        <mat-label>ReasonForUsage </mat-label>
+        <input matInput [(ngModel)]="bloodUsageEvidency.reasonForUsage ">
+    </mat-form-field><br>
+    <button mat-stroked-button (click)="createBloodUsageEvidency()">
+      Submit
+  </button>
+  </div>
+<div>

@@ -2,8 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { ConfigurationDTO } from "../dto/configuration.dto";
-import { RegisterDTO } from "../dto/register.dto";
+import { ConfigurationDTO } from "../utility/configuration.dto";
+import { RegisterDTO } from "../utility/register.dto";
 
 @Injectable()
 export class BloodBankService {

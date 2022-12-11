@@ -17,20 +17,31 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { HospitalComponent } from "./hospital.component";
-
+import { CreateBloodRequestComponent } from './create-blood-request/create-blood-request.component';
+import { InpatientTreatmentsComponent } from './inpatient-treatments/inpatient-treatments.component';
+import { CreateInpatientTreatmentComponent } from './create-inpatient-treatment/create-inpatient-treatment.component';
+import { CreateInpatientTreatmentTherapyComponent } from './create-inpatient-treatment-therapy/create-inpatient-treatment-therapy.component';
+import { CreateBloodUsageEvidencyComponent } from "./create-blood-usage-evidency/create-blood-usage-evidency.component";
+import { CreateConsiliumComponent } from "./create-consilium/create-consilium.component";
 
 const routes: Routes = [
   {
     path: '', component: HospitalComponent, children: [
+      { path: 'createconsilium', component: CreateConsiliumComponent },
       { path: 'rooms', component: RoomsComponent },
       { path: 'rooms/add', component: CreateRoomComponent },
       { path: 'rooms/:id', component: RoomDetailComponent },
       { path: 'rooms/:id/update', component: UpdateRoomComponent },
       { path: 'appointments/add', component: CreateAppointmentComponent },
       { path: 'appointment/:id/update', component: UpdateAppointmentComponent },
+      { path: 'blood/request', component: CreateBloodRequestComponent },
+      { path: 'inpatient-treatments', component: InpatientTreatmentsComponent },
+      { path: 'inpatient-treatments/add', component: CreateInpatientTreatmentComponent },
+      { path: 'inpatient-treatment-therapy/add', component: CreateInpatientTreatmentTherapyComponent },
+      { path: 'bloodUsageEvidency/add', component: CreateBloodUsageEvidencyComponent },
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
       { path: 'vacations', component: VacationRequestsDisplayComponent },
-      { path: 'createvacation', component: CreateVacationComponent }
+      { path: 'createvacation', component: CreateVacationComponent },
     ]
   }
 
@@ -46,8 +57,14 @@ const routes: Routes = [
     UpdateRoomComponent,
     CreateAppointmentComponent,
     UpdateAppointmentComponent,
+    CreateBloodRequestComponent,
+    InpatientTreatmentsComponent,
+    CreateInpatientTreatmentComponent,
+    CreateInpatientTreatmentTherapyComponent,
+    CreateBloodUsageEvidencyComponent,
     VacationRequestsDisplayComponent,
-    CreateVacationComponent
+    CreateVacationComponent,
+    CreateConsiliumComponent
   ],
   imports: [
     CommonModule,
