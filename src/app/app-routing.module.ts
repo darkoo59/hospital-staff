@@ -10,6 +10,7 @@ import { VacationRequestsDisplayComponent } from "./modules/hospital/vacation-re
 import { CreateVacationComponent } from "./modules/hospital/create-vacation/create-vacation.component";
 import { VacationRequestsComponent } from "./modules/vacations/vacation-requests/vacation-requests.component";
 import { CreateConsiliumComponent } from "./modules/hospital/create-consilium/create-consilium.component";
+import { AuthGuard } from "./modules/pages/login/log-auth.guard";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,7 +19,7 @@ const routes: Routes = [
   {
     path: 'manager',
     loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule),
-    //canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   { path: 'create-vacation-display', component : CreateVacationComponent  },
   { path: 'vacation-requests-display' , component : VacationRequestsDisplayComponent },

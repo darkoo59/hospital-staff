@@ -29,6 +29,10 @@ export class ManagerNavComponent {
       title: 'Blood Requests'
     },
     {
+      path: 'report-configuration',
+      title: 'Report Configuration'
+    },
+    {
       path: 'eq-tender',
       title: 'Equipment Tenders'
     },

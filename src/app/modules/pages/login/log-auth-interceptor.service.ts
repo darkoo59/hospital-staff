@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
     return this.m_UserDataService.m_Token$.pipe(
       take(1),
       exhaustMap(token => {
-        if(token != null && req.url.indexOf(environment.hospitalApiUrl) != -1 && req.url.indexOf('login') == -1){
+        if(token != null && req.url.indexOf('login') == -1){
           const modifiedReq = req.clone({
             setHeaders: { Authorization: `Bearer ${token}` }
           })

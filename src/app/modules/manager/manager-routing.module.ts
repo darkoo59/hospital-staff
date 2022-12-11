@@ -4,6 +4,7 @@ import { ManagerComponent } from "./manager.component";
 import { UrgentOrderComponent } from "./modules/urgent-order/urgent-order.component";
 import { BBRegisterComponent } from "./pages/bb-register/bb-register.component";
 import { FeedbackComponent } from "./pages/feedback/feedback.component";
+import { ReportConfigurationComponent } from "./pages/report-configuration/report-configuration.component";
 import { NotificationsComponent } from "./pages/notifications/notifications.component";
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'blood-req',
         loadChildren: () => import('./modules/blood-requests/blood-req.module').then(m => m.BloodReqModule)
+      },
+      {
+        path: 'report-configuration',
+        component: ReportConfigurationComponent
       },
       {
         path: 'eq-tender',
