@@ -11,6 +11,7 @@ import { BloodBankService } from "./services/blood-bank.service";
 import { ManagerService } from "./services/manager.service";
 import { ReportConfigurationComponent } from "./pages/report-configuration/report-configuration.component";
 import { ManagerNavComponent } from "./components/nav/manager-nav.component";
+import { UrgentOrderComponent } from "./modules/urgent-order/urgent-order.component";
 import { NotificationsComponent } from "./pages/notifications/notifications.component";
 
 @NgModule({
@@ -21,6 +22,7 @@ import { NotificationsComponent } from "./pages/notifications/notifications.comp
     BBRegisterComponent,
     ManagerNavComponent,
     ReportConfigurationComponent,
+    UrgentOrderComponent,
     NotificationsComponent
   ],
   imports: [
