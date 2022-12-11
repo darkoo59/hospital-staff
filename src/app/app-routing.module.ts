@@ -10,6 +10,7 @@ import { VacationRequestsDisplayComponent } from "./modules/hospital/vacation-re
 import { CreateVacationComponent } from "./modules/hospital/create-vacation/create-vacation.component";
 import { VacationRequestsComponent } from "./modules/vacations/vacation-requests/vacation-requests.component";
 import { CreateConsiliumComponent } from "./modules/hospital/create-consilium/create-consilium.component";
+import { AuthGuard } from "./modules/pages/login/log-auth.guard";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { BloodBankService } from '../../services/blood-bank.service';
-import { ConfigurationDTO } from "../../dto/configuration.dto";
+import { ConfigurationDTO } from "../../utility/configuration.dto";
 import { catchError, EMPTY } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 

@@ -44,6 +44,7 @@ const routes: Routes = [
         component: NotificationsComponent
       },
       { path: '**', redirectTo: 'feedback', pathMatch: 'full' },
+    ]
   }
 ];
 
