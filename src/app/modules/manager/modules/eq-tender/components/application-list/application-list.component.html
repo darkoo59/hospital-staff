@@ -1,0 +1,37 @@
+<div *ngLet="{winner: m_ChooseWinner$ | async} as vm">
+  <div *ngIf="i_Tender && i_Tender.tenderApplications && i_Tender.tenderApplications.length != 0" class="list"
+    [ngClass]="{pending: i_Tender.state == 1, closed: i_Tender.state == 2}">
+    <mat-card class="card" *ngFor="let application of i_Tender.tenderApplications"
+      [ngClass]="{'has-won': application.hasWon}">
+      <mat-card-header *ngIf="application.user">
+        <mat-card-title>
+          <span>{{application.user.appName}}</span>&nbsp;
+          <span class="tender-status"
+            *ngIf="i_Tender.state == 1 && application.hasWon"><i>(confirmation pending...)</i></span>
+            <span class="tender-status winner"
+            *ngIf="i_Tender.state == 2 && application.hasWon"><i>(winner)</i></span>
+        </mat-card-title>
+        <mat-card-subtitle>{{application.user.email}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{i_Tender.description}}</p>
+        <div *ngIf="application.note">
+          <p style="margin-bottom: 4px;"><b>NOTE: </b></p>
+          <p>{{application.note}}</p>
+        </div>
+        <p><b>PRICE: <span style="color: green;">{{application.totalCost}}&nbsp;EUR</span></b></p>
+        <offer-list *ngIf="application.tenderOffers && application.tenderOffers.length != 0"
+          [i_Items]="application.tenderOffers">
+        </offer-list>
+      </mat-card-content>
+      <mat-card-actions align="end" *ngIf="i_Tender.state == 0">
+        <button *ngIf="!isInPast(i_Tender.expiresOn)" mat-flat-button color="primary"
+          (click)="m_ChooseWinner$.next(application.id)">Choose Winner</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div *ngIf="i_Tender && i_Tender.tenderApplications && i_Tender.tenderApplications.length == 0">
+    Nothing to display...
+  </div>
+</div>

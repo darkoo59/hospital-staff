@@ -14,6 +14,6 @@ export class DoctorService {
   constructor(private http: HttpClient) { }
 
   getDoctors(): Observable<Doctor[]> {
-    return this.http.get<Doctor[]>(this.apiHost + 'api/doctors', {headers: this.headers});
+    return this.http.get<Doctor[]>(this.apiHost + "api/doctor", {headers: this.headers});
   }
 }

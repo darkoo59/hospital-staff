@@ -42,14 +42,14 @@ export class BloodReqNewComponent {
 
   m_FetchData$: Observable<any> = this.fetchData();
 
-  constructor(private m_BloodReqService: BloodReqService, public dialog: MatDialog) { }
+  constructor(private m_BloodReqService: BloodReqService, public m_Dialog: MatDialog) { }
 
   fetchData(): Observable<any> {
     return this.m_BloodReqService.fetchBloodRequests('new');
   }
 
   openDialog(id: number): MatDialogRef<any, any> {
-    return this.dialog.open(UpdateDialogComponent, {
+    return this.m_Dialog.open(UpdateDialogComponent, {
       width: '450px',
       data: { id }
     });

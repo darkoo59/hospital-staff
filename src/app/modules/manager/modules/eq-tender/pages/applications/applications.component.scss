@@ -1,0 +1,20 @@
+.btn-back{
+  margin-bottom: 25px;
+}
+
+.main-card{
+  margin-bottom: 20px;
+}
+
+.divider{
+  margin-bottom: 30px;
+}
+
+.tender-status {
+  font-size: 15px;
+  opacity: 0.7;
+  color: blue;
+  &.closed{
+    color:red;
+  }
+}

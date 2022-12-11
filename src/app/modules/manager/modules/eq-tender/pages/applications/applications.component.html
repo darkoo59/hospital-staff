@@ -1,0 +1,26 @@
+<section class="plain" *ngLet="{tender: m_Tender$ | async} as vm">
+  <div *ngIf="!m_Loading">
+    <button mat-button [routerLink]="['..']" class="btn-back">
+      <mat-icon>keyboard_return</mat-icon>
+      <span style="padding-left: 15px;">go back</span>
+    </button>
+
+    <mat-card class="main-card mat-elevation-3z">
+      <mat-card-title>
+        <span>{{vm.tender.title}}</span>&nbsp;
+        <span class="tender-status" *ngIf="vm.tender.state == 1"><i>(confirmation pending...)</i></span>
+        <span class="tender-status closed" *ngIf="vm.tender.state == 2"><i>(tender closed...)</i></span>
+      </mat-card-title>
+      <mat-card-subtitle *ngIf="!vm.tender.expiresOn && vm.tender.state != 2" style="color: green;">expires: never
+      </mat-card-subtitle>
+      <mat-card-subtitle *ngIf="vm.tender.expiresOn">
+        <span *ngIf="!isInPast(vm.tender.expiresOn) && vm.tender.state != 2" style="color: green;">{{vm.tender.expiresOn | date:'medium'}}</span>
+        <span *ngIf="isInPast(vm.tender.expiresOn) && vm.tender.state != 2" style="color: red;">{{vm.tender.expiresOn | date:'medium'}}</span>
+      </mat-card-subtitle>
+    </mat-card>
+    <mat-divider class="divider"></mat-divider>
+    <application-list *ngIf="vm.tender" [i_Tender]="vm.tender"></application-list>
+  </div>
+
+  <page-loader *ngIf="m_Loading"></page-loader>
+</section>

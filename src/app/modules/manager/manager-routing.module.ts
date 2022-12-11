@@ -4,6 +4,7 @@ import { ManagerComponent } from "./manager.component";
 import { UrgentOrderComponent } from "./modules/urgent-order/urgent-order.component";
 import { BBRegisterComponent } from "./pages/bb-register/bb-register.component";
 import { FeedbackComponent } from "./pages/feedback/feedback.component";
+import { NotificationsComponent } from "./pages/notifications/notifications.component";
 
 const routes: Routes = [
   {
@@ -33,6 +34,14 @@ const routes: Routes = [
       {
         path: 'urgent-order',
         component: UrgentOrderComponent
+      },
+      {
+        path: 'monthly-blood-supply',
+        loadChildren: () => import('./modules/monthly-blood-supply/monthly-blood-supply.module').then(m => m.MonthlyBloodSupplyModule)
+      },
+      {
+        path: 'notifications',
+        component: NotificationsComponent
       },
       { path: '**', redirectTo: 'feedback', pathMatch: 'full' },
     ]

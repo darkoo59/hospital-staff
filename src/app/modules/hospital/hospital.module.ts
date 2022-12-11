@@ -22,12 +22,12 @@ import { InpatientTreatmentsComponent } from './inpatient-treatments/inpatient-t
 import { CreateInpatientTreatmentComponent } from './create-inpatient-treatment/create-inpatient-treatment.component';
 import { CreateInpatientTreatmentTherapyComponent } from './create-inpatient-treatment-therapy/create-inpatient-treatment-therapy.component';
 import { CreateBloodUsageEvidencyComponent } from "./create-blood-usage-evidency/create-blood-usage-evidency.component";
-
-
+import { CreateConsiliumComponent } from "./create-consilium/create-consilium.component";
 
 const routes: Routes = [
   {
     path: '', component: HospitalComponent, children: [
+      { path: 'createconsilium', component: CreateConsiliumComponent },
       { path: 'rooms', component: RoomsComponent },
       { path: 'rooms/add', component: CreateRoomComponent },
       { path: 'rooms/:id', component: RoomDetailComponent },
@@ -41,7 +41,7 @@ const routes: Routes = [
       { path: 'bloodUsageEvidency/add', component: CreateBloodUsageEvidencyComponent },
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
       { path: 'vacations', component: VacationRequestsDisplayComponent },
-      { path: 'createvacation', component: CreateVacationComponent }
+      { path: 'createvacation', component: CreateVacationComponent },
     ]
   }
 
@@ -63,7 +63,8 @@ const routes: Routes = [
     CreateInpatientTreatmentTherapyComponent,
     CreateBloodUsageEvidencyComponent,
     VacationRequestsDisplayComponent,
-    CreateVacationComponent
+    CreateVacationComponent,
+    CreateConsiliumComponent
   ],
   imports: [
     CommonModule,

@@ -35,6 +35,14 @@ export class ManagerNavComponent {
     {
       path: 'urgent-order',
       title: 'Urgent Blood Order'
+    },
+    {
+      path: 'monthly-blood-supply',
+      title: 'Monthly blood supply'
+    },
+    {
+      path: 'notifications',
+      title: 'Notifications'
     }
   ];
 

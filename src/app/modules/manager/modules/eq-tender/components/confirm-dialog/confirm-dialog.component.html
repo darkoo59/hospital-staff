@@ -1,0 +1,10 @@
+<div *ngLet="m_Confirm$ | async" cdkTrapFocus [cdkTrapFocusAutoCapture]="true" >
+  <h1 mat-dialog-title>Choose Winner</h1>
+  <div mat-dialog-content>
+    Are you sure this is the winner?
+  </div>
+  <mat-dialog-actions align="end">
+    <button type="button" mat-button mat-dialog-close cdkFocusInitial color="warn">Cancel</button>
+    <button mat-flat-button color="accent" (click)="this.m_Confirm$.next(0)">Confirm</button>
+  </mat-dialog-actions>
+</div>
