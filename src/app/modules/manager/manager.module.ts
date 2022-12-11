@@ -10,14 +10,16 @@ import { FeedbackComponent } from "./pages/feedback/feedback.component";
 import { BloodBankService } from "./services/blood-bank.service";
 import { ManagerService } from "./services/manager.service";
 import { ManagerNavComponent } from "./components/nav/manager-nav.component";
+import { NotificationsComponent } from "./pages/notifications/notifications.component";
 
 @NgModule({
   providers:[BloodBankService, ManagerService],
   declarations: [
-    ManagerComponent, 
+    ManagerComponent,
     FeedbackComponent,
     BBRegisterComponent,
     ManagerNavComponent,
+    NotificationsComponent
   ],
   imports: [
     CommonModule,

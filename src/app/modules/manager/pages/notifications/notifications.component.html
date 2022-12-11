@@ -1,0 +1,15 @@
+<section class="outer">
+<div *ngLet="(m_Data$ | async) as notifications">
+    <div class="grid" *ngIf="notifications">
+      <div *ngFor="let notification of notifications">
+        <mat-card *ngIf="notification" class="card">
+          <mat-card-title>{{notification.title}}</mat-card-title>
+          <mat-card-content>Content : {{notification.content}}</mat-card-content>
+          <mat-card-content>
+            <button mat-button color="warn" (click)="remove(notification.id)">Remove</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>
