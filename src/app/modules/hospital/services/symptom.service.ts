@@ -16,4 +16,8 @@ export class SymptomService {
   getSymptoms(): Observable<Symptom[]> {
     return this.http.get<Symptom[]>(this.apiHost + 'api/symptoms', {headers: this.headers});
   }
+
+  getSelectedSymptoms(ids: number[]): Observable<Symptom[]> {
+    return this.http.get<Symptom[]>(this.apiHost + 'api/symptoms/' + ids, {headers: this.headers});
+  }
 }

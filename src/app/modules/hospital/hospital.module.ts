@@ -9,7 +9,7 @@ import { RoomsComponent } from "./rooms/rooms.component";
 import { UpdateRoomComponent } from "./update-room/update-room.component";
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
 import { UpdateAppointmentComponent } from './update-appointment/update-appointment.component';
-import { MAT_DATE_LOCALE } from "@angular/material/core";
+import { MatOptionModule, MAT_DATE_LOCALE } from "@angular/material/core";
 import { VacationRequestsDisplayComponent } from './vacation-requests-display/vacation-requests-display.component';
 import { CreateVacationComponent } from './create-vacation/create-vacation.component';
 import { MatDatepicker, MatDatepickerModule } from "@angular/material/datepicker";
@@ -29,6 +29,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import { NgSelectModule } from '@ng-select/ng-select'; 
 
 
+
 const routes: Routes = [
   {
     path: '', component: HospitalComponent, children: [
@@ -42,10 +43,12 @@ const routes: Routes = [
       { path: 'inpatient-treatments', component: InpatientTreatmentsComponent },
       { path: 'inpatient-treatments/add', component: CreateInpatientTreatmentComponent },
       { path: 'inpatient-treatment-therapy/add', component: CreateInpatientTreatmentTherapyComponent },
+      { path: 'examinationreport/create', component: CreateExaminationReportComponent },
       { path: 'bloodUsageEvidency/add', component: CreateBloodUsageEvidencyComponent },
-      { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
       { path: 'vacations', component: VacationRequestsDisplayComponent },
-      { path: 'createvacation', component: CreateVacationComponent }
+      { path: 'createvacation', component: CreateVacationComponent },
+      { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
+
     ]
   }
 
@@ -83,7 +86,8 @@ const routes: Routes = [
     MatIconModule,
     MatPaginatorModule,
     MatStepperModule,
-    NgSelectModule
+    NgSelectModule,
+    MatOptionModule
   ],
   exports: [RouterModule], 
   providers: [
