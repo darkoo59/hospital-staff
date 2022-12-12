@@ -34,4 +34,13 @@ export class RoomMapService {
   mergeRooms(moveRequest:MoveRequest): Observable<any> {
     return this.http.post<any>(this.apiHost + 'api/rooms/renovationMerge', moveRequest, {headers: this.headers});
   }
+
+  getRequestsForRoom(roomId: number): Observable<MoveRequest[]> {
+    return this.http.get<MoveRequest[]>(this.apiHost + 'api/rooms/viewRequests/' + roomId, {headers: this.headers});
+  }
+
+  cancelRequest(roomId: number): Observable<any> {
+    return this.http.delete<any[]>(this.apiHost + 'api/rooms/viewRequests/' + roomId, {headers: this.headers});
+  }
+
 }

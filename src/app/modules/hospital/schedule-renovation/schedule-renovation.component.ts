@@ -6,7 +6,7 @@ import { RoomMap } from '../model/room-map.model';
 import {FormGroup, FormControl} from '@angular/forms';
 import { FreeAppointmentRequestDTO } from '../model/free-appointment-request-dto';
 import { MoveRequest } from '../model/move-request';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-schedule-renovation',
@@ -31,7 +31,7 @@ export class ScheduleRenovationComponent implements OnInit {
     end: new FormControl<Date | null>(null),
   });
 
-  constructor(private roomMapService: RoomMapService, private _route: ActivatedRoute) { 
+  constructor(private roomMapService: RoomMapService, private _route: ActivatedRoute,  private router: Router) { 
     this.buildingId =  this._route.snapshot.paramMap.get('hospitalId');
     this.floorId = this._route.snapshot.paramMap.get('floorId');
   }
@@ -65,7 +65,7 @@ export class ScheduleRenovationComponent implements OnInit {
     this.moveRequest.secondRoomId = this.freeAppointmentRequestDTO.secondRoomId;
     this.moveRequest.duration = this.freeAppointmentRequestDTO.duration;
     this.moveRequest.durationTimeUnit = this.freeAppointmentRequestDTO.durationTimeUnit;
-    this.moveRequest.chosenStartDate = startDate;
+    this.moveRequest.chosenStartTime = startDate;
 
 
     if(this.selectedRenovationType == "merging"){
@@ -78,6 +78,8 @@ export class ScheduleRenovationComponent implements OnInit {
       this.roomMapService.splitRoom(this.moveRequest).subscribe(res => {
       });;
     }
+
+    this.router.navigate(['/hospitalMap/hospital/' + this.buildingId +'/floor/'+ this.floorId])
 
 
   }

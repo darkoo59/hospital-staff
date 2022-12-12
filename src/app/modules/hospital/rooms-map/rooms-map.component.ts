@@ -10,6 +10,7 @@ import { RoomMapService } from '../services/room-map.service';
 import {ViewChild} from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+import { MoveRequest } from '../model/move-request';
 
 
 @Component({
@@ -43,6 +44,10 @@ export class RoomsMapComponent implements OnInit {
   displayedColumns = ['name', 'quantity'];
   dispayedColumnsWithMove = [...this.displayedColumns, 'move'];
 
+  @ViewChild(MatTable) requestsTable!: MatTable<any>;
+  displayedColumnsRequests = ['type', 'chosenStartTime'];
+  dispayedColumnsRequestsWithMove = [...this.displayedColumnsRequests, 'move'];
+
 
   buildingId: any = "A";
   floorId: any = 1;
@@ -51,6 +56,9 @@ export class RoomsMapComponent implements OnInit {
   selectedRoomEquipment: Equipment[] = [];
   selectedEquipment? : Equipment | null;
   allRooms: RoomMap[] = [];
+  requests: MoveRequest[] = [];
+  selectedRequest? : MoveRequest | null;
+
   
   minDate: Date = new Date(2022, 10, 10);
   
@@ -67,7 +75,8 @@ export class RoomsMapComponent implements OnInit {
     this.roomMapService.getRoomsByBuildingFloor(this.buildingId, this.floorId).subscribe(res => {
       this.rooms = res;
       this.createSvg();
-      this.createRect(this.rooms, this.selectedRoom, this.selectedRoomEquipment, this.equipmentTable, this.roomId);
+      this.createRect(this.rooms, this.selectedRoom, this.selectedRoomEquipment, this.requests, 
+        this.equipmentTable,  this.requestsTable, this.roomId);
     });
 
     this.roomMapService.getAllRooms().subscribe(res => {
@@ -92,8 +101,9 @@ export class RoomsMapComponent implements OnInit {
     .attr("class", "svg-container");
   }
 
-  private createRect(rooms: RoomMap[], selectedRoom: Room, selectedRoomEquipment: Equipment[], table: any, roomId: any): void{
+  private createRect(rooms: RoomMap[], selectedRoom: Room, selectedRoomEquipment: Equipment[], requests: MoveRequest[], table: any, requestTable: any, roomId: any): void{
     var service = this.equipmentService;
+    var roomService = this.roomMapService;
     var rect = this.svg.selectAll("rect")
     .data(rooms)
     .enter()
@@ -155,6 +165,12 @@ export class RoomsMapComponent implements OnInit {
         table.renderRows();
       })
 
+      roomService.getRequestsForRoom(i.id).subscribe((res: any) =>{
+        requests.splice(0,requests.length);
+        requests.push(...res);
+        requestTable.renderRows();
+      }) 
+
     });
 
 
@@ -178,9 +194,18 @@ export class RoomsMapComponent implements OnInit {
     .style("text-anchor", "middle");
   }
 
-
   redirectToRenovation(){
     this.router.navigate(['/renovation/hospital/' + this.buildingId +'/floor/'+ this.floorId])
+  }
+
+  cancelRequest(request: MoveRequest){
+    this.roomMapService.cancelRequest(request.id).subscribe((res: any) => {
+    });
+
+    let index = this.requests.indexOf(request);
+    this.requests.splice(index, 1);
+    this.requestsTable.renderRows();
+
   }
 
 }
