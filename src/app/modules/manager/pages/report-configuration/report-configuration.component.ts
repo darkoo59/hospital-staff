@@ -54,7 +54,7 @@ export class ReportConfigurationComponent implements OnInit {
         return EMPTY;
       }))
       .subscribe(_ => {
-        this.snackBar.open(`Sucessfully updated`, 'close', { duration: 2000 });
+        this.snackBar.open(`Successfully updated`, 'close', { duration: 2000 });
         this.m_Form.reset();
       });
   }
