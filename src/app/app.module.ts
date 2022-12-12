@@ -21,6 +21,7 @@ import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.serv
 
 
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -39,6 +40,7 @@ import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.serv
       },],
     bootstrap: [AppComponent],
     imports: [
+      
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,

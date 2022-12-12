@@ -18,4 +18,13 @@ export class ConsiliumService {
     consilium.dateRangeEnd.setHours(1);
     return this.http.post<Consilium[]>(this.apiHost + "api/consilium", consilium, {headers: this.headers});
   }
+
+
+  getDoctorConsiliums(doctorId:number): Observable<Consilium[]> {
+    return this.http.get<Consilium[]>(this.apiHost + "api/consilium/" + doctorId, {headers: this.headers});
+  }
+
+  getConsilium(): Observable<Consilium[]> {
+    return this.http.get<Consilium[]>(this.apiHost + 'api/consilium', {headers: this.headers});
+  }
 }

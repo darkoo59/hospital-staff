@@ -23,7 +23,7 @@ export class RoomService {
   }
 
   getRoom(id: number): Observable<Room> {
-    return this.http.get<Room>(this.apiHost + 'api/rooms/' + id, {headers: this.headers});
+    return this.http.get<Room>(this.apiHost + 'api/rooms/id/' + id, {headers: this.headers});
   }
 
   deleteRoom(id: any): Observable<any> {
