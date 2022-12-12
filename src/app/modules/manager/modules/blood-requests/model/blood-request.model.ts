@@ -10,5 +10,6 @@ export interface BloodRequest {
     id: number;
     name: string;
     surname: string;
-  }
+  },
+  urgent: boolean
 }
