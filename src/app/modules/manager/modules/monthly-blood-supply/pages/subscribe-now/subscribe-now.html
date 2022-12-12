@@ -1,0 +1,47 @@
+
+<form class="example-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+<div>
+<mat-form-field class="section" appearance="fill">
+  <mat-label>Select blood bank</mat-label>
+    <mat-select [(value)]="selectedBb">
+      <mat-option value="0">None</mat-option>
+      <div *ngLet="(m_Data$ | async) as bloodBanks">
+        <div class="grid" *ngIf="bloodBanks">
+          <div *ngFor="let bloodBank of bloodBanks">
+      <mat-option [value]="bloodBank.id">
+        {{bloodBank.appName}}
+      </mat-option>
+      </div>
+      </div>
+      </div>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div *ngIf="selectedBb != 0">
+  <mat-form-field class="input-field" appearance="fill">
+    <mat-label>Quantity in liters</mat-label>
+    <input matInput required formControlName="quantity" type="number">
+    <mat-error *ngIf="form.controls['quantity'].hasError('required')">
+      Quantity is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+<div>
+  <mat-form-field class="input-field" appearance="fill">
+    <mat-label>Select blood type</mat-label>
+      <mat-select formControlName="bloodType">
+        <mat-option [value] = "0">one</mat-option>
+        <mat-option *ngFor="let bloodType of all_blood_types" [value]="bloodType">
+          {{bloodType}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.controls['bloodType'].hasError('required')">
+       Blood types is <strong>required</strong>
+</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="button-group">
+    <button mat-flat-button color="primary">Subscribe</button>
+  </div>
+</div>
+</form>
+

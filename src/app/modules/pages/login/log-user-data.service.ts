@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
 
+
 export interface User {
-  Id: number;
+  UserId: number;
   Username: string;
   Role: number;
 }
@@ -23,6 +24,8 @@ export class UserDataService{
       this.setToken = token;
     }
   }
+
+
 
   set setToken(token: null | string){
     if(token){

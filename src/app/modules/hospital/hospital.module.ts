@@ -27,12 +27,17 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { CreateExaminationReportComponent } from './create-examination-report/create-examination-report.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { NgSelectModule } from '@ng-select/ng-select'; 
+import { CreateConsiliumComponent } from "./create-consilium/create-consilium.component";
+import { ViewConsiliumsComponent } from "./view-consiliums/view-consiliums.component";
+
 
 
 
 const routes: Routes = [
   {
     path: '', component: HospitalComponent, children: [
+      { path: 'createconsilium', component: CreateConsiliumComponent },
+      { path: 'consiliums', component: ViewConsiliumsComponent },
       { path: 'rooms', component: RoomsComponent },
       { path: 'rooms/add', component: CreateRoomComponent },
       { path: 'rooms/:id', component: RoomDetailComponent },
@@ -72,6 +77,9 @@ const routes: Routes = [
     VacationRequestsDisplayComponent,
     CreateVacationComponent,
     CreateExaminationReportComponent,
+    CreateConsiliumComponent,
+    ViewConsiliumsComponent
+
   ],
   imports: [
     CommonModule,
@@ -88,6 +96,7 @@ const routes: Routes = [
     MatStepperModule,
     NgSelectModule,
     MatOptionModule
+
   ],
   exports: [RouterModule], 
   providers: [

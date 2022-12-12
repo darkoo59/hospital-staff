@@ -1,0 +1,18 @@
+<section class="page-container" *ngLet="{
+  error: m_Error$ | async,
+  brs: m_MonthlyBloodSupplies$ | async,
+  data: m_FetchData$ | async,
+  a: m_ActiveLink$ | async
+} as vm">
+<nav class="tabs" mat-tab-nav-bar [tabPanel]="tabPanel">
+  <a mat-tab-link *ngFor="let link of m_Routes" [routerLink]="link.path" (click)="changeTab(link.path)"
+    [active]="m_ActiveLink == link.path"> {{link.title}} </a>
+</nav>
+<page-loader *ngIf="m_Loading"></page-loader>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>
+<div *ngIf="!m_Loading && (!vm.brs || vm.brs.length == 0)">
+  Nothing to display...
+</div>
+</section>

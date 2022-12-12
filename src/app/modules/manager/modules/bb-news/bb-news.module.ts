@@ -10,7 +10,7 @@ import { BBNewsService } from "../../modules/bb-news/services/bb-news.service";
 import { NewsNewComponent } from "./pages/news-new.component";
 import { NewsApprovedComponent } from "./pages/news-approved.component";
 import { NewsDeclinedComponent } from "./pages/news-declined.component";
-import { PageLoaderModule } from "../../page-loader/page-loader.module";
+import { PageLoaderModule } from "../../components/page-loader/page-loader.module";
 
 @NgModule({
   providers: [BBNewsService],

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="table-header">
+        <p class="table-title">Consiliums</p>
+    </div>
+    <table mat-table [dataSource]="dataSource" >
+        <ng-container matColumnDef="topic">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> Topic </th>
+            <td mat-cell *matCellDef="let consilium" class="cell-center">{{consilium.topic}}</td>
+        </ng-container>
+        <ng-container matColumnDef="dateStart">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> start date </th>
+            <td mat-cell *matCellDef="let consilium" class=" cell-center">{{consilium.dateRangeStart | date: 'dd.MM.yyyy'}}</td>
+        </ng-container>
+        <ng-container matColumnDef="dateEnd">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> end date </th>
+            <td mat-cell *matCellDef="let consilium" class=" cell-center">{{consilium.dateRangeStart | date: 'dd.MM.yyyy'}}</td>
+        </ng-container>
+        <ng-container matColumnDef="startTime">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> start time </th>
+            <td mat-cell *matCellDef="let consilium" class=" cell-center">{{consilium.startTime | date: 'h:mm a'}}</td>
+        </ng-container>
+        <ng-container matColumnDef="duration">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> duration </th>
+            <td mat-cell *matCellDef="let consilium" class=" cell-center">{{consilium.duration}} min.</td>
+        </ng-container>
+        <ng-container matColumnDef="numberOfRoom">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> room number </th>
+            <td mat-cell *matCellDef="let consilium" class=" cell-center">{{consilium.room.number}}</td>
+        </ng-container>
+        <ng-container matColumnDef="otherDoctors">
+            <th mat-header-cell *matHeaderCellDef class="cell-center"> other doctors </th>
+            <td mat-cell *matCellDef="let consilium" class=" cell-center">{{consilium.doctors}}</td>
+        </ng-container>
+        
+        
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
+
+

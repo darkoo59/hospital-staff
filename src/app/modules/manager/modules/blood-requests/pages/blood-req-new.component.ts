@@ -1,9 +1,8 @@
-import { DialogRef } from "@angular/cdk/dialog";
 import { Component } from "@angular/core";
 import { MatDialog, MatDialogRef } from "@angular/material/dialog";
-import { Subject, switchMap, Observable, tap, EMPTY, of } from "rxjs";
+import { Subject, switchMap, Observable, EMPTY } from "rxjs";
 import { BloodReqService } from "../services/blood-req.service";
-import { UpdateDialogComponent } from "../update-dialog/update-dialog.component";
+import { UpdateDialogComponent } from "../components/update-dialog/update-dialog.component";
 
 @Component({
   template: `
@@ -43,14 +42,14 @@ export class BloodReqNewComponent {
 
   m_FetchData$: Observable<any> = this.fetchData();
 
-  constructor(private m_BloodReqService: BloodReqService, public dialog: MatDialog) { }
+  constructor(private m_BloodReqService: BloodReqService, public m_Dialog: MatDialog) { }
 
   fetchData(): Observable<any> {
     return this.m_BloodReqService.fetchBloodRequests('new');
   }
 
   openDialog(id: number): MatDialogRef<any, any> {
-    return this.dialog.open(UpdateDialogComponent, {
+    return this.m_Dialog.open(UpdateDialogComponent, {
       width: '450px',
       data: { id }
     });

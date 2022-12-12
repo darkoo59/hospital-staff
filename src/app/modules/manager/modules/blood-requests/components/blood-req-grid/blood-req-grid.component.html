@@ -1,0 +1,40 @@
+<div *ngLet="(m_Data$ | async) as dataList">
+  <div class="grid" *ngIf="dataList">
+    <div *ngFor="let data of dataList">
+      <mat-card *ngIf="data" class="card">
+        <mat-card-title>Request for {{data.bloodType}}</mat-card-title>
+        <mat-card-subtitle *ngIf="data.doctor">By: {{data.doctor.name}} {{data.doctor.surname}}</mat-card-subtitle>
+        <mat-card-subtitle *ngIf="!data.doctor">By: unknown</mat-card-subtitle>
+        <mat-card-content>
+          <table>
+            <tr>
+              <td>Reason: </td>
+              <td>{{data.reasonForRequest}}</td>
+            </tr>
+            <tr>
+              <td>Amount: </td>
+              <td>{{data.quantityInLiters}}</td>
+            </tr>
+            <tr>
+              <td>On: </td>
+              <td>{{data.finalDate | date:'medium'}}</td>
+            </tr>
+            <tr *ngIf="data.state == 3">
+              <td>Reason for adjustment:</td>
+              <td *ngIf="data.reasonForAdjustment"><mat-error>{{data.reasonForAdjustment}}</mat-error></td>
+            </tr>
+            <tr>
+              <td>Urgent:</td>
+              <td>{{data.urgent}}</td>
+            </tr>
+          </table>
+        </mat-card-content>
+        <mat-card-actions align="end" class="button-group" *ngIf="data.state == 0">
+          <button mat-button (click)="m_DeclineEvent.emit(data.id)" color="warn">Decline</button>
+          <button mat-flat-button (click)="m_UpdateEvent.emit(data.id)" color="accent">Request Adjustment</button>
+          <button mat-flat-button (click)="m_ApproveEvent.emit(data.id)" color="primary">Approve</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<form class="outer grid" [formGroup]="m_Form" (ngSubmit)="onSubmit()" *ngLet="{create: m_Create$ | async} as vm">
+  <mat-form-field appearance="fill">
+    <mat-label>Tender title</mat-label>
+    <input type="text" matInput formControlName="title" placeholder="Ex. Tender">
+    <mat-error *ngIf="m_Form.controls['title'].hasError('required')">
+      Tender title is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Expiration day</mat-label>
+    <input type="date" matInput formControlName="expiresOn">
+  </mat-form-field>
+  <mat-form-field appearance="fill" class="double">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description"></textarea>
+  </mat-form-field>
+  <div class="double" *ngIf="m_Items.length != 0">
+    <tender-item-list [i_Items]="m_Items" [i_Edit]="true"></tender-item-list>
+  </div>
+  <div *ngIf="!m_ItemFormActive">
+    <button type="button" mat-flat-button (click)="m_ItemFormActive=true" color="accent">Add new item</button>
+  </div>
+  <h3 *ngIf="m_ItemFormActive" class="double">Add form item</h3>
+  <form *ngIf="m_ItemFormActive" [formGroup]="m_ItemForm" (ngSubmit)="onItemSubmit()" class="double grid">
+    <mat-form-field appearance="fill">
+      <mat-label>Blood Type</mat-label>
+      <mat-select formControlName="type">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let t of bloodTypes; let i = index" [value]="i">{{t}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="m_ItemForm.controls['type'].hasError('required')">
+        Item name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div></div>
+    <mat-form-field appearance="fill">
+      <mat-label>Item amount</mat-label>
+      <input type="number" matInput formControlName="amount" placeholder="Ex. 512">
+      <mat-error *ngIf="m_ItemForm.controls['amount'].hasError('required')">
+        Item amount is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <div></div>
+    <div class="button-group">
+      <button type="button" mat-button color="warn" (click)="m_ItemFormActive=false">Cancel</button>
+      <button mat-flat-button color="primary">Create item</button>
+    </div>
+  </form>
+  <div class="button-group double">
+    <button mat-flat-button color="primary">Create tender</button>
+  </div>
+</form>

@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
-import { ActivatedRoute } from "@angular/router";
-import { Observable, tap } from "rxjs";
-import { BloodRequest } from "../../model/blood-request.model";
-import { NavRoute } from "../../nav/manager-nav.component";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
+import { filter, Observable, tap } from "rxjs";
+import { NavRoute } from "../../components/nav/manager-nav.component";
+import { BloodRequest } from "./model/blood-request.model";
 import { BloodReqService } from "./services/blood-req.service";
 
 @Component({
@@ -42,9 +42,22 @@ export class BloodReqComponent implements OnInit, OnDestroy {
   ];
 
   m_ActiveLink: string = this.m_Routes[0].path;
+  m_ActiveLink$ = this.m_Router.events.pipe(
+    filter((event: any) => event instanceof NavigationEnd),
+    tap((route: any) => {
+      const arr = route.url.split('/');
+      this.m_ActiveLink = arr[arr.length - 1];
+      if(this.m_ActiveLink === 'blood-req')
+        this.m_ActiveLink = 'new';
+    })
+  );
+
   m_Loading: boolean = true;
 
-  constructor(private m_Route: ActivatedRoute, private m_BloodReqService: BloodReqService, private m_SnackBar: MatSnackBar) { }
+  constructor(private m_Route: ActivatedRoute, 
+              private m_BloodReqService: BloodReqService, 
+              private m_SnackBar: MatSnackBar, 
+              private m_Router: Router) { }
 
   ngOnInit() {
     this.m_ActiveLink = this.m_Route.snapshot.firstChild?.url[0].path!;

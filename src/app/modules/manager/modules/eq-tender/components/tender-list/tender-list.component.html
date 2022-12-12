@@ -1,0 +1,32 @@
+<div *ngLet="(m_Data$ | async) as dataList">
+  <div *ngIf="dataList && dataList.length != 0" class="list">
+    <mat-card class="card" *ngFor="let tender of dataList">
+      <mat-card-header>
+        <mat-card-title>
+          <span>{{tender.title}}</span>&nbsp;
+          <span class="tender-status" *ngIf="tender.state == 1"><i>(confirmation pending...)</i></span>
+          <span class="tender-status closed" *ngIf="tender.state == 2"><i>(tender closed...)</i></span>
+        </mat-card-title>
+
+        <mat-card-subtitle *ngIf="!tender.expiresOn && tender.state != 2" style="color: green;">expires: never
+        </mat-card-subtitle>
+        <mat-card-subtitle *ngIf="tender.expiresOn">
+          <span *ngIf="!isInPast(tender.expiresOn) && tender.state != 2" style="color: green;">{{tender.expiresOn | date:'medium'}}</span>
+          <span *ngIf="isInPast(tender.expiresOn) && tender.state != 2" style="color: red;">{{tender.expiresOn | date:'medium'}}</span>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{tender.description}}</p>
+        <tender-item-list *ngIf="tender.requirements && tender.requirements.length != 0" [i_Items]="tender.requirements">
+        </tender-item-list>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-flat-button color="accent" [routerLink]="['..', tender.id]">Applications</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div *ngIf="!dataList || dataList.length == 0">
+    Nothing to display...
+  </div>
+</div>
