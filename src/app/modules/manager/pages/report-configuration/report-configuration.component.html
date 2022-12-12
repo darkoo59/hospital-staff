@@ -1,0 +1,51 @@
+<section>
+  <form class="report-form" [formGroup]="m_Form" (ngSubmit)="onSubmit()">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Blood banks</mat-label>
+      <mat-select formControlName="bbSelection" (selectionChange)="bbChanged()" id="report-configuration-bb-select">
+        <mat-option [value]="null">-- Select a bank --</mat-option>
+        <mat-option *ngFor="let bank of bBanks; let i = index" [value]="bank.id" [id]="'bank' + i">
+          {{bank.appName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Report Frequency</mat-label>
+          <mat-hint *ngIf="m_Form.value.frequencyType === 'day'">Number of days</mat-hint>
+          <mat-hint *ngIf="m_Form.value.frequencyType === 'month'">Number of months</mat-hint>
+          <input matInput type="number" min="0" formControlName="reportFrequency" id="report-configuration-frequency">
+        </mat-form-field>
+        <mat-radio-group formControlName="frequencyType">
+          <mat-radio-button class="radio-button" value="day" id="report-configuration-frequency-type-day">Day</mat-radio-button>
+          <mat-radio-button class="radio-button" value="month">Month</mat-radio-button>
+        </mat-radio-group>
+      </div>
+    
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Period of time</mat-label>
+          <mat-hint *ngIf="m_Form.value.periodType === 'day'">Number of days</mat-hint>
+          <mat-hint *ngIf="m_Form.value.periodType === 'month'">Number of months</mat-hint>
+          <input matInput type="number" min="0" formControlName="reportPeriod" id="report-configuration-period">
+        </mat-form-field>
+          <mat-radio-group formControlName="periodType">
+            <mat-radio-button class="radio-button" value="day" id="report-configuration-period-type-day">Day</mat-radio-button>
+            <mat-radio-button class="radio-button" value="month">Month</mat-radio-button>
+          </mat-radio-group>
+      </div>
+
+      <div>
+        <mat-error *ngFor="let e of m_Errors" id="report-configuration-error">{{e}}</mat-error>
+      </div>
+    
+      <div style="display: flex; justify-content: right;">
+       <button mat-flat-button color="primary" id="report-configuration-submit">Submit</button>
+      </div>
+    </div>
+  
+  </form>
+</section>

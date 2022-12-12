@@ -29,12 +29,24 @@ export class ManagerNavComponent {
       title: 'Blood Requests'
     },
     {
+      path: 'report-configuration',
+      title: 'Report Configuration'
+    },
+    {
       path: 'eq-tender',
       title: 'Equipment Tenders'
     },
     {
+      path: 'urgent-order',
+      title: 'Urgent Blood Order'
+    },
+    {
       path: 'monthly-blood-supply',
       title: 'Monthly blood supply'
+    },
+    {
+      path: 'notifications',
+      title: 'Notifications'
     }
   ];
 

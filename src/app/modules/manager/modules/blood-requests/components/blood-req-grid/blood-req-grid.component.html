@@ -23,6 +23,10 @@
               <td>Reason for adjustment:</td>
               <td *ngIf="data.reasonForAdjustment"><mat-error>{{data.reasonForAdjustment}}</mat-error></td>
             </tr>
+            <tr>
+              <td>Urgent:</td>
+              <td>{{data.urgent}}</td>
+            </tr>
           </table>
         </mat-card-content>
         <mat-card-actions align="end" class="button-group" *ngIf="data.state == 0">

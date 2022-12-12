@@ -16,6 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { A11yModule } from '@angular/cdk/a11y';
 
@@ -41,6 +42,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     MatToolbarModule,
     MatButtonToggleModule,
     MatTabsModule,
+    MatRadioModule,
     MatDialogModule,
     A11yModule
   ],
@@ -62,6 +64,7 @@ import { A11yModule } from '@angular/cdk/a11y';
     MatToolbarModule,
     MatButtonToggleModule,
     MatTabsModule,
+    MatRadioModule,
     MatDialogModule,
     A11yModule
   ]
