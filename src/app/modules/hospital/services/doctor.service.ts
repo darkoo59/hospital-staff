@@ -16,4 +16,10 @@ export class DoctorService {
   getDoctors(): Observable<Doctor[]> {
     return this.http.get<Doctor[]>(this.apiHost + "api/doctor", {headers: this.headers});
   }
+
+  getDoctor(doctorId: number): Observable<Doctor> {
+    return this.http.get<Doctor>(this.apiHost + "api/doctor/"+doctorId, {headers: this.headers});
+  }
+
+
 }

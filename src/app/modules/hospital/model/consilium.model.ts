@@ -1,3 +1,7 @@
+import { Room } from './room.model';
+import { Doctor } from './doctor.model';
+
+
 export class Consilium {
 
     consiliumId: number = 0;
@@ -6,8 +10,12 @@ export class Consilium {
     dateRangeEnd: Date = new Date();
     startTime: Date = new Date();
     duration : number = 0;
+    roomId : number = 0;
+    room : Room = new Room(); 
     doctorIds : number[] = [];
+    doctors : string = '';
     specializationIds : number[] = [];
+
 
     public constructor(obj?: any) {
         if (obj) {
@@ -18,8 +26,10 @@ export class Consilium {
             this.dateRangeEnd = obj.dateRangeEnd;
             this.startTime = obj.startTime;
             this.duration = obj.duration;
+            this.roomId = obj.roomId;
             this.doctorIds = obj.doctorsIds;
             this.specializationIds = obj.specializationIds;    
+            this.doctors =''
         }
     }
 }

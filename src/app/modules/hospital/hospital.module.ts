@@ -23,11 +23,15 @@ import { CreateInpatientTreatmentComponent } from './create-inpatient-treatment/
 import { CreateInpatientTreatmentTherapyComponent } from './create-inpatient-treatment-therapy/create-inpatient-treatment-therapy.component';
 import { CreateBloodUsageEvidencyComponent } from "./create-blood-usage-evidency/create-blood-usage-evidency.component";
 import { CreateConsiliumComponent } from "./create-consilium/create-consilium.component";
+import { ViewConsiliumsComponent } from "./view-consiliums/view-consiliums.component";
+
+
 
 const routes: Routes = [
   {
     path: '', component: HospitalComponent, children: [
       { path: 'createconsilium', component: CreateConsiliumComponent },
+      { path: 'consiliums', component: ViewConsiliumsComponent },
       { path: 'rooms', component: RoomsComponent },
       { path: 'rooms/add', component: CreateRoomComponent },
       { path: 'rooms/:id', component: RoomDetailComponent },
@@ -64,7 +68,8 @@ const routes: Routes = [
     CreateBloodUsageEvidencyComponent,
     VacationRequestsDisplayComponent,
     CreateVacationComponent,
-    CreateConsiliumComponent
+    CreateConsiliumComponent,
+    ViewConsiliumsComponent
   ],
   imports: [
     CommonModule,
@@ -75,7 +80,8 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    
   ],
   exports: [RouterModule],
   providers: [
