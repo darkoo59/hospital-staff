@@ -48,11 +48,11 @@ export class VacationService {
   }
 
   approveVacationRequest(requestId: number): Observable<VacationRequest[]> {
-    return this.http.get<VacationRequest[]>(this.apiHost + "api/vacationRequest/VacationApproveId/" + requestId, {headers: this.headers});
+    return this.http.put<VacationRequest[]>(this.apiHost + "api/vacationRequest/VacationApproveId/" + requestId, {headers: this.headers});
   }
 
   declineVacationRequest(requestId: number): Observable<VacationRequest[]> {
-    return this.http.get<VacationRequest[]>(this.apiHost + "api/vacationRequest/VacationNotApproveId/" + requestId, {headers: this.headers});
+    return this.http.put<VacationRequest[]>(this.apiHost + "api/vacationRequest/VacationNotApproveId/" + requestId, {headers: this.headers});
   }
 
 }

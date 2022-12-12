@@ -22,6 +22,9 @@ import { InpatientTreatmentsComponent } from './inpatient-treatments/inpatient-t
 import { CreateInpatientTreatmentComponent } from './create-inpatient-treatment/create-inpatient-treatment.component';
 import { CreateInpatientTreatmentTherapyComponent } from './create-inpatient-treatment-therapy/create-inpatient-treatment-therapy.component';
 import { CreateBloodUsageEvidencyComponent } from "./create-blood-usage-evidency/create-blood-usage-evidency.component";
+import { ScheduleRenovationComponent } from './schedule-renovation/schedule-renovation.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatRadioModule} from '@angular/material/radio';
 import { CreateConsiliumComponent } from "./create-consilium/create-consilium.component";
 import { ViewConsiliumsComponent } from "./view-consiliums/view-consiliums.component";
 
@@ -46,6 +49,7 @@ const routes: Routes = [
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
       { path: 'vacations', component: VacationRequestsDisplayComponent },
       { path: 'createvacation', component: CreateVacationComponent },
+      { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent }
     ]
   }
 
@@ -68,6 +72,7 @@ const routes: Routes = [
     CreateBloodUsageEvidencyComponent,
     VacationRequestsDisplayComponent,
     CreateVacationComponent,
+    ScheduleRenovationComponent,
     CreateConsiliumComponent,
     ViewConsiliumsComponent
   ],
@@ -81,7 +86,8 @@ const routes: Routes = [
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    
+    MatStepperModule,
+    MatRadioModule
   ],
   exports: [RouterModule],
   providers: [

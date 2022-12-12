@@ -21,12 +21,14 @@ export class VacationRequestsComponent implements OnInit {
   }
 
   approveRequest(requestId: number): void{
-    this.vacationService.approveVacationRequest(requestId);
-    alert("Odobren");
+    this.vacationService.approveVacationRequest(requestId).subscribe(res => {
+      alert("Odobren");
+    });
   }
   declineRequest(requestId: number): void{
-    this.vacationService.declineVacationRequest(requestId);
-    alert("Odbijen");
+    this.vacationService.declineVacationRequest(requestId).subscribe(res => {
+      alert("Odbijen");
+    });
   }
 
 }

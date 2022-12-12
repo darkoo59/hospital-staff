@@ -13,86 +13,160 @@
             <div class="col-3 align-middle">
                 <mat-card>
                     <mat-card-title>Soba: {{selectedRoom.number}}</mat-card-title>
-                    <mat-card-content>
-                        <p><b>Zgrada: </b>{{selectedRoom.buildingId}}</p>
-                        <p><b>Opis: </b>{{selectedRoom.description}}</p>
-                        <p><b>Oprema: </b></p>
-
-                            <table mat-table [dataSource]="selectedRoomEquipment" multiTemplateDataRows>
-
-                                <ng-container matColumnDef="name">
-                                    <th mat-header-cell *matHeaderCellDef>Naziv</th>
-                                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    <mat-tab-group>
+                        <mat-tab label="Informacije"> 
+                            <mat-card-content>
+                                <p><b>Zgrada: </b>{{selectedRoom.buildingId}}</p>
+                                <p><b>Opis: </b>{{selectedRoom.description}}</p>
+                                <p><b>Oprema: </b></p>
+        
+                                    <table mat-table [dataSource]="selectedRoomEquipment" multiTemplateDataRows>
+        
+                                        <ng-container matColumnDef="name">
+                                            <th mat-header-cell *matHeaderCellDef>Naziv</th>
+                                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                        </ng-container>
+                                        
+                                          <ng-container matColumnDef="quantity">
+                                            <th mat-header-cell *matHeaderCellDef class="quantity-header">Količina</th>
+                                            <td mat-cell *matCellDef="let element" class="quantity-row"> {{element.quantity}} </td>
+                                        </ng-container>
+        
+                                        <ng-container matColumnDef="move">
+                                        <th mat-header-cell *matHeaderCellDef aria-label="row actions" style="width:20px">Premestanje</th>
+                                        <td mat-cell *matCellDef="let element">
+                                            <button mat-icon-button aria-label="expand row" (click)="(selectedEquipment = selectedEquipment === element ? null : element); $event.stopPropagation()">
+                                            <mat-icon *ngIf="selectedEquipment !== element">keyboard_arrow_down</mat-icon>
+                                            <mat-icon *ngIf="selectedEquipment === element">keyboard_arrow_up</mat-icon>
+                                            </button>
+                                        </td>
+                                        </ng-container>
+        
+                                        <ng-container matColumnDef="expandedDetail">
+                                        <td mat-cell *matCellDef="let element" [attr.colspan]="dispayedColumnsWithMove.length"  class="details-row">
+                                            <div class="example-element-detail"
+                                                [@detailExpand]="element == selectedEquipment ? 'expanded' : 'collapsed'">
+                                            
+                                                <h4 class="move-title">Premestanje<i> {{element.name}}</i>-a</h4>
+                                                <mat-form-field>
+                                                    <mat-label>Kolicina</mat-label>
+                                                    <input matInput type="number" placeholder="0" min= 0 max="{{element.quantity}}">
+                                                </mat-form-field>
+        
+                                                <mat-form-field>
+                                                    <mat-label>Odredisna prostorija</mat-label>
+                                                    <mat-select>
+                                                      <mat-option *ngFor = "let room of allRooms" value="{{room.id}}">{{room.number}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+        
+                                                <mat-form-field>
+                                                    <mat-label>Vremenski interval</mat-label>
+                                                    <mat-date-range-input [rangePicker]="picker">
+                                                      <input matStartDate placeholder="Od" [min]="minDate">
+                                                      <input matEndDate placeholder="Do">
+                                                    </mat-date-range-input>
+                                                    <!--<mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>-->
+                                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                    <mat-date-range-picker #picker></mat-date-range-picker>
+                                                </mat-form-field>
+        
+                                                <mat-form-field>
+                                                    <mat-label>Trajanje</mat-label>
+                                                    <input matInput type="number" placeholder="0" min=0 step=10>
+                                                    <span matSuffix> minuta</span>
+                                                </mat-form-field>
+        
+                                                    <button mat-flat-button color="primary" class="move-equipment-btn">Premesti</button>
+        
+        
+                                            </div>
+                                        </td>
+                                        </ng-container>
+        
+        
+                                        <tr mat-header-row *matHeaderRowDef="dispayedColumnsWithMove"></tr>
+                                        <tr mat-row *matRowDef="let element; columns: dispayedColumnsWithMove;"
+                                            class="example-element-row"
+                                            [class.example-expanded-row]="selectedEquipment === element"
+                                            (click)="selectedEquipment = selectedEquipment === element ? null : element">
+                                        </tr>
+                                        <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                                          
+                                    </table>
+                            </mat-card-content>
+                        </mat-tab>
+                        <mat-tab label="Termini"> 
+                              
+                              <table mat-table [dataSource]="requests" multiTemplateDataRows class="requests-table">
+        
+                                <ng-container matColumnDef="type">
+                                    <th mat-header-cell *matHeaderCellDef>Tip</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.type}} </td>
                                 </ng-container>
                                 
-                                  <ng-container matColumnDef="quantity">
-                                    <th mat-header-cell *matHeaderCellDef class="quantity-header">Količina</th>
-                                    <td mat-cell *matCellDef="let element" class="quantity-row"> {{element.quantity}} </td>
+                                <ng-container matColumnDef="chosenStartTime">
+                                    <th mat-header-cell *matHeaderCellDef >Datum</th>
+                                    <td mat-cell *matCellDef="let element"> {{element.chosenStartTime}} </td>
                                 </ng-container>
 
                                 <ng-container matColumnDef="move">
-                                <th mat-header-cell *matHeaderCellDef aria-label="row actions">Premestanje</th>
+                                <th mat-header-cell *matHeaderCellDef aria-label="row actions" style="width:20px">Informacije</th>
                                 <td mat-cell *matCellDef="let element">
-                                    <button mat-icon-button aria-label="expand row" (click)="(selectedEquipment = selectedEquipment === element ? null : element); $event.stopPropagation()">
-                                    <mat-icon *ngIf="selectedEquipment !== element">keyboard_arrow_down</mat-icon>
-                                    <mat-icon *ngIf="selectedEquipment === element">keyboard_arrow_up</mat-icon>
+                                    <button mat-icon-button aria-label="expand row" (click)="(selectedRequest = selectedRequest === element ? null : element); $event.stopPropagation()">
+                                    <mat-icon *ngIf="selectedRequest !== element">keyboard_arrow_down</mat-icon>
+                                    <mat-icon *ngIf="selectedRequest === element">keyboard_arrow_up</mat-icon>
                                     </button>
                                 </td>
                                 </ng-container>
 
                                 <ng-container matColumnDef="expandedDetail">
-                                <td mat-cell *matCellDef="let element" [attr.colspan]="dispayedColumnsWithMove.length"  class="details-row">
+                                <td mat-cell *matCellDef="let element" [attr.colspan]="dispayedColumnsRequestsWithMove.length"  class="details-row">
                                     <div class="example-element-detail"
-                                        [@detailExpand]="element == selectedEquipment ? 'expanded' : 'collapsed'">
+                                        [@detailExpand]="element == selectedRequest ? 'expanded' : 'collapsed'">
                                     
-                                        <h4 class="move-title">Premestanje<i> {{element.name}}</i>-a</h4>
-                                        <mat-form-field>
-                                            <mat-label>Kolicina</mat-label>
-                                            <input matInput type="number" placeholder="0" min= 0 max="{{element.quantity}}">
-                                        </mat-form-field>
+                                        <h4 class="move-title">Informacije o terminu {{element.type}}</h4>
 
-                                        <mat-form-field>
-                                            <mat-label>Odredisna prostorija</mat-label>
-                                            <mat-select>
-                                              <mat-option *ngFor = "let room of allRooms" value="{{room.roomId}}">{{room.number}}</mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-
-                                        <mat-form-field>
-                                            <mat-label>Vremenski interval</mat-label>
-                                            <mat-date-range-input [rangePicker]="picker">
-                                              <input matStartDate placeholder="Od" [min]="minDate">
-                                              <input matEndDate placeholder="Do">
-                                            </mat-date-range-input>
-                                            <!--<mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>-->
-                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                            <mat-date-range-picker #picker></mat-date-range-picker>
-                                        </mat-form-field>
-
-                                        <mat-form-field>
-                                            <mat-label>Trajanje</mat-label>
-                                            <input matInput type="number" placeholder="0" min=0 step=10>
-                                            <span matSuffix> minuta</span>
-                                        </mat-form-field>
-
-                                            <button mat-flat-button color="primary" class="move-equipment-btn">Premesti</button>
-
+                                        <button mat-stroked-button  color="move-equipment-btn">Otkaži</button>
 
                                     </div>
                                 </td>
                                 </ng-container>
 
 
-                                <tr mat-header-row *matHeaderRowDef="dispayedColumnsWithMove"></tr>
-                                <tr mat-row *matRowDef="let element; columns: dispayedColumnsWithMove;"
+                                <tr mat-header-row *matHeaderRowDef="dispayedColumnsRequestsWithMove"></tr>
+                                <tr mat-row *matRowDef="let element; columns: dispayedColumnsRequestsWithMove;"
                                     class="example-element-row"
-                                    [class.example-expanded-row]="selectedEquipment === element"
-                                    (click)="selectedEquipment = selectedEquipment === element ? null : element">
+                                    [class.example-expanded-row]="selectedRequest === element"
+                                    (click)="selectedRequest = selectedRequest === element ? null : element">
                                 </tr>
                                 <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
                                   
                             </table>
-                    </mat-card-content>
+
+                            <table class="table table-hover appointments-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tip</th>
+                                        <th>Datum</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let request of requests">
+                                        <td class="align-middle">{{request.type}}</td>
+                                        <td class="align-middle">{{request.chosenStartTime | date}}</td>
+                                        <td class="align-middle">
+                                            <button mat-stroked-button color="warn" (click)="cancelRequest(request)">Otkaži</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                              </table>    
+
+                              <button mat-flat-button color="primary" (click) = "redirectToRenovation()" class="renovation-btn">Zakaži renoviranje</button>
+                        </mat-tab>
+                    </mat-tab-group>
+                    
                 </mat-card>
             </div>
     </div>
