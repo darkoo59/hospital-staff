@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as d3 from 'd3';
 import { Equipment } from '../model/equipment.model';
 import { RoomMap } from '../model/room-map.model';
@@ -26,7 +26,9 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class RoomsMapComponent implements OnInit {
 
-  constructor(private roomMapService: RoomMapService, private equipmentService: EquipmentService, private _route: ActivatedRoute) {
+  constructor(private roomMapService: RoomMapService, private equipmentService: EquipmentService, 
+    private _route: ActivatedRoute, private router: Router) {
+      
     this.buildingId = this._route.snapshot.paramMap.get('id');
     this.floorId = this._route.snapshot.paramMap.get('floorId');
     this.roomId = this._route.snapshot.paramMap.get('roomId');
@@ -79,6 +81,7 @@ export class RoomsMapComponent implements OnInit {
         this.equipmentTable.renderRows();
       })
     }
+    
     
   }
 
@@ -173,6 +176,11 @@ export class RoomsMapComponent implements OnInit {
       return d.number;
     })
     .style("text-anchor", "middle");
+  }
+
+
+  redirectToRenovation(){
+    this.router.navigate(['/renovation/hospital/' + this.buildingId +'/floor/'+ this.floorId])
   }
 
 }

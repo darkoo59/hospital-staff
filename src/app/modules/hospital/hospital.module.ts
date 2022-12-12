@@ -22,6 +22,9 @@ import { InpatientTreatmentsComponent } from './inpatient-treatments/inpatient-t
 import { CreateInpatientTreatmentComponent } from './create-inpatient-treatment/create-inpatient-treatment.component';
 import { CreateInpatientTreatmentTherapyComponent } from './create-inpatient-treatment-therapy/create-inpatient-treatment-therapy.component';
 import { CreateBloodUsageEvidencyComponent } from "./create-blood-usage-evidency/create-blood-usage-evidency.component";
+import { ScheduleRenovationComponent } from './schedule-renovation/schedule-renovation.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -41,7 +44,8 @@ const routes: Routes = [
       { path: 'bloodUsageEvidency/add', component: CreateBloodUsageEvidencyComponent },
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
       { path: 'vacations', component: VacationRequestsDisplayComponent },
-      { path: 'createvacation', component: CreateVacationComponent }
+      { path: 'createvacation', component: CreateVacationComponent },
+      { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent }
     ]
   }
 
@@ -63,7 +67,8 @@ const routes: Routes = [
     CreateInpatientTreatmentTherapyComponent,
     CreateBloodUsageEvidencyComponent,
     VacationRequestsDisplayComponent,
-    CreateVacationComponent
+    CreateVacationComponent,
+    ScheduleRenovationComponent
   ],
   imports: [
     CommonModule,
@@ -74,7 +79,9 @@ const routes: Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatStepperModule,
+    MatRadioModule
   ],
   exports: [RouterModule],
   providers: [

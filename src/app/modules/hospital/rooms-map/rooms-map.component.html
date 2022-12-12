@@ -56,7 +56,7 @@
                                                 <mat-form-field>
                                                     <mat-label>Odredisna prostorija</mat-label>
                                                     <mat-select>
-                                                      <mat-option *ngFor = "let room of allRooms" value="{{room.roomId}}">{{room.number}}</mat-option>
+                                                      <mat-option *ngFor = "let room of allRooms" value="{{room.id}}">{{room.number}}</mat-option>
                                                     </mat-select>
                                                 </mat-form-field>
         
@@ -100,38 +100,41 @@
                             <table class="table table-hover appointments-table">
                                 <thead>
                                     <tr>
-                                    <th>Tip</th>
-                                    <th>Datum</th>
-                                    <th>Vreme</th>
+                                        <th>Tip</th>
+                                        <th>Datum</th>
+                                        <th>Vreme</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Pregled</td>
-                                        <td>20.12.2022.<td>
-                                        <td>12:00</td>
-                                        <td>
-                                            <button mat-raised-button color="warn">Otkazi</button>
+                                        <td class="align-middle">Pregled</td>
+                                        <td class="align-middle">25.12.2022.</td>
+                                        <td class="align-middle">12:00</td>
+                                        <td class="align-middle">
+                                            <button mat-stroked-button color="warn">Otkaži</button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Renoviranje</td>
-                                        <td>25.12.2022.<td>
-                                        <td>14:00</td>
-                                        <td>
-                                            <button mat-raised-button color="warn">Otkazi</button>
+                                        <td class="align-middle">Renoviranje</td>
+                                        <td class="align-middle">25.12.2022.</td>
+                                        <td class="align-middle">14:00</td>
+                                        <td class="align-middle">
+                                            <button mat-stroked-button  color="warn">Otkaži</button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Pregled</td>
-                                        <td>28.12.2022.<td>
-                                        <td>12:00</td>
-                                        <td>
-                                            <button mat-raised-button color="warn">Otkazi</button>
+                                        <td class="align-middle">Pregled</td>
+                                        <td class="align-middle">28.12.2022.</td>
+                                        <td class="align-middle">12:00</td>
+                                        <td class="align-middle">
+                                            <button mat-stroked-button  color="warn">Otkaži</button>
                                         </td>
                                     </tr>
                                 </tbody>
                               </table>    
+
+                              <button mat-flat-button color="primary" (click) = "redirectToRenovation()" class="renovation-btn">Zakaži renoviranje</button>
                         </mat-tab>
                     </mat-tab-group>
                     
