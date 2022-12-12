@@ -1,0 +1,19 @@
+<table mat-table [dataSource]="i_Items" class="mat-elevation-z">
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef> Blood Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.tenderRequirement.type}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef> Amount </th>
+    <td mat-cell *matCellDef="let element"> {{element.tenderRequirement.amount}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="cost">
+    <th mat-header-cell *matHeaderCellDef> Offer </th>
+    <td mat-cell style="color: green;" *matCellDef="let element"> <b>{{element.cost}}&nbsp;EUR</b> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="m_ColsShow"></tr>
+  <tr mat-row *matRowDef="let row; columns: m_ColsShow;"></tr>
+</table>

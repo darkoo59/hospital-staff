@@ -1,0 +1,50 @@
+<section class="outer">
+  <form class="example-form inner" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1 class="heading">Urgent Blood Order</h1>
+    
+    <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>Select an option</mat-label>
+      
+      <mat-select formControlName="blood-type-select">
+        <mat-option>None</mat-option>
+        <mat-option value=0>A+</mat-option>
+        <mat-option value=1>A-</mat-option>
+        <mat-option value=2>B+</mat-option>
+        <mat-option value=3>B-</mat-option>
+        <mat-option value=4>O+</mat-option>
+        <mat-option value=5>O-</mat-option>
+        <mat-option value=6>AB+</mat-option>
+        <mat-option value=7>AB-</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.controls['blood-type-select'].hasError('required')">
+        Blood type is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width"  appearance="fill">
+      <mat-label>Quantity</mat-label>
+      <input type="number" min="0" value="0" matInput formControlName="quantity">
+      <mat-error *ngIf="form.controls['quantity'].hasError('required')">
+        Quantity is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+   
+    <mat-form-field appearance="fill" class="example-full-width select-item">
+      <mat-label>Select a blood bank</mat-label>
+      <mat-select formControlName="bb-select" >
+        <mat-option *ngFor="let bloodBank of bbList" [value]="bloodBank">
+          {{bloodBank.appName}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.controls['bb-select'].hasError('required')">
+        You must select a center
+      </mat-error>
+    </mat-form-field>
+
+    <div class="button-group">
+      <button type="button" mat-button>Cancel</button>
+      <button mat-flat-button color="primary">Submit</button>
+    </div>
+   
+  </form>
+</section>

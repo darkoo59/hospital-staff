@@ -34,7 +34,7 @@ export class BBRegisterComponent {
         return EMPTY;
       }))
       .subscribe(_ => {
-        this.m_SnackBar.open(`Third-party user registered`, 'close', { duration: 4000 });
+        this.m_SnackBar.open(`Blood bank registered successfully`, 'close', { duration: 4000 });
         this.m_Form.reset();
       });
   }

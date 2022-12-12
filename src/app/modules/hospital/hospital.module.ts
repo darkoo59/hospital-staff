@@ -25,12 +25,16 @@ import { CreateBloodUsageEvidencyComponent } from "./create-blood-usage-evidency
 import { ScheduleRenovationComponent } from './schedule-renovation/schedule-renovation.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from '@angular/material/radio';
+import { CreateConsiliumComponent } from "./create-consilium/create-consilium.component";
+import { ViewConsiliumsComponent } from "./view-consiliums/view-consiliums.component";
 
 
 
 const routes: Routes = [
   {
     path: '', component: HospitalComponent, children: [
+      { path: 'createconsilium', component: CreateConsiliumComponent },
+      { path: 'consiliums', component: ViewConsiliumsComponent },
       { path: 'rooms', component: RoomsComponent },
       { path: 'rooms/add', component: CreateRoomComponent },
       { path: 'rooms/:id', component: RoomDetailComponent },
@@ -68,7 +72,9 @@ const routes: Routes = [
     CreateBloodUsageEvidencyComponent,
     VacationRequestsDisplayComponent,
     CreateVacationComponent,
-    ScheduleRenovationComponent
+    ScheduleRenovationComponent,
+    CreateConsiliumComponent,
+    ViewConsiliumsComponent
   ],
   imports: [
     CommonModule,
