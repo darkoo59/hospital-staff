@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { catchError, EMPTY, map, of, switchMap } from 'rxjs';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+   
     this.m_Errors.length = 0;
     const dto: LoginDTO = this.m_Form.getRawValue();
     if (!this.m_Form.valid) return;
@@ -28,7 +30,9 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
           if(data){
             if(data.Role == 2)this.m_Router.navigate(['/manager']);
-            if(data.Role == 1)this.m_Router.navigate(['/hospital']);          
+            if(data.Role == 1)this.m_Router.navigate(['/hospital/consiliums']);          
+           
+           
           }
       });
   }

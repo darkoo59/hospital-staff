@@ -14,6 +14,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RoomService } from 'src/app/modules/hospital/services/room.service';
+import { UserDataService } from 'src/app/modules/pages/login/log-user-data.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, tap } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-view-consiliums',
@@ -23,19 +31,27 @@ import { RoomService } from 'src/app/modules/hospital/services/room.service';
 export class ViewConsiliumsComponent implements OnInit {
 
 
+  headers: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
+  public id: number = 0;
   public consiliums: Consilium[] = [];
   public dataSource = new MatTableDataSource<Consilium>();
   public displayedColumns = ['topic','dateStart','dateEnd','startTime','duration','numberOfRoom', 'otherDoctors'];
   public loogedUserId: number = 0
 
   constructor(private doctorService : DoctorService, private consiliumService : ConsiliumService,private roomService: RoomService,private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,private http: HttpClient, private userDataService : UserDataService) { 
+      this.userDataService.m_UserData$.pipe(tap(user_data => {
+        if(user_data != null)this.id = user_data.UserId;
+      })).subscribe();
+
+
+    }
 
   ngOnInit(): void {
     //hardkodovano
-    this.loogedUserId = 1
+
         
-    this.consiliumService.getDoctorConsiliums(this.loogedUserId ).subscribe(res => {
+    this.consiliumService.getDoctorConsiliums(this.id ).subscribe(res => {
         this.consiliums = res; 
         this.dataSource.data = this.consiliums;
    //     this.consiliums[1].doctors ='dd'
@@ -47,7 +63,7 @@ export class ViewConsiliumsComponent implements OnInit {
            
             for (let j = 0; j < this.consiliums[i].doctorIds.length; j++) {
        
-                if(this.consiliums[i].doctorIds[j]!=this.loogedUserId){
+                if(this.consiliums[i].doctorIds[j]!=this.id){
                   this.consiliums[i].doctors = ''
                   this.doctorService.getDoctor(this.consiliums[i].doctorIds[j]).subscribe(res => {
                   
