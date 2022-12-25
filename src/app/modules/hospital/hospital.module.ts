@@ -27,6 +27,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatRadioModule} from '@angular/material/radio';
 import { CreateConsiliumComponent } from "./create-consilium/create-consilium.component";
 import { ViewConsiliumsComponent } from "./view-consiliums/view-consiliums.component";
+import { CurrentBloodSupplyComponent } from './current-blood-supply/current-blood-supply.component';
 
 
 
@@ -74,7 +75,8 @@ const routes: Routes = [
     CreateVacationComponent,
     ScheduleRenovationComponent,
     CreateConsiliumComponent,
-    ViewConsiliumsComponent
+    ViewConsiliumsComponent,
+    CurrentBloodSupplyComponent
   ],
   imports: [
     CommonModule,
