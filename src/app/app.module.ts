@@ -18,6 +18,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { VacationRequestsComponent } from './modules/vacations/vacation-requests/vacation-requests.component';
 import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.service';
+import { CurrentBloodSupplyComponent } from './modules/hospital/current-blood-supply/current-blood-supply.component';
+
 
 
 
@@ -30,7 +32,8 @@ import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.serv
         RoomsMapComponent,
         EquipmentSearchComponent,
         RoomsSearchComponent,
-        VacationRequestsComponent
+        VacationRequestsComponent,
+        
     ],
     providers: [    
     {

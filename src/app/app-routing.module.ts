@@ -12,15 +12,17 @@ import { VacationRequestsComponent } from "./modules/vacations/vacation-requests
 import { ScheduleRenovationComponent } from './modules/hospital/schedule-renovation/schedule-renovation.component';
 import { CreateConsiliumComponent } from "./modules/hospital/create-consilium/create-consilium.component";
 import { AuthGuard } from "./modules/pages/login/log-auth.guard";
+import { CurrentBloodSupplyComponent } from './modules/hospital/current-blood-supply/current-blood-supply.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'doctor-appointment-display', component : DoctorAppointmentDisplayComponent},
   { path: 'create-consilium', component : CreateConsiliumComponent},
+  { path: 'blood/supply', component: CurrentBloodSupplyComponent },
   {
     path: 'manager',
     loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule),
-    canActivate: [AuthGuard]
+  //  canActivate: [AuthGuard]
   },
   { path: 'create-vacation-display', component : CreateVacationComponent  },
   { path: 'vacation-requests-display' , component : VacationRequestsDisplayComponent },
@@ -37,6 +39,7 @@ const routes: Routes = [
   { path: 'vacationRequests', component: VacationRequestsComponent },
   { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'blood/supply', component: CurrentBloodSupplyComponent },
 ];
 
 @NgModule({

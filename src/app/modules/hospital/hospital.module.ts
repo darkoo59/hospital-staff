@@ -31,6 +31,7 @@ import { CurrentBloodSupplyComponent } from './current-blood-supply/current-bloo
 
 
 
+
 const routes: Routes = [
   {
     path: '', component: HospitalComponent, children: [
@@ -50,6 +51,7 @@ const routes: Routes = [
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
       { path: 'vacations', component: VacationRequestsDisplayComponent },
       { path: 'createvacation', component: CreateVacationComponent },
+      { path: 'blood/supply', component: CurrentBloodSupplyComponent },
       { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent }
     ]
   }
