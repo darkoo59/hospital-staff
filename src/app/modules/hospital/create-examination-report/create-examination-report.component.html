@@ -5,7 +5,7 @@
       <div>
         <mat-select placeholder="Select patient" name="patients" [(ngModel)]="examinationReport.appointmentId" >
           <mat-option *ngFor="let appointment of appointments" [value]=appointment.id>
-            {{ appointment.patient.name + ' ' + appointment.patient.surname + ' ' + appointment.patient.email}}
+            {{ appointment.patient.name + ' ' + appointment.patient.surname }}
           </mat-option>
         </mat-select>
       </div>
