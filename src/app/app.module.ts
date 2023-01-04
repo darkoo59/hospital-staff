@@ -51,7 +51,7 @@ import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.serv
         Ng2SearchPipeModule,
         FormsModule,
         MatPaginatorModule,
-        MatExpansionModule
+        MatExpansionModule,
     ]
 })
 export class AppModule { }

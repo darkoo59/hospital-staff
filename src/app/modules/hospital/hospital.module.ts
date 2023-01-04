@@ -27,6 +27,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { CreateExaminationReportComponent } from './create-examination-report/create-examination-report.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { NgSelectModule } from '@ng-select/ng-select'; 
+import { ScheduleRenovationComponent } from './schedule-renovation/schedule-renovation.component';
+import {MatRadioModule} from '@angular/material/radio';
 import { CreateConsiliumComponent } from "./create-consilium/create-consilium.component";
 import { ViewConsiliumsComponent } from "./view-consiliums/view-consiliums.component";
 
@@ -52,6 +54,7 @@ const routes: Routes = [
       { path: 'bloodUsageEvidency/add', component: CreateBloodUsageEvidencyComponent },
       { path: 'vacations', component: VacationRequestsDisplayComponent },
       { path: 'createvacation', component: CreateVacationComponent },
+      { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent },
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
 
     ]
@@ -77,6 +80,7 @@ const routes: Routes = [
     VacationRequestsDisplayComponent,
     CreateVacationComponent,
     CreateExaminationReportComponent,
+    ScheduleRenovationComponent,
     CreateConsiliumComponent,
     ViewConsiliumsComponent
 
@@ -95,8 +99,8 @@ const routes: Routes = [
     MatPaginatorModule,
     MatStepperModule,
     NgSelectModule,
-    MatOptionModule
-
+    MatOptionModule,
+    MatRadioModule
   ],
   exports: [RouterModule], 
   providers: [

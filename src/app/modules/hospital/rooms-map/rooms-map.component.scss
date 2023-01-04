@@ -7,10 +7,12 @@
     }
 .mat-card{
     background-color: rgb(222, 222, 222);
-    width: 350px;
+    width: 370px;
     position: sticky;
     top: 20px;
 }
+
+
 
 .mat-card-content{
     margin-top: 20px;
@@ -77,4 +79,23 @@ width: 100%;
 .move-equipment-btn{
     margin-top: 10px;
     margin-bottom: 20px;
+}
+
+.appointments-table{
+    margin-top: 20px;
+}
+
+.appointments-table th, .appointments-table td{
+    padding: 0.5rem;
+}
+
+.renovation-btn{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.requests-table{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: none;
 }

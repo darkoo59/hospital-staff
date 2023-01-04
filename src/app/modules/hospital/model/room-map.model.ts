@@ -1,7 +1,7 @@
 import { Room } from "./room.model";
 
 export class RoomMap {
-    roomId: number = 0;
+    id: number = 0;
     x: number = 0;
     y: number = 0;
     width: number = 0;
@@ -12,7 +12,7 @@ export class RoomMap {
 
     public constructor(obj?: any) {
         if (obj) {
-            this.roomId = obj.id;
+            this.id = obj.id;
             this.x = obj.x;
             this.y = obj.y;
             this.width = obj.width;
