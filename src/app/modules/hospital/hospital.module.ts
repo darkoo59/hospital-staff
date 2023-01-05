@@ -31,9 +31,7 @@ import { ScheduleRenovationComponent } from './schedule-renovation/schedule-reno
 import {MatRadioModule} from '@angular/material/radio';
 import { CreateConsiliumComponent } from "./create-consilium/create-consilium.component";
 import { ViewConsiliumsComponent } from "./view-consiliums/view-consiliums.component";
-
-
-
+import { ExaminationReportSearchComponent } from './examination-report-search/examination-report-search.component';
 
 const routes: Routes = [
   {
@@ -51,16 +49,14 @@ const routes: Routes = [
       { path: 'inpatient-treatments/add', component: CreateInpatientTreatmentComponent },
       { path: 'inpatient-treatment-therapy/add', component: CreateInpatientTreatmentTherapyComponent },
       { path: 'examinationreport/create', component: CreateExaminationReportComponent },
+      { path: 'examinationreport/search', component: ExaminationReportSearchComponent},
       { path: 'bloodUsageEvidency/add', component: CreateBloodUsageEvidencyComponent },
       { path: 'vacations', component: VacationRequestsDisplayComponent },
       { path: 'createvacation', component: CreateVacationComponent },
       { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent },
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
-
     ]
   }
-
-
 ];
 
 @NgModule({
@@ -82,7 +78,8 @@ const routes: Routes = [
     CreateExaminationReportComponent,
     ScheduleRenovationComponent,
     CreateConsiliumComponent,
-    ViewConsiliumsComponent
+    ViewConsiliumsComponent,
+    ExaminationReportSearchComponent
 
   ],
   imports: [

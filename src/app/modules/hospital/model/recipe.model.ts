@@ -13,8 +13,7 @@ export class Recipe {
             this.medicineIds = obj.medicineIds;
             this.medicines = obj.medicines;
             this.wayOfUse = obj.wayOfUse;
-            this.dateOfIssue = obj.dateOfIssue;
-            
+            this.dateOfIssue = obj.dateOfIssue; 
         }
     }
 
