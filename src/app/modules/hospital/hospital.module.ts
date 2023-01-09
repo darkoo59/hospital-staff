@@ -31,13 +31,22 @@ import { ScheduleRenovationComponent } from './schedule-renovation/schedule-reno
 import {MatRadioModule} from '@angular/material/radio';
 import { CreateConsiliumComponent } from "./create-consilium/create-consilium.component";
 import { ViewConsiliumsComponent } from "./view-consiliums/view-consiliums.component";
+import { ShowAverageNumberOfExaminationStepsComponent } from './show-average-number-of-examination-steps/show-average-number-of-examination-steps.component';
+import { ShowAverageNumberOfVisitsToCertainExaminationStepsComponent } from './show-average-number-of-visits-to-certain-examination-steps/show-average-number-of-visits-to-certain-examination-steps.component';
+import { ShowAverageDurationOfExamComponent } from './show-average-duration-of-exam/show-average-duration-of-exam.component';
+import { ShowAverageDurationOfExamEachExaminationStepComponent } from './show-average-duration-of-exam-each-examination-step/show-average-duration-of-exam-each-examination-step.component';
+import { ShowAverageDurationOfExamSingleExaminationStepComponent } from './show-average-duration-of-exam-single-examination-step/show-average-duration-of-exam-single-examination-step.component';
+import { ShowExamStatsComponent } from './show-exam-stats/show-exam-stats.component';
+import { CurrentBloodSupplyComponent } from './current-blood-supply/current-blood-supply.component';
 import { ExaminationReportSearchComponent } from './examination-report-search/examination-report-search.component';
+
 
 const routes: Routes = [
   {
     path: '', component: HospitalComponent, children: [
       { path: 'createconsilium', component: CreateConsiliumComponent },
       { path: 'consiliums', component: ViewConsiliumsComponent },
+      { path: 'blood/supply', component: CurrentBloodSupplyComponent },
       { path: 'rooms', component: RoomsComponent },
       { path: 'rooms/add', component: CreateRoomComponent },
       { path: 'rooms/:id', component: RoomDetailComponent },
@@ -54,6 +63,12 @@ const routes: Routes = [
       { path: 'vacations', component: VacationRequestsDisplayComponent },
       { path: 'createvacation', component: CreateVacationComponent },
       { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent },
+      { path: 'avgnumofexaminationsteps', component: ShowAverageNumberOfExaminationStepsComponent },
+      { path: 'avgnumofvisitstocertainexaminationstep', component: ShowAverageNumberOfVisitsToCertainExaminationStepsComponent},
+      { path: 'avgdurationofexam', component: ShowAverageDurationOfExamComponent},
+      { path: 'avgdurationofeachexamstep', component: ShowAverageDurationOfExamEachExaminationStepComponent},
+      { path: 'avgdurationofsingleexamstep', component: ShowAverageDurationOfExamSingleExaminationStepComponent},
+      { path: 'examstats', component: ShowExamStatsComponent},
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
     ]
   }
@@ -79,8 +94,14 @@ const routes: Routes = [
     ScheduleRenovationComponent,
     CreateConsiliumComponent,
     ViewConsiliumsComponent,
+    ShowAverageNumberOfExaminationStepsComponent,
+    ShowAverageNumberOfVisitsToCertainExaminationStepsComponent,
+    ShowAverageDurationOfExamComponent,
+    ShowAverageDurationOfExamEachExaminationStepComponent,
+    ShowAverageDurationOfExamSingleExaminationStepComponent,
+    ShowExamStatsComponent,
+    CurrentBloodSupplyComponent,
     ExaminationReportSearchComponent
-
   ],
   imports: [
     CommonModule,

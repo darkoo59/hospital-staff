@@ -10,6 +10,7 @@ import { ExaminationReportService } from '../services/examination-report.service
 import { PhysicianScheduleService } from '../services/physician-schedule.service';
 import { Appointment } from '../model/appointment.model';
 import { PhysicianSchedule } from '../model/physician-schedule.model';
+import { ExaminationService } from '../services/examination.service';
 
 @Component({
   selector: 'app-create-examination-report',
@@ -35,7 +36,7 @@ export class CreateExaminationReportComponent implements OnInit {
 
 
 
-  constructor(private symptomService: SymptomService, private _formBuilder: FormBuilder, private medicineService: MedicineService, private examinationReportService: ExaminationReportService, private physicianScheduleService: PhysicianScheduleService) { }
+  constructor(private symptomService: SymptomService, private _formBuilder: FormBuilder, private medicineService: MedicineService, private examinationReportService: ExaminationReportService, private physicianScheduleService: PhysicianScheduleService, private examinationService: ExaminationService) { }
 
   ngOnInit(): void {
     this.symptomService.getSymptoms().subscribe(res => {
@@ -149,6 +150,47 @@ export class CreateExaminationReportComponent implements OnInit {
     }
     
   }
+
+  public startExamination() {
+    this.examinationService.startExamination(this.examinationReport.appointmentId).subscribe(res => {
+      alert("Exam started!");
+    })
+  }
+
+  public addSymptoms() {
+    this.examinationService.addSymptoms(this.examinationReport.appointmentId).subscribe(res => {
+      alert("Symptoms added!");
+    })
+  }
+
+  public addReport() {
+    this.examinationService.addReport(this.examinationReport.appointmentId).subscribe(res => {
+      alert("Report added!");
+    })
+  }
+
+  public addRecipes() {
+    this.examinationService.addRecipes(this.examinationReport.appointmentId).subscribe(res => {
+      alert("Recipes added!");
+    })
+  }
+
+  public finishExamination() {
+    this.examinationService.finishExamination(this.examinationReport.appointmentId).subscribe(res => {
+      alert("Finished!");
+    })
+  }
+
+  public callAll() {
+    this.create();
+    this.addSymptoms();
+  }
+
+  public all() {
+    this.createExaminationReport();
+    this.finishExamination();
+  }
+
   }
 
 
