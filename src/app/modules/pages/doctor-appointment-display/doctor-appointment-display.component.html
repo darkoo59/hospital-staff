@@ -11,19 +11,19 @@
             <th>Patient Id</th>
             <th>Update</th>
             <th>Delete</th>
-            
           </tr>
+          
           <tr *ngFor="let appointment of appointments">
             
             <td id="date">{{appointment.date | date: 'dd.MM.yyyy'}}</td>
             <td id="time" >{{checkTime(appointment.time)}}</td>
             <td id="patientId">{{appointment.patientId}}</td>
             <td>
-              <button mat-icon-button (click)="updateAppointment(appointment.appointmentId)"> 
+              <button mat-icon-button (click)="updateAppointment(appointment.id)"> 
                     <mat-icon matTooltip="update">edit</mat-icon>
               </button></td>
             <td>
-            <button mat-icon-button (click)="deleteAppointment(appointment.appointmentId)"> 
+            <button mat-icon-button (click)="deleteAppointment(appointment.id)"> 
                   <mat-icon matTooltip="delete">delete</mat-icon>
             </button></td>
        
