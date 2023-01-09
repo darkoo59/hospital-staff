@@ -18,6 +18,10 @@ export class EqTenderComponent implements OnInit  {
       path: 'create',
       title: 'Create New'
     },
+    {
+      path: 'create-report',
+      title: 'Generate Report'
+    }
   ];
 
   m_ActiveLink: string = this.m_Routes[0].path;
