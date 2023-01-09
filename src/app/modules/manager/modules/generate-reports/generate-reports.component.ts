@@ -46,7 +46,13 @@ export class GenerateReportsComponent implements OnInit {
         this.m_Errors.push(error);
         return EMPTY;
       }))
-      .subscribe(
+      .subscribe(d => {
+        var binaryData = [];
+        binaryData.push(d);
+        const fileUrl = window.URL.createObjectURL(new Blob(binaryData, {type: "application/pdf"}))
+        // const fileUrl = URL.createObjectURL(d);
+        window.open(fileUrl);
+      }
       );
   
   }

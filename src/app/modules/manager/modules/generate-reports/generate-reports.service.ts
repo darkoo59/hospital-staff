@@ -15,8 +15,8 @@ export class GenerateReportsService {
 
 constructor(private http: HttpClient) { }
 
-  public GenerateUrgentReport(dto: GenerateReportDTO) : Observable<boolean> {
-    return this.http.post<boolean>(`${environment.integrationApiUrl}/UrgentOrder`, dto);
+  public GenerateUrgentReport(dto: GenerateReportDTO) : Observable<any> {
+    return this.http.post(`${environment.integrationApiUrl}/UrgentOrder`, dto, { responseType: 'arraybuffer'});
   }
 
   public GenerateTenderReport(dto: GenerateReportDTO) : Observable<any> {
