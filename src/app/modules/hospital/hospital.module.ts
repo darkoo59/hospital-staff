@@ -37,6 +37,7 @@ const routes: Routes = [
     path: '', component: HospitalComponent, children: [
       { path: 'createconsilium', component: CreateConsiliumComponent },
       { path: 'consiliums', component: ViewConsiliumsComponent },
+      { path: 'blood/supply', component: CurrentBloodSupplyComponent },
       { path: 'rooms', component: RoomsComponent },
       { path: 'rooms/add', component: CreateRoomComponent },
       { path: 'rooms/:id', component: RoomDetailComponent },
@@ -51,7 +52,6 @@ const routes: Routes = [
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
       { path: 'vacations', component: VacationRequestsDisplayComponent },
       { path: 'createvacation', component: CreateVacationComponent },
-      { path: 'blood/supply', component: CurrentBloodSupplyComponent },
       { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent }
     ]
   }

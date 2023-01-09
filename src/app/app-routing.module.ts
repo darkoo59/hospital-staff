@@ -22,7 +22,7 @@ const routes: Routes = [
   {
     path: 'manager',
     loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule),
-  //  canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   { path: 'create-vacation-display', component : CreateVacationComponent  },
   { path: 'vacation-requests-display' , component : VacationRequestsDisplayComponent },
@@ -37,9 +37,10 @@ const routes: Routes = [
   { path: 'hospitalMap/hospital/:id/floor/:floorId', component: RoomsMapComponent },
   { path: 'hospitalMap/hospital/:id/floor/:floorId/room/:roomId', component: RoomsMapComponent },
   { path: 'vacationRequests', component: VacationRequestsComponent },
+  { path: 'blood/supply', component: CurrentBloodSupplyComponent  },
+  
   { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'blood/supply', component: CurrentBloodSupplyComponent },
 ];
 
 @NgModule({
