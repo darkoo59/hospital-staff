@@ -13,6 +13,7 @@ import { ReportConfigurationComponent } from "./pages/report-configuration/repor
 import { ManagerNavComponent } from "./components/nav/manager-nav.component";
 import { UrgentOrderComponent } from "./modules/urgent-order/urgent-order.component";
 import { NotificationsComponent } from "./pages/notifications/notifications.component";
+import { GenerateReportsComponent } from "./modules/generate-reports/generate-reports.component";
 
 @NgModule({
   providers:[BloodBankService, ManagerService],
@@ -23,7 +24,8 @@ import { NotificationsComponent } from "./pages/notifications/notifications.comp
     ManagerNavComponent,
     ReportConfigurationComponent,
     UrgentOrderComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    GenerateReportsComponent
   ],
   imports: [
     CommonModule,
