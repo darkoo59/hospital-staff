@@ -14,7 +14,6 @@ import { EqTenderComponent } from "./eq-tender.component";
 import { AllTendersComponent } from "./pages/all-tenders.component";
 import { ApplicationsComponent } from "./pages/applications/applications.component";
 import { CreateNewComponent } from "./pages/create-new/create-new.component";
-import { CreateReportComponent } from "./pages/create-report/create-report.component";
 import { TendersComponent } from "./pages/tenders.component";
 import { BloodPipe } from "./pipes/blood.pipe";
 import { EqTenderService } from "./services/eq-tender.service";
@@ -33,8 +32,7 @@ import { LoadingService } from "./services/loading.service";
     ApplicationListComponent,
     OfferListComponent,
     ConfirmDialogComponent,
-    BloodPipe,
-    CreateReportComponent
+    BloodPipe
   ],
   imports: [
     CommonModule,

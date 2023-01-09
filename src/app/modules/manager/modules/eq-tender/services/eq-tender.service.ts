@@ -27,8 +27,4 @@ export class EqTenderService extends GenericDataService<EqTender[]> {
   chooseWinner(id: number): Observable<any> {
     return this.addErrorReader(this.m_Http.patch(`${environment.integrationApiUrl}/EquipmentTender/winner`, id));
   }
-
-  generateReport(): Observable<any> {
-    return this.addErrorReader(this.m_Http.post(`${environment.integrationApiUrl}/EquipmentTender/report`, {}));
-  }
 }

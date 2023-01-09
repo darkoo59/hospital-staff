@@ -4,7 +4,6 @@ import { EqTenderComponent } from "./eq-tender.component";
 import { AllTendersComponent } from "./pages/all-tenders.component";
 import { ApplicationsComponent } from "./pages/applications/applications.component";
 import { CreateNewComponent } from "./pages/create-new/create-new.component";
-import { CreateReportComponent } from "./pages/create-report/create-report.component";
 import { TendersComponent } from "./pages/tenders.component";
 
 const routes: Routes = [
@@ -30,10 +29,6 @@ const routes: Routes = [
       {
         path: 'create',
         component: CreateNewComponent
-      },
-      {
-        path: 'create-report',
-        component: CreateReportComponent
       },
       { path: '**', redirectTo: 'tenders', pathMatch: 'full' },
     ]
