@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { catchError, EMPTY } from 'rxjs';
+import { catchError, EMPTY, tap } from 'rxjs';
 import { GenerateReportDTO, GenerateReportsService } from './generate-reports.service';
 
 @Component({
@@ -63,7 +63,9 @@ export class GenerateReportsComponent implements OnInit {
     if (!this.form.valid)  return;
     
     this.service.GenerateTenderReport(dto)
-      .pipe(catchError(res => {
+      .pipe(
+        tap(d => console.log(d)),
+        catchError(res => {
         console.log(res);
         const error = res.error;
         if(error && error.message) {
@@ -73,8 +75,13 @@ export class GenerateReportsComponent implements OnInit {
         this.m_Errors.push(error);
         return EMPTY;
       }))
-      .subscribe(
-      );
+      .subscribe(d => {
+        var binaryData = [];
+        binaryData.push(d);
+        const fileUrl = window.URL.createObjectURL(new Blob(binaryData, {type: "application/pdf"}))
+        // const fileUrl = URL.createObjectURL(d);
+        window.open(fileUrl);
+      });
   }
 
 }
