@@ -12,6 +12,7 @@ import { VacationRequestsComponent } from "./modules/vacations/vacation-requests
 import { ScheduleRenovationComponent } from './modules/hospital/schedule-renovation/schedule-renovation.component';
 import { CreateConsiliumComponent } from "./modules/hospital/create-consilium/create-consilium.component";
 import { AuthGuard } from "./modules/pages/login/log-auth.guard";
+import { DoctorsWorkloadComponent } from "./modules/statistics/doctors-workload/doctors-workload.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'hospitalMap/hospital/:id/floor/:floorId/room/:roomId', component: RoomsMapComponent },
   { path: 'vacationRequests', component: VacationRequestsComponent },
   { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent },
+  { path: 'doctorsWorkload', component: DoctorsWorkloadComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 

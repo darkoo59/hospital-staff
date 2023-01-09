@@ -11,14 +11,18 @@ import { HospitalMapComponent } from './modules/hospital/hospital-map/hospital-m
 import { HospitalFloorComponent } from './modules/hospital/hospital-floor/hospital-floor.component';
 import { RoomsMapComponent } from './modules/hospital/rooms-map/rooms-map.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { EquipmentSearchComponent } from "./modules/hospital/equipment-search/equipment-search.component";
 import { RoomsSearchComponent } from "./modules/hospital/rooms-search/rooms-search.component";
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { VacationRequestsComponent } from './modules/vacations/vacation-requests/vacation-requests.component';
 import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.service';
-
+import { DoctorsWorkloadComponent } from './modules/statistics/doctors-workload/doctors-workload.component';
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from "@angular/material/core";
+import { MatInputModule } from "@angular/material/input";
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 
 
@@ -30,7 +34,8 @@ import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.serv
         RoomsMapComponent,
         EquipmentSearchComponent,
         RoomsSearchComponent,
-        VacationRequestsComponent
+        VacationRequestsComponent,
+        DoctorsWorkloadComponent
     ],
     providers: [    
     {
@@ -50,8 +55,13 @@ import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.serv
         HospitalModule,
         Ng2SearchPipeModule,
         FormsModule,
+        ReactiveFormsModule,
         MatPaginatorModule,
         MatExpansionModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule,
+        MatFormFieldModule
     ]
 })
 export class AppModule { }
