@@ -19,4 +19,7 @@ constructor(private http: HttpClient) { }
     return this.http.post<boolean>(`${environment.integrationApiUrl}/UrgentOrder`, dto);
   }
 
+  public GenerateTenderReport(dto: GenerateReportDTO) : Observable<any> {
+    return this.http.post(`${environment.integrationApiUrl}/EquipmentTender/report`, dto, { responseType: 'arraybuffer'});
+  }
 }
