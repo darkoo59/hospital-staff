@@ -6,6 +6,7 @@ import { BBRegisterComponent } from "./pages/bb-register/bb-register.component";
 import { FeedbackComponent } from "./pages/feedback/feedback.component";
 import { ReportConfigurationComponent } from "./pages/report-configuration/report-configuration.component";
 import { NotificationsComponent } from "./pages/notifications/notifications.component";
+import { GenerateReportsComponent } from "./modules/generate-reports/generate-reports.component";
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
       {
         path: 'notifications',
         component: NotificationsComponent
+      },
+      {
+        path: 'generate-reports',
+        component: GenerateReportsComponent
       },
       { path: '**', redirectTo: 'feedback', pathMatch: 'full' },
     ]
