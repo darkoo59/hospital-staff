@@ -21,7 +21,6 @@ import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.serv
 
 
 
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -52,6 +51,7 @@ import { AuthInterceptor } from './modules/pages/login/log-auth-interceptor.serv
         FormsModule,
         MatPaginatorModule,
         MatExpansionModule,
+        
     ]
 })
 export class AppModule { }

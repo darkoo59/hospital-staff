@@ -10,7 +10,7 @@
         </mat-select>
       </div>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperNext (click)="startExamination()">Next</button>
       </div>
     </form> 
   </mat-step>
@@ -23,7 +23,7 @@
         </mat-select>
         </div>
         <div>
-          <button mat-button matStepperNext (click)="create()">Next</button>
+          <button mat-button matStepperNext (click)="callAll()">Next</button>
         </div>
       </form> 
     </mat-step>
@@ -34,7 +34,7 @@
         </textarea>
       </mat-form-field> <br>
       <div>
-        <button mat-button matStepperNext>Next</button> <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext (click)="addReport()">Next</button> <button mat-button matStepperPrevious (click)="addSymptoms()">Back</button>
       </div>
     </mat-step>
 
@@ -53,7 +53,7 @@
         </mat-form-field> <br>
 
         <div>
-          <button mat-button matStepperNext>Next</button> <button mat-button matStepperPrevious>Back</button> <button (click)="createRecipe()" mat-button>Add another recipe</button>
+          <button mat-button matStepperNext (click)="addRecipes()">Next</button> <button mat-button matStepperPrevious (click)="addReport()">Back</button> <button (click)="createRecipe()" mat-button>Add another recipe</button>
         </div>
       </form>
      
@@ -91,6 +91,6 @@
       <br><br>
 
 
-      <button (click)="createExaminationReport()"> Finish </button> <button mat-button matStepperPrevious>Back</button> <button (click)="viewReport()"> Summary </button>
+      <button (click)="all()"> Finish </button> <button mat-button matStepperPrevious (click)="addRecipes()">Back</button> <button (click)="viewReport()"> Summary </button>
     </mat-step>
   </mat-horizontal-stepper>
