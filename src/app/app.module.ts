@@ -23,7 +23,6 @@ import { CurrentBloodSupplyComponent } from './modules/hospital/current-blood-su
 
 
 
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -55,6 +54,7 @@ import { CurrentBloodSupplyComponent } from './modules/hospital/current-blood-su
         FormsModule,
         MatPaginatorModule,
         MatExpansionModule,
+        
     ]
 })
 export class AppModule { }
