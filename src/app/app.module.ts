@@ -23,6 +23,7 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { RenovationStatisticComponent } from './modules/statistics/renovation-statistic/renovation-statistic.component';
 
 
 
@@ -35,7 +36,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
         EquipmentSearchComponent,
         RoomsSearchComponent,
         VacationRequestsComponent,
-        DoctorsWorkloadComponent
+        DoctorsWorkloadComponent,
+        RenovationStatisticComponent
     ],
     providers: [    
     {

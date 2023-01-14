@@ -13,6 +13,7 @@ import { ScheduleRenovationComponent } from './modules/hospital/schedule-renovat
 import { CreateConsiliumComponent } from "./modules/hospital/create-consilium/create-consilium.component";
 import { AuthGuard } from "./modules/pages/login/log-auth.guard";
 import { DoctorsWorkloadComponent } from "./modules/statistics/doctors-workload/doctors-workload.component";
+import { RenovationStatisticComponent } from "./modules/statistics/renovation-statistic/renovation-statistic.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'vacationRequests', component: VacationRequestsComponent },
   { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent },
   { path: 'doctorsWorkload', component: DoctorsWorkloadComponent },
+  { path: 'renovationStatistic', component: RenovationStatisticComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 

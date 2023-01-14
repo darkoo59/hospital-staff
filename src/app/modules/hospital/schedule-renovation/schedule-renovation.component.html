@@ -16,7 +16,7 @@
                         </mat-select> 
                       </mat-form-field>
                       <div>
-                        <button mat-raised-button color="primary" class="stepper-button" matStepperNext>Dalje</button>
+                        <button mat-raised-button color="primary" class="stepper-button" matStepperNext (click)="createEvent('RenovationDetailsPageOpened')">Dalje</button>
                       </div>
                     </div>
                 </mat-step>
@@ -54,8 +54,8 @@
                     <span matSuffix> dana</span>
                   </mat-form-field>
                     <div>
-                      <button mat-stroked-button color="primary" class="stepper-button" matStepperPrevious>Nazad</button>
-                      <button mat-raised-button (click)="findFreeTimeSlots()" color="primary" class="stepper-button" matStepperNext>Dalje</button>
+                      <button mat-stroked-button color="primary" class="stepper-button" matStepperPrevious  (click)="createEvent('RenovationTypePageOpened')">Nazad</button>
+                      <button mat-raised-button (click)="findFreeTimeSlots()" color="primary" class="stepper-button" matStepperNext  (click)="createEvent('RoomDetailsPageOpened')">Dalje</button>
                     </div>
                   </div>
                 </mat-step>
@@ -94,16 +94,14 @@
                     
 
                     <div>
-                      <button  mat-stroked-button color="primary" class="stepper-button" matStepperPrevious>Nazad</button>
-                      <button mat-raised-button color="primary" class="stepper-button" matStepperNext>Dalje</button>
+                      <button  mat-stroked-button color="primary" class="stepper-button" matStepperPrevious  (click)="createEvent('RenovationDetailsPageOpened')">Nazad</button>
+                      <button mat-raised-button color="primary" class="stepper-button" matStepperNext  (click)="createEvent('AppointmentsPageOpened')">Dalje</button>
                     </div>
                   </div>
                 </mat-step>
                   <mat-step>
                     <ng-template matStepLabel>Termini</ng-template>
                     <div class="step">
-
-
                       <h2>Lista slobodnih termina:</h2>
                       <table class="table table-hover appointments-table">
                         <thead>
@@ -124,10 +122,9 @@
                         </tbody>
                       </table>    
 
-
                       <div>
-                        <button mat-stroked-button color="primary" class="stepper-button" matStepperPrevious>Nazad</button>
-                        <button mat-stroked-button color="primary" class="stepper-button" (click)="stepper.reset()">Resetuj</button>
+                        <button mat-stroked-button color="primary" class="stepper-button" matStepperPrevious  (click)="createEvent('RoomDetailsPageOpened')">Nazad</button>
+                        <button mat-stroked-button color="primary" class="stepper-button" (click)="stepper.reset()"  (click)="createEvent('RenovationTypePageOpened')">Resetuj</button>
                       </div>
                     </div>
                 </mat-step>
