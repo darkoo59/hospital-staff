@@ -7,6 +7,7 @@ import {FormGroup, FormControl} from '@angular/forms';
 import { FreeAppointmentRequestDTO } from '../model/free-appointment-request-dto';
 import { MoveRequest } from '../model/move-request';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EventService } from '../../statistics/services/event-service.service';
 
 @Component({
   selector: 'app-schedule-renovation',
@@ -31,7 +32,9 @@ export class ScheduleRenovationComponent implements OnInit {
     end: new FormControl<Date | null>(null),
   });
 
-  constructor(private roomMapService: RoomMapService, private _route: ActivatedRoute,  private router: Router) { 
+  successfulSchedule = false;
+
+  constructor(private roomMapService: RoomMapService, private eventService: EventService, private _route: ActivatedRoute,  private router: Router) { 
     this.buildingId =  this._route.snapshot.paramMap.get('hospitalId');
     this.floorId = this._route.snapshot.paramMap.get('floorId');
   }
@@ -39,7 +42,14 @@ export class ScheduleRenovationComponent implements OnInit {
   ngOnInit(): void {
     this.roomMapService.getRoomsByBuildingFloor(this.buildingId, this.floorId).subscribe(res => {
       this.rooms = res;
-    });    
+    });     
+    this.createEvent("RenovationTypePageOpened");
+  }
+
+  ngOnDestroy(): void {
+    if(this.successfulSchedule != true){
+      this.createEvent("Canceled");
+    }
   }
 
   findFreeTimeSlots(){
@@ -79,9 +89,17 @@ export class ScheduleRenovationComponent implements OnInit {
       });;
     }
 
+    this.createEvent("RenovationScheduled");
     this.router.navigate(['/hospitalMap/hospital/' + this.buildingId +'/floor/'+ this.floorId])
 
+  }
 
+  createEvent(eventType: string){
+    this.eventService.createEvent(eventType).subscribe(res => {
+    });  
+    if(eventType == "RenovationScheduled"){
+      this.successfulSchedule = true;
+    }
   }
 
 }
