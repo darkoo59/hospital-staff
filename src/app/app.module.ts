@@ -24,6 +24,8 @@ import { MatNativeDateModule } from "@angular/material/core";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { RenovationStatisticComponent } from './modules/statistics/renovation-statistic/renovation-statistic.component';
+import { CurrentBloodSupplyComponent } from './modules/hospital/current-blood-supply/current-blood-supply.component';
+
 
 
 
@@ -38,6 +40,7 @@ import { RenovationStatisticComponent } from './modules/statistics/renovation-st
         VacationRequestsComponent,
         DoctorsWorkloadComponent,
         RenovationStatisticComponent
+        
     ],
     providers: [    
     {
@@ -64,6 +67,7 @@ import { RenovationStatisticComponent } from './modules/statistics/renovation-st
         MatNativeDateModule,
         MatInputModule,
         MatFormFieldModule
+        
     ]
 })
 export class AppModule { }

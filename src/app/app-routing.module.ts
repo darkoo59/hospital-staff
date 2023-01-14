@@ -14,11 +14,13 @@ import { CreateConsiliumComponent } from "./modules/hospital/create-consilium/cr
 import { AuthGuard } from "./modules/pages/login/log-auth.guard";
 import { DoctorsWorkloadComponent } from "./modules/statistics/doctors-workload/doctors-workload.component";
 import { RenovationStatisticComponent } from "./modules/statistics/renovation-statistic/renovation-statistic.component";
+import { CurrentBloodSupplyComponent } from './modules/hospital/current-blood-supply/current-blood-supply.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'doctor-appointment-display', component : DoctorAppointmentDisplayComponent},
   { path: 'create-consilium', component : CreateConsiliumComponent},
+  { path: 'blood/supply', component: CurrentBloodSupplyComponent },
   {
     path: 'manager',
     loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule),
@@ -37,6 +39,8 @@ const routes: Routes = [
   { path: 'hospitalMap/hospital/:id/floor/:floorId', component: RoomsMapComponent },
   { path: 'hospitalMap/hospital/:id/floor/:floorId/room/:roomId', component: RoomsMapComponent },
   { path: 'vacationRequests', component: VacationRequestsComponent },
+  { path: 'blood/supply', component: CurrentBloodSupplyComponent  },
+  
   { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent },
   { path: 'doctorsWorkload', component: DoctorsWorkloadComponent },
   { path: 'renovationStatistic', component: RenovationStatisticComponent },
