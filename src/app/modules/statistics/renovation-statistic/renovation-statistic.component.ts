@@ -94,9 +94,11 @@ export class RenovationStatisticComponent implements OnInit {
 
     this.eventService.getAverageNumberOfStepsForSuccessfulSchedule().subscribe(res => {
       this.averageNumberOfStepsForSuccessfulSchedule = res;
+      this.averageNumberOfStepsForSuccessfulSchedule = Math.round(this.averageNumberOfStepsForSuccessfulSchedule * 10) / 10
     });
     this.eventService.getAverageNumberOfStepsForCanceledSchedule().subscribe(res => {
       this.averageNumberOfStepsForCanceledSchedule = res;
+      this.averageNumberOfStepsForCanceledSchedule = Math.round(this.averageNumberOfStepsForCanceledSchedule * 10) / 10
     });
     this.eventService.getAverageTimeForSuccessfulSchedule().subscribe(res => {
       this.averageTimeForSuccessfulSchedule = res;
