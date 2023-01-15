@@ -23,6 +23,48 @@ import { MoveRequest } from '../model/move-request';
       state('expanded', style({height: '*'})),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
+    trigger(
+      'inOutAnimation', 
+      [
+        transition(
+          ':enter', 
+          [
+            style({ transform: 'translateX(100%)', opacity: 0 }),
+            animate('0.7s ease-out', 
+                    style({ transform: 'translateX(0)', opacity: 1 }))
+          ]
+        ),
+        transition(
+          ':leave', 
+          [
+            style({ height: 300, opacity: 1 }),
+            animate('1s ease-in', 
+                    style({ height: 0, opacity: 0 }))
+          ]
+        )
+      ]
+    ),
+    trigger(
+      'inOutAnimationMap', 
+      [
+        transition(
+          ':enter', 
+          [
+            style({ opacity: 0 }),
+            animate('0.7s ease-out', 
+                    style({ opacity: 1 }))
+          ]
+        ),
+        transition(
+          ':leave', 
+          [
+            style({ height: 300, opacity: 1 }),
+            animate('1s ease-in', 
+                    style({ height: 0, opacity: 0 }))
+          ]
+        )
+      ]
+    )
   ]
 })
 export class RoomsMapComponent implements OnInit {

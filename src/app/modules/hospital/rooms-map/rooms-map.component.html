@@ -5,12 +5,12 @@
 <h1>Sprat: {{floorId}}</h1>
 
 <div class="container-fluid">
-    <div class="row justify-content-center align-middle">
+    <div class="row">
 
-            <div class="col-9">
+            <div class="map" [@inOutAnimationMap] [ngClass]="{ 'col-8' : selectedRoom.number != '', 'col-12' : selectedRoom.number == '' }">
                 <svg></svg>
             </div>
-            <div class="col-3 align-middle">
+            <div class="col-3 align-middle" *ngIf = "selectedRoom.number != ''" [@inOutAnimation]>
                 <mat-card>
                     <mat-card-title>Soba: {{selectedRoom.number}}</mat-card-title>
                     <mat-tab-group>
