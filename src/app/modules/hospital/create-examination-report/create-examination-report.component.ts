@@ -10,6 +10,9 @@ import { ExaminationReportService } from '../services/examination-report.service
 import { PhysicianScheduleService } from '../services/physician-schedule.service';
 import { Appointment } from '../model/appointment.model';
 import { PhysicianSchedule } from '../model/physician-schedule.model';
+import { ExaminationService } from '../services/examination.service';
+import { UserDataService } from '../../pages/login/log-user-data.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-create-examination-report',
@@ -31,13 +34,17 @@ export class CreateExaminationReportComponent implements OnInit {
   clicked: boolean = false;
   public physicianSchedule: PhysicianSchedule = new PhysicianSchedule();
   examinationReport: ExaminationReport = new ExaminationReport();
+  public doctorId: number = 1;
 
 
 
 
-  constructor(private symptomService: SymptomService, private _formBuilder: FormBuilder, private medicineService: MedicineService, private examinationReportService: ExaminationReportService, private physicianScheduleService: PhysicianScheduleService) { }
+  constructor(private symptomService: SymptomService, private _formBuilder: FormBuilder, private medicineService: MedicineService, private examinationReportService: ExaminationReportService, private physicianScheduleService: PhysicianScheduleService, private examinationService: ExaminationService, private userDataService : UserDataService) {
+
+   }
 
   ngOnInit(): void {
+    
     this.symptomService.getSymptoms().subscribe(res => {
       this.symptoms = res;
     })
@@ -46,27 +53,25 @@ export class CreateExaminationReportComponent implements OnInit {
       this.medicines = res;
     })
 
-    //zakucao za doktora sa id-jem 1
-    this.physicianScheduleService.getAppointments(1).subscribe(res => {
-      this.appointments = res;
-      console.log(res);
-    })
-
-    this.physicianScheduleService.getPhysicianSchedule(1).subscribe(res => {
-      this.physicianSchedule = res;
-    })
-
+    
+      this.physicianScheduleService.getAppointments(this.doctorId).subscribe(res => {
+        this.appointments = res;
+        console.log(res);
+      })
+  
+      this.physicianScheduleService.getPhysicianSchedule(this.doctorId).subscribe(res => {
+        this.physicianSchedule = res;
+      })
+  
+    
+    
   }
 
   public setAppointmentToFinish() {
-    this.physicianSchedule.appointments.forEach((appointment, index) => {
-      if (appointment.id === this.examinationReport.appointmentId) {
-          this.physicianSchedule.appointments[index].isFinished = true;
-          console.log(this.physicianSchedule);
-          this.physicianScheduleService.updatePhysicianSchedule(this.physicianSchedule);
+          this.physicianScheduleService.setAppointmentToFinish(this.examinationReport.appointmentId);
       }
-    })
-  }
+    
+  
 
   public createRecipe() {
     var i = 0;
@@ -142,13 +147,55 @@ export class CreateExaminationReportComponent implements OnInit {
     } 
     else {
       this.examinationReportService.createExaminationReport(this.examinationReport).subscribe(res => {
-        this.setAppointmentToFinish();
-        alert("Created!");
+        this.physicianScheduleService.setAppointmentToFinish(this.examinationReport.appointmentId).subscribe(res => {
+          alert("Created!");
+        })
         console.log(this.examinationReport);
       })
     }
     
   }
+
+  public startExamination() {
+    this.examinationService.startExamination(this.examinationReport.appointmentId).subscribe(res => {
+
+    })
+  }
+
+  public addSymptoms() {
+    this.examinationService.addSymptoms(this.examinationReport.appointmentId).subscribe(res => {
+
+    })
+  }
+
+  public addReport() {
+    this.examinationService.addReport(this.examinationReport.appointmentId).subscribe(res => {
+
+    })
+  }
+
+  public addRecipes() {
+    this.examinationService.addRecipes(this.examinationReport.appointmentId).subscribe(res => {
+
+    })
+  }
+
+  public finishExamination() {
+    this.examinationService.finishExamination(this.examinationReport.appointmentId).subscribe(res => {
+
+    })
+  }
+
+  public callAll() {
+    this.create();
+    this.addSymptoms();
+  }
+
+  public all() {
+    this.createExaminationReport();
+    this.finishExamination();
+  }
+
   }
 
 

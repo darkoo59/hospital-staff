@@ -18,6 +18,7 @@ import { NumStepsChartComponent } from './pages/appointment-statistics/charts/nu
 import { TimeStepsChartComponent } from './pages/appointment-statistics/charts/time-steps-chart/time-steps-chart.component';
 import { AppointmentScheduleComponent } from './pages/appointment-statistics/charts/appointment-schedule/appointment-schedule.component';
 import { SpecializationSelectedComponent } from './pages/appointment-statistics/charts/specialization-selected/specialization-selected.component';
+import { GenerateReportsComponent } from "./modules/generate-reports/generate-reports.component";
 
 @NgModule({
   providers:[BloodBankService, ManagerService],
@@ -33,7 +34,8 @@ import { SpecializationSelectedComponent } from './pages/appointment-statistics/
     NumStepsChartComponent,
     TimeStepsChartComponent,
     AppointmentScheduleComponent,
-    SpecializationSelectedComponent
+    SpecializationSelectedComponent,
+    GenerateReportsComponent
   ],
   imports: [
     CommonModule,

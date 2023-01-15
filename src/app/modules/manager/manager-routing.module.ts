@@ -7,6 +7,7 @@ import { FeedbackComponent } from "./pages/feedback/feedback.component";
 import { ReportConfigurationComponent } from "./pages/report-configuration/report-configuration.component";
 import { NotificationsComponent } from "./pages/notifications/notifications.component";
 import { AppointmentStatisticsComponent } from "./pages/appointment-statistics/appointment-statistics.component";
+import { GenerateReportsComponent } from "./modules/generate-reports/generate-reports.component";
 
 const routes: Routes = [
   {
@@ -52,6 +53,9 @@ const routes: Routes = [
       {
         path: 'appointment-statistics',
         component: AppointmentStatisticsComponent
+      },{
+        path: 'generate-reports',
+        component: GenerateReportsComponent
       },
       { path: '**', redirectTo: 'feedback', pathMatch: 'full' },
     ]

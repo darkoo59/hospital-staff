@@ -5,3 +5,7 @@ textarea {
 div {
     width: 100%;
 }
+
+th {
+    text-align: left;
+}
