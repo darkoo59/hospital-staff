@@ -19,7 +19,8 @@ h1
   #table1 th {
     border: 2px solid black ;
     padding: 8px;
-    background: #04AA6D;
+    background: #673ab7;
+    color: white;
   }
 
   #table1 tr {

@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { tap } from 'rxjs';
-import { AppointmentService } from 'src/app/modules/hospital/services/appointment.service';
-import { Appointment } from '../../hospital/model/appointment.model';
-import { PhysicianScheduleService } from '../../hospital/services/physician-schedule.service';
-import { UserDataService } from '../login/log-user-data.service';
-
+import { UserDataService } from '../../pages/login/log-user-data.service';
+import { Appointment } from '../model/appointment.model';
+import { AppointmentService } from '../services/appointment.service';
+import { PhysicianScheduleService } from '../services/physician-schedule.service';
 
 @Component({
-  selector: 'app-doctor-appointment-display',
-  templateUrl: './doctor-appointment-display.component.html',
-  styleUrls: ['./doctor-appointment-display.component.css']
+  selector: 'app-show-appointments',
+  templateUrl: './show-appointments.component.html',
+  styleUrls: ['./show-appointments.component.css']
 })
-export class DoctorAppointmentDisplayComponent implements OnInit {
+export class ShowAppointmentsComponent implements OnInit {
 
   public appointments: Appointment[] = [];
   public doctorId: number = 0;
@@ -65,5 +64,3 @@ export class DoctorAppointmentDisplayComponent implements OnInit {
         }
 
 }
-
-

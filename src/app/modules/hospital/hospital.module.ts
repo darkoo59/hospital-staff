@@ -39,6 +39,10 @@ import { ShowAverageDurationOfExamSingleExaminationStepComponent } from './show-
 import { ShowExamStatsComponent } from './show-exam-stats/show-exam-stats.component';
 import { CurrentBloodSupplyComponent } from './current-blood-supply/current-blood-supply.component';
 import { ExaminationReportSearchComponent } from './examination-report-search/examination-report-search.component';
+import { ShowAppointmentsComponent } from './show-appointments/show-appointments.component';
+
+
+
 
 
 const routes: Routes = [
@@ -69,60 +73,63 @@ const routes: Routes = [
       { path: 'avgdurationofeachexamstep', component: ShowAverageDurationOfExamEachExaminationStepComponent},
       { path: 'avgdurationofsingleexamstep', component: ShowAverageDurationOfExamSingleExaminationStepComponent},
       { path: 'examstats', component: ShowExamStatsComponent},
+      { path: 'appointments', component: ShowAppointmentsComponent},
       { path: '**', redirectTo: 'rooms', pathMatch: 'full' },
     ]
   }
 ];
 
 @NgModule({
-  declarations: [
-    HospitalComponent,
-    RoomsComponent,
-    RoomDetailComponent,
-    CreateRoomComponent,
-    UpdateRoomComponent,
-    CreateAppointmentComponent,
-    UpdateAppointmentComponent,
-    CreateBloodRequestComponent,
-    InpatientTreatmentsComponent,
-    CreateInpatientTreatmentComponent,
-    CreateInpatientTreatmentTherapyComponent,
-    CreateBloodUsageEvidencyComponent,
-    VacationRequestsDisplayComponent,
-    CreateVacationComponent,
-    CreateExaminationReportComponent,
-    ScheduleRenovationComponent,
-    CreateConsiliumComponent,
-    ViewConsiliumsComponent,
-    ShowAverageNumberOfExaminationStepsComponent,
-    ShowAverageNumberOfVisitsToCertainExaminationStepsComponent,
-    ShowAverageDurationOfExamComponent,
-    ShowAverageDurationOfExamEachExaminationStepComponent,
-    ShowAverageDurationOfExamSingleExaminationStepComponent,
-    ShowExamStatsComponent,
-    CurrentBloodSupplyComponent,
-    ExaminationReportSearchComponent
-  ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forChild(routes),
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatPaginatorModule,
-    MatStepperModule,
-    NgSelectModule,
-    MatOptionModule,
-    MatRadioModule
-  ],
-  exports: [RouterModule], 
-  providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'en-EN' }
-  ]
+    declarations: [
+        HospitalComponent,
+        RoomsComponent,
+        RoomDetailComponent,
+        CreateRoomComponent,
+        UpdateRoomComponent,
+        CreateAppointmentComponent,
+        UpdateAppointmentComponent,
+        CreateBloodRequestComponent,
+        InpatientTreatmentsComponent,
+        CreateInpatientTreatmentComponent,
+        CreateInpatientTreatmentTherapyComponent,
+        CreateBloodUsageEvidencyComponent,
+        VacationRequestsDisplayComponent,
+        CreateVacationComponent,
+        CreateExaminationReportComponent,
+        ScheduleRenovationComponent,
+        CreateConsiliumComponent,
+        ViewConsiliumsComponent,
+        ShowAverageNumberOfExaminationStepsComponent,
+        ShowAverageNumberOfVisitsToCertainExaminationStepsComponent,
+        ShowAverageDurationOfExamComponent,
+        ShowAverageDurationOfExamEachExaminationStepComponent,
+        ShowAverageDurationOfExamSingleExaminationStepComponent,
+        ShowExamStatsComponent,
+        CurrentBloodSupplyComponent,
+        ExaminationReportSearchComponent,
+        ShowAppointmentsComponent,
+    ],
+    exports: [RouterModule],
+    providers: [
+        { provide: MAT_DATE_LOCALE, useValue: 'en-EN' }
+    ],
+    imports: [
+        CommonModule,
+        MaterialModule,
+        FormsModule,
+        ReactiveFormsModule,
+        RouterModule.forChild(routes),
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        MatPaginatorModule,
+        MatStepperModule,
+        NgSelectModule,
+        MatOptionModule,
+        MatRadioModule,
+
+    ]
 })
 export class HospitalModule { }
