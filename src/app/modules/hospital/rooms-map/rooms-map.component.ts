@@ -11,6 +11,7 @@ import {ViewChild} from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { MoveRequest } from '../model/move-request';
+import { RoomService } from '../services/room.service';
 
 
 @Component({
@@ -69,7 +70,7 @@ import { MoveRequest } from '../model/move-request';
 })
 export class RoomsMapComponent implements OnInit {
 
-  constructor(private roomMapService: RoomMapService, private equipmentService: EquipmentService, 
+  constructor(private roomMapService: RoomMapService, private equipmentService: EquipmentService, private roomService: RoomService,
     private _route: ActivatedRoute, private router: Router) {
       
     this.buildingId = this._route.snapshot.paramMap.get('id');
@@ -145,7 +146,8 @@ export class RoomsMapComponent implements OnInit {
 
   private createRect(rooms: RoomMap[], selectedRoom: Room, selectedRoomEquipment: Equipment[], requests: MoveRequest[], table: any, requestTable: any, roomId: any): void{
     var service = this.equipmentService;
-    var roomService = this.roomMapService;
+    var roomService = this.roomService;
+    var roomMapService = this.roomMapService;
     var rect = this.svg.selectAll("rect")
     .data(rooms)
     .enter()
@@ -201,13 +203,24 @@ export class RoomsMapComponent implements OnInit {
       selectedRoom.floor = i.floor;
       selectedRoom.description = i.description;
 
+      roomService.getRoom(i.id).subscribe((res: any) => {
+        if(res.buildingId == "A"){
+          selectedRoom.buildingId = "Bolnica";
+        }
+        else{
+          selectedRoom.buildingId = "Laboratorija";
+        }
+        selectedRoom.floor = res.floor;
+        selectedRoom.description = res.description;
+      })
+
       service.getEquipmentByRoomId(i.id).subscribe((res: any) => {
         selectedRoomEquipment.splice(0,selectedRoomEquipment.length);
         selectedRoomEquipment.push(...res);
         table.renderRows();
       })
 
-      roomService.getRequestsForRoom(i.id).subscribe((res: any) =>{
+      roomMapService.getRequestsForRoom(i.id).subscribe((res: any) =>{
         requests.splice(0,requests.length);
         requests.push(...res);
         requestTable.renderRows();

@@ -19,8 +19,8 @@
                                 <p><b>Zgrada: </b>{{selectedRoom.buildingId}}</p>
                                 <p><b>Opis: </b>{{selectedRoom.description}}</p>
                                 <p><b>Oprema: </b></p>
-        
-                                    <table mat-table [dataSource]="selectedRoomEquipment" multiTemplateDataRows>
+                                    <p *ngIf = "selectedRoomEquipment.length == 0">U odabranoj sobi nema opreme</p>
+                                    <table mat-table [dataSource]="selectedRoomEquipment" multiTemplateDataRows *ngIf = "selectedRoomEquipment.length != 0">
         
                                         <ng-container matColumnDef="name">
                                             <th mat-header-cell *matHeaderCellDef>Naziv</th>
