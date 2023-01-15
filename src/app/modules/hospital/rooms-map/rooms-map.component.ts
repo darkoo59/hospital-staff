@@ -106,6 +106,13 @@ export class RoomsMapComponent implements OnInit {
   minDate: Date = new Date(2022, 10, 10);
   
   ngOnInit(): void {
+
+    this.roomService.checkMoveRequests().subscribe(res => {
+      if(res == true){
+        location.reload();
+      }
+    });
+
     if (this.buildingId == "A"){
       this.svgWidth = 400;
       this.svgHeight = 790;
@@ -114,6 +121,8 @@ export class RoomsMapComponent implements OnInit {
       this.svgWidth = 1000;
       this.svgHeight = 800;
     }
+
+
 
     this.roomMapService.getRoomsByBuildingFloor(this.buildingId, this.floorId).subscribe(res => {
       this.rooms = res;
