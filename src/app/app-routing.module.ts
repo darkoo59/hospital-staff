@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'manager',
     loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   { path: 'create-vacation-display', component : CreateVacationComponent  },
   { path: 'vacation-requests-display' , component : VacationRequestsDisplayComponent },
