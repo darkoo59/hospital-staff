@@ -31,11 +31,11 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
           if(data){
             if(data.Role == 2)this.m_Router.navigate(['/manager']);
-            if(data.Role == 1)this.m_Router.navigate(['/hospital/consiliums']);          
+            if(data.Role == 1)this.m_Router.navigate(['/hospital/examinationreport/create']);          
             this.isTrue =1
            
           }
-          alert("Hej")
+          //alert("Hej")
       });
    
   }

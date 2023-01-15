@@ -1,3 +1,4 @@
+
 <mat-horizontal-stepper [linear]=true #stepper="matHorizontalStepper">
 
   <mat-step> 
@@ -53,7 +54,7 @@
         </mat-form-field> <br>
 
         <div>
-          <button mat-button matStepperNext (click)="addRecipes()">Next</button> <button mat-button matStepperPrevious (click)="addReport()">Back</button> <button (click)="createRecipe()" mat-button>Add another recipe</button>
+          <button mat-button matStepperNext (click)="addRecipes()">Next</button> <button mat-button matStepperPrevious (click)="addReport()">Back</button> <button (click)="createRecipe()" mat-button>Add</button>
         </div>
       </form>
      
@@ -91,6 +92,7 @@
       <br><br>
 
 
-      <button (click)="all()"> Finish </button> <button mat-button matStepperPrevious (click)="addRecipes()">Back</button> <button (click)="viewReport()"> Summary </button>
+      <button mat-button (click)="all()"> Finish </button> <button mat-button matStepperPrevious (click)="addRecipes()">Back</button> <button mat-button (click)="viewReport()"> Summary </button>
     </mat-step>
   </mat-horizontal-stepper>
+  

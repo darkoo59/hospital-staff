@@ -23,6 +23,7 @@ import { CurrentBloodSupplyComponent } from './modules/hospital/current-blood-su
 
 
 
+
 @NgModule({
     declarations: [
         AppComponent,
