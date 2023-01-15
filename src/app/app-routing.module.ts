@@ -23,8 +23,7 @@ const routes: Routes = [
   { path: 'blood/supply', component: CurrentBloodSupplyComponent },
   {
     path: 'manager',
-    loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule),
-    canActivate: [AuthGuard]
+    loadChildren: () => import('./modules/manager/manager.module').then(m => m.ManagerModule)
   },
   { path: 'create-vacation-display', component : CreateVacationComponent  },
   { path: 'vacation-requests-display' , component : VacationRequestsDisplayComponent },

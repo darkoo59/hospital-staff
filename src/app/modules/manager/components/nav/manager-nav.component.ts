@@ -49,6 +49,9 @@ export class ManagerNavComponent {
       title: 'Notifications'
     },
     {
+      path: 'appointment-statistics',
+      title: 'Appointment Statistics'
+    },{
       path: 'generate-reports',
       title: 'Generate Reports'
     }
