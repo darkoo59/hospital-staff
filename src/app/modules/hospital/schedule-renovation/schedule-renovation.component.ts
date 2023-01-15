@@ -55,8 +55,8 @@ export class ScheduleRenovationComponent implements OnInit {
   findFreeTimeSlots(){
     this.freeAppointmentRequestDTO.firstRoomId = this.firstRoom.id;
     this.freeAppointmentRequestDTO.secondRoomId = this.secondRoom.id;
-    this.freeAppointmentRequestDTO.wantedStartDate = this.range.value.start;
-    this.freeAppointmentRequestDTO.wantedEndDate = this.range.value.end;
+    this.freeAppointmentRequestDTO.wantedStartDate = this.fixChosenDate(this.range.value.start!);
+    this.freeAppointmentRequestDTO.wantedEndDate = this.fixChosenDate(this.range.value.end!);
     this.freeAppointmentRequestDTO.durationTimeUnit = "days";
 
     this.roomMapService.getFreeTimeSlotForRooms(this.freeAppointmentRequestDTO).subscribe(res => {
@@ -70,12 +70,18 @@ export class ScheduleRenovationComponent implements OnInit {
     return result;
   }
 
+  fixChosenDate(date: Date) : Date{
+    var result = new Date(date);
+    result.setHours(1);
+    return result;
+  }
+
   scheduleRenovation(startDate: Date){
     this.moveRequest.firstRoomId = this.freeAppointmentRequestDTO.firstRoomId;
     this.moveRequest.secondRoomId = this.freeAppointmentRequestDTO.secondRoomId;
     this.moveRequest.duration = this.freeAppointmentRequestDTO.duration;
     this.moveRequest.durationTimeUnit = this.freeAppointmentRequestDTO.durationTimeUnit;
-    this.moveRequest.chosenStartTime = startDate;
+    this.moveRequest.chosenStartTime = this.fixChosenDate(startDate);
 
 
     if(this.selectedRenovationType == "merging"){
