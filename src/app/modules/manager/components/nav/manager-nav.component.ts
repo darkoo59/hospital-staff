@@ -47,6 +47,10 @@ export class ManagerNavComponent {
     {
       path: 'notifications',
       title: 'Notifications'
+    },
+    {
+      path: 'appointment-statistics',
+      title: 'Appointment Statistics'
     }
   ];
 

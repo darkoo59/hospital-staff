@@ -13,6 +13,11 @@ import { ReportConfigurationComponent } from "./pages/report-configuration/repor
 import { ManagerNavComponent } from "./components/nav/manager-nav.component";
 import { UrgentOrderComponent } from "./modules/urgent-order/urgent-order.component";
 import { NotificationsComponent } from "./pages/notifications/notifications.component";
+import { AppointmentStatisticsComponent } from './pages/appointment-statistics/appointment-statistics.component';
+import { NumStepsChartComponent } from './pages/appointment-statistics/charts/num-steps-chart/num-steps-chart.component';
+import { TimeStepsChartComponent } from './pages/appointment-statistics/charts/time-steps-chart/time-steps-chart.component';
+import { AppointmentScheduleComponent } from './pages/appointment-statistics/charts/appointment-schedule/appointment-schedule.component';
+import { SpecializationSelectedComponent } from './pages/appointment-statistics/charts/specialization-selected/specialization-selected.component';
 
 @NgModule({
   providers:[BloodBankService, ManagerService],
@@ -23,7 +28,12 @@ import { NotificationsComponent } from "./pages/notifications/notifications.comp
     ManagerNavComponent,
     ReportConfigurationComponent,
     UrgentOrderComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    AppointmentStatisticsComponent,
+    NumStepsChartComponent,
+    TimeStepsChartComponent,
+    AppointmentScheduleComponent,
+    SpecializationSelectedComponent
   ],
   imports: [
     CommonModule,
