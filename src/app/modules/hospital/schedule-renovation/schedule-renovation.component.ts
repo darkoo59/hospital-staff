@@ -96,7 +96,7 @@ export class ScheduleRenovationComponent implements OnInit {
     }
 
     this.createEvent("RenovationScheduled");
-    this.router.navigate(['/hospitalMap/hospital/' + this.buildingId +'/floor/'+ this.floorId])
+    this.router.navigate(['manager/hospitalMap/hospital/' + this.buildingId +'/floor/'+ this.floorId])
 
   }
 

@@ -33,16 +33,10 @@ const routes: Routes = [
     //canActivate: [AuthGuard]
   },
   { path: 'login', component: LoginComponent },
-  { path: 'hospitalMap', component: HospitalMapComponent },
-  { path: 'hospitalMap/hospital/:id', component: HospitalFloorComponent },
-  { path: 'hospitalMap/hospital/:id/floor/:floorId', component: RoomsMapComponent },
-  { path: 'hospitalMap/hospital/:id/floor/:floorId/room/:roomId', component: RoomsMapComponent },
   { path: 'vacationRequests', component: VacationRequestsComponent },
   { path: 'blood/supply', component: CurrentBloodSupplyComponent  },
   
-  { path: 'renovation/hospital/:hospitalId/floor/:floorId', component: ScheduleRenovationComponent },
-  { path: 'doctorsWorkload', component: DoctorsWorkloadComponent },
-  { path: 'renovationStatistic', component: RenovationStatisticComponent },
+  
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];
 
