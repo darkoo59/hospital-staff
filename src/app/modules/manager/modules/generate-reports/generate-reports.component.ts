@@ -23,7 +23,7 @@ export class GenerateReportsComponent implements OnInit {
 
   m_Errors: string[] = [];
 
-  GenerateUrgentReport() : void {
+  GenerateUrgentReport(): void {
     this.m_Errors.length = 0;
 
     const dto: GenerateReportDTO = {
@@ -33,13 +33,13 @@ export class GenerateReportsComponent implements OnInit {
 
 
     this.form.updateValueAndValidity();
-    if (!this.form.valid)  return;
-    
+    if (!this.form.valid) return;
+
     this.service.GenerateUrgentReport(dto)
       .pipe(catchError(res => {
         console.log(res);
         const error = res.error;
-        if(error && error.message) {
+        if (error && error.message) {
           this.m_Errors.push(error.message);
           return EMPTY;
         }
@@ -53,8 +53,7 @@ export class GenerateReportsComponent implements OnInit {
         // const fileUrl = URL.createObjectURL(d);
         window.open(fileUrl);
       }
-      );
-  
+      )
   }
 
   GenerateTenderReport(): void {
@@ -66,26 +65,24 @@ export class GenerateReportsComponent implements OnInit {
     }
 
     this.form.updateValueAndValidity();
-    if (!this.form.valid)  return;
-    
+    if (!this.form.valid) return;
+
     this.service.GenerateTenderReport(dto)
       .pipe(
-        tap(d => console.log(d)),
         catchError(res => {
-        console.log(res);
-        const error = res.error;
-        if(error && error.message) {
-          this.m_Errors.push(error.message);
+          console.log(res);
+          const error = res.error;
+          if (error && error.message) {
+            this.m_Errors.push(error.message);
+            return EMPTY;
+          }
+          this.m_Errors.push(error);
           return EMPTY;
-        }
-        this.m_Errors.push(error);
-        return EMPTY;
-      }))
+        }))
       .subscribe(d => {
         var binaryData = [];
         binaryData.push(d);
-        const fileUrl = window.URL.createObjectURL(new Blob(binaryData, {type: "application/pdf"}))
-        // const fileUrl = URL.createObjectURL(d);
+        const fileUrl = window.URL.createObjectURL(new Blob(binaryData, { type: "application/pdf" }))
         window.open(fileUrl);
       });
   }

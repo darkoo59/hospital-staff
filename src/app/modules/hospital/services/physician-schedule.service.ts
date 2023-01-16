@@ -27,6 +27,10 @@ export class PhysicianScheduleService {
     return this.http.put<any>(this.apiHost + 'api/physicianSchedules/' + physicianSchedule.physicianScheduleId, physicianSchedule, {headers: this.headers});
   }
 
+  setAppointmentToFinish(appointmentId: number): Observable<any> {
+    return this.http.put<any>(this.apiHost + 'api/physicianSchedules/finish/' + appointmentId, {headers: this.headers});
+  }
+
   
 
 }

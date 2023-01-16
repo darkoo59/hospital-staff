@@ -5,12 +5,12 @@
 <h1>Sprat: {{floorId}}</h1>
 
 <div class="container-fluid">
-    <div class="row justify-content-center align-middle">
+    <div class="row">
 
-            <div class="col-9">
+            <div class="map" [@inOutAnimationMap] [ngClass]="{ 'col-8' : selectedRoom.number != '', 'col-12' : selectedRoom.number == '' }">
                 <svg></svg>
             </div>
-            <div class="col-3 align-middle">
+            <div class="col-3 align-middle" [ngClass]="{ 'hidden' : selectedRoom.number == '' }" [@inOutAnimation]>
                 <mat-card>
                     <mat-card-title>Soba: {{selectedRoom.number}}</mat-card-title>
                     <mat-tab-group>
@@ -19,8 +19,8 @@
                                 <p><b>Zgrada: </b>{{selectedRoom.buildingId}}</p>
                                 <p><b>Opis: </b>{{selectedRoom.description}}</p>
                                 <p><b>Oprema: </b></p>
-        
-                                    <table mat-table [dataSource]="selectedRoomEquipment" multiTemplateDataRows>
+                                    <p  *ngIf = "selectedRoomEquipment.length == 0">U odabranoj sobi nema opreme</p>
+                                    <table mat-table [dataSource]="selectedRoomEquipment" multiTemplateDataRows [ngClass]="{ 'hidden' : selectedRoomEquipment.length == 0 }">
         
                                         <ng-container matColumnDef="name">
                                             <th mat-header-cell *matHeaderCellDef>Naziv</th>
@@ -98,6 +98,7 @@
                         </mat-tab>
                         <mat-tab label="Termini"> 
                               
+                            <p class="pb-3 pt-3" *ngIf = "requests.length == 0">Nema zakazanih termina</p>
                               <table mat-table [dataSource]="requests" multiTemplateDataRows class="requests-table">
         
                                 <ng-container matColumnDef="type">
@@ -144,7 +145,7 @@
                                   
                             </table>
 
-                            <table class="table table-hover appointments-table">
+                            <table class="table table-hover appointments-table" [ngClass]="{ 'hidden' : requests.length == 0 }">
                                 <thead>
                                     <tr>
                                         <th>Tip</th>
