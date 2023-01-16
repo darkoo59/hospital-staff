@@ -58,7 +58,7 @@ export class ManagerNavComponent {
     },
     {
       path: 'renovationStatistic',
-      title: 'Renovation statistics'
+      title: 'Renovation Statistics'
     },
     {
       path: 'generate-reports',
