@@ -259,7 +259,7 @@ export class RoomsMapComponent implements OnInit {
   }
 
   redirectToRenovation(){
-    this.router.navigate(['/renovation/hospital/' + this.buildingId +'/floor/'+ this.floorId])
+    this.router.navigate(['manager/renovation/hospital/' + this.buildingId +'/floor/'+ this.floorId])
   }
 
   cancelRequest(request: MoveRequest){
