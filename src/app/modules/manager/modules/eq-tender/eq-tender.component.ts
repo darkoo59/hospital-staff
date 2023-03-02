@@ -17,10 +17,6 @@ export class EqTenderComponent implements OnInit  {
     {
       path: 'create',
       title: 'Create New'
-    },
-    {
-      path: 'report',
-      title: 'Report'
     }
   ];
 
