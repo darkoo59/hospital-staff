@@ -33,7 +33,7 @@ Here're some of the project's best features:
 <p>1. Cloning a repository</p>
 
 ```
-git clone https://github.com/darkoo59/fitpass-web-clone.git
+git clone https://github.com/darkoo59/hospital-staff.git
 ```
 
 <p>2. Starting public project</p>
@@ -41,38 +41,23 @@ git clone https://github.com/darkoo59/fitpass-web-clone.git
 ```
 npm start
 ```
-
-<p>3. Starting backend project</p>
-
-🔧 Build the Project:
-
-```
-mvn clean package
-```
-
-🚀 Run the Application:
-
-    💻 Using IntelliJ IDEA:
-
-      1.Open the project in IntelliJ IDEA.
-      2.Navigate to the MainApp class in the project explorer.
-      3.Right-click on the class and select "Run MainApp".
   
 <h2>💻 Built with</h2>
 
 Technologies used in the project:
 
-*   Java
-*   Spark Framework
+*   C#
+*   .NET
 *   HTML
 *   CSS
+*   SCSS
 *   JavaScript
-*   Bootstrap v5.0
-*   Vue.js
+*   Angular
+*   TypeScript
 *   And more
 
 <h2>👩‍👨‍👦‍👧 Contributors:</h2>
 
 *   darkoo59
-*   Marko007205
+*   + 15 colleagues from the faculty
 
